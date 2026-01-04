@@ -670,6 +670,40 @@ li {
   }
 }
 
+/* Review section background */
+.join-review-background {
+  background-image: url('../images/join/Join-Review-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .join-review-background {
+    background-image: url('../images/join/Join-Review-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .join-review-background {
+    background-image: url('../images/join/Join-Review-desktop.jpg');
+  }
+}
+
+/* Welcome/CTA section background */
+.join-welcome-background {
+  background-image: url('../images/join/Join-Welcome-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .join-welcome-background {
+    background-image: url('../images/join/Join-Welcome-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .join-welcome-background {
+    background-image: url('../images/join/Join-Welcome-desktop.jpg');
+  }
+}
+
 /* ====================================
    Ticketing Page Backgrounds
    ==================================== */
