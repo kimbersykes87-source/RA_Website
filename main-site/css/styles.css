@@ -649,6 +649,78 @@ li {
   }
 }
 
+/* ====================================
+   Camp Life Page Backgrounds
+   ==================================== */
+
+/* Hero background */
+.camplife-hero-background {
+  background-image: url('../images/camp-life/CampLife-Hero-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .camplife-hero-background {
+    background-image: url('../images/camp-life/CampLife-Hero-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .camplife-hero-background {
+    background-image: url('../images/camp-life/CampLife-Hero-desktop.jpg');
+  }
+}
+
+/* Radiance Hour section background */
+.camplife-radiance-background {
+  background-image: url('../images/camp-life/CampLife-RadianceHour-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .camplife-radiance-background {
+    background-image: url('../images/camp-life/CampLife-RadianceHour-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .camplife-radiance-background {
+    background-image: url('../images/camp-life/CampLife-RadianceHour-desktop.jpg');
+  }
+}
+
+/* Art Car section background */
+.camplife-artcar-background {
+  background-image: url('../images/camp-life/CampLife-ArtCar-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .camplife-artcar-background {
+    background-image: url('../images/camp-life/CampLife-ArtCar-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .camplife-artcar-background {
+    background-image: url('../images/camp-life/CampLife-ArtCar-desktop.jpg');
+  }
+}
+
+/* Mezcal Bar section background */
+.camplife-bar-background {
+  background-image: url('../images/camp-life/CampLife-Bar-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .camplife-bar-background {
+    background-image: url('../images/camp-life/CampLife-Bar-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .camplife-bar-background {
+    background-image: url('../images/camp-life/CampLife-Bar-desktop.jpg');
+  }
+}
+
 /* Print styles */
 @media print {
   .mobile-nav,
