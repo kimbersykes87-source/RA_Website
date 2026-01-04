@@ -1,0 +1,16 @@
+# Custom Font Placeholder
+
+This directory will contain custom heading fonts once selected.
+
+For now, the system will fall back to system fonts.
+
+To add custom fonts:
+1. Add .woff2 and .woff files to shared/fonts/
+2. Name them custom-heading.woff2 and custom-heading.woff
+3. Update design-tokens.css @font-face if needed
+
+Font requirements:
+- Impactful, confident style for headings
+- Web-optimized formats (WOFF2 primary, WOFF fallback)
+- Font weight range: 400-700 preferred
+

@@ -1,0 +1,39 @@
+# Gallery Images
+
+Add your curated images from past years here, organized by year.
+
+## Structure
+
+```
+gallery/
+├── 2022/  (5-10 images)
+├── 2023/  (5-10 images)
+├── 2024/  (5-10 images)
+└── 2025/  (5-10 images)
+```
+
+## Image Guidelines
+
+- **Format**: JPG preferred (Cloudflare will serve WebP/AVIF automatically)
+- **Size**: 1200-1600px wide recommended
+- **Quality**: 80-85% JPG compression
+- **Naming**: Descriptive names (e.g., `build-crew-setup.jpg`, `solar-array-sunset.jpg`)
+
+## Categories to Cover
+
+Per year, try to include images from:
+1. Build and infrastructure
+2. Systems and sustainability (solar, water, recycling)
+3. Shared moments (Radiance Hour, meals, community)
+4. Night life and art car
+5. Pack down and leave no trace
+
+## Cloudflare Image Optimization
+
+Once deployed to Cloudflare Pages, images will automatically be:
+- Optimized for size
+- Converted to WebP/AVIF for supported browsers
+- Served via CDN for fast global delivery
+
+No build step required!
+

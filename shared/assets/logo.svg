@@ -1,0 +1,16 @@
+<svg width="200" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rubber Armstrong Logo Placeholder -->
+  <!-- Simple geometric representation - to be replaced with actual logo -->
+  
+  <!-- Background circle -->
+  <circle cx="40" cy="40" r="35" stroke="#d4a574" stroke-width="2" fill="none"/>
+  
+  <!-- RA monogram -->
+  <text x="40" y="50" font-family="sans-serif" font-size="32" font-weight="700" fill="#f5f5f5" text-anchor="middle">RA</text>
+  
+  <!-- Est. 2015 -->
+  <text x="100" y="25" font-family="sans-serif" font-size="10" fill="#d4a574" text-anchor="start">RUBBER ARMSTRONG</text>
+  <text x="100" y="40" font-family="sans-serif" font-size="8" fill="#a0a0a0" text-anchor="start">EST. 2015</text>
+  <text x="100" y="52" font-family="sans-serif" font-size="8" fill="#a0a0a0" text-anchor="start">BURNING MAN CAMP</text>
+</svg>
+
