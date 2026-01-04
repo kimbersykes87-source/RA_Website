@@ -240,48 +240,29 @@ function doPost(e) {
     // Log successful submission
     Logger.log('Submission received from: ' + data.email);
     
-    // Return success response with CORS headers
-    const successOutput = ContentService.createTextOutput(JSON.stringify({ 
-      status: 'success',
-      success: true,
-      message: 'Submission received'
-    }));
-    successOutput.setMimeType(ContentService.MimeType.JSON);
-    successOutput.setHeader('Access-Control-Allow-Origin', '*');
-    successOutput.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    successOutput.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    return successOutput;
+    // Return success response
+    // Note: Google Apps Script automatically handles CORS when deployed with "Anyone" access
+    return ContentService
+      .createTextOutput(JSON.stringify({ 
+        status: 'success',
+        success: true,
+        message: 'Submission received'
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
       
   } catch (error) {
     // Log error
     Logger.log('Error processing submission: ' + error.toString());
     
-    // Return error response with CORS headers
-    const errorOutput = ContentService.createTextOutput(JSON.stringify({ 
-      status: 'error',
-      success: false,
-      message: error.toString()
-    }));
-    errorOutput.setMimeType(ContentService.MimeType.JSON);
-    errorOutput.setHeader('Access-Control-Allow-Origin', '*');
-    errorOutput.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    errorOutput.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    return errorOutput;
+    // Return error response
+    return ContentService
+      .createTextOutput(JSON.stringify({ 
+        status: 'error',
+        success: false,
+        message: error.toString()
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
   }
-}
-
-/**
- * Handles OPTIONS preflight requests for CORS
- * This is required for cross-origin POST requests
- */
-function doOptions(e) {
-  const output = ContentService.createTextOutput('');
-  output.setMimeType(ContentService.MimeType.JSON);
-  output.setHeader('Access-Control-Allow-Origin', '*');
-  output.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  output.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  output.setHeader('Access-Control-Max-Age', '86400');
-  return output;
 }
 
 /**
