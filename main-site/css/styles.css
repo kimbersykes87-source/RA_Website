@@ -650,6 +650,27 @@ li {
 }
 
 /* ====================================
+   Join Page Backgrounds
+   ==================================== */
+
+/* Hero background */
+.join-hero-background {
+  background-image: url('../images/join/Join-Hero-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .join-hero-background {
+    background-image: url('../images/join/Join-Hero-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .join-hero-background {
+    background-image: url('../images/join/Join-Hero-desktop.jpg');
+  }
+}
+
+/* ====================================
    Ticketing Page Backgrounds
    ==================================== */
 
