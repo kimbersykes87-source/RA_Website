@@ -71,9 +71,17 @@
 
 ---
 
-### Step 3: Update DNS Settings
+### Step 3: Update DNS Settings in GoDaddy
 
-**Option A: Use Cloudflare Nameservers (Recommended)**
+You have two options. **Option B is faster and recommended for your setup.**
+
+---
+
+**Option A: Switch to Cloudflare Nameservers (Full Control)**
+
+**Pros:** Complete Cloudflare features, better caching, automatic SSL  
+**Cons:** Takes 24-48 hours for nameserver propagation  
+**Best for:** Long-term if you want full Cloudflare benefits
 
 1. **Add Domain to Cloudflare**
    - Go to Cloudflare Dashboard → "Websites"
@@ -81,18 +89,32 @@
    - Enter: `rubberarmstrong.com`
    - Choose Free plan
 
-2. **Update Nameservers**
-   - Cloudflare will show you 2 nameservers (e.g., `ns1.cloudflare.com`)
-   - Go to your domain registrar (GoDaddy, Namecheap, etc.)
-   - Replace existing nameservers with Cloudflare's nameservers
-   - **This will take 24-48 hours to propagate**
+2. **Cloudflare will scan your DNS** and show you existing records
 
-3. **Configure DNS in Cloudflare**
-   - Once nameservers are active, Cloudflare Pages will auto-configure DNS
+3. **Update Nameservers in GoDaddy**
+   - Cloudflare will show you 2 nameservers (e.g., `arya.ns.cloudflare.com`)
+   - Log into GoDaddy: https://dcc.godaddy.com/domains
+   - Find `rubberarmstrong.com` → Click "DNS"
+   - Scroll to "Nameservers" section
+   - Click "Change"
+   - Select "Custom" or "I'll use my own nameservers"
+   - Replace:
+     ```
+     OLD: ns01.domaincontrol.com
+          ns02.domaincontrol.com
+     
+     NEW: [Cloudflare nameserver 1]
+          [Cloudflare nameserver 2]
+     ```
+   - Save changes
+   - **Wait 24-48 hours** for propagation
+
+4. **Once Active in Cloudflare**
+   - Cloudflare Pages will auto-configure DNS
    - Verify these records exist:
      ```
      Type: CNAME
-     Name: rubberarmstrong.com
+     Name: rubberarmstrong.com (or @)
      Target: rubber-armstrong-main.pages.dev
      Proxied: Yes (orange cloud)
 
@@ -102,27 +124,69 @@
      Proxied: Yes (orange cloud)
      ```
 
-**Option B: Keep Current Nameservers (Faster)**
+---
 
-If you don't want to change nameservers:
+**Option B: Keep GoDaddy Nameservers (Quick Update) ⭐ RECOMMENDED**
 
-1. **In Your Domain Registrar's DNS Settings**
-   - Add CNAME record:
-     ```
-     Type: CNAME
-     Name: @ (or rubberarmstrong.com)
-     Target: rubber-armstrong-main.pages.dev
-     TTL: 300
-     ```
-   - Add CNAME record for www:
-     ```
-     Type: CNAME
-     Name: www
-     Target: rubber-armstrong-main.pages.dev
-     TTL: 300
-     ```
+**Pros:** Fast (propagates in 1-2 hours), simple change  
+**Cons:** Less Cloudflare features (but still works great)  
+**Best for:** Quick migration without changing nameservers
 
-2. **Note:** Some registrars don't allow CNAME at root (@). If this fails, use Option A.
+1. **Get Your Cloudflare Pages URL**
+   - After deploying in Step 1, you'll have a URL like:
+   - `rubber-armstrong-main.pages.dev`
+
+2. **Update DNS in GoDaddy**
+   - Log into GoDaddy: https://dcc.godaddy.com/domains
+   - Find `rubberarmstrong.com` → Click "DNS"
+   - Scroll to "DNS Records" section
+
+3. **Delete Old A Records**
+   - Find the 4 A records currently pointing to:
+     - `151.101.128.119` (Adobe/Fastly)
+     - `151.101.192.119` (Adobe/Fastly)
+   - Delete ALL 4 A records (both @ and www)
+
+4. **Add New CNAME Records**
+   
+   **For root domain (@):**
+   ```
+   Type: CNAME
+   Name: @
+   Value: rubber-armstrong-main.pages.dev
+   TTL: 600 seconds (10 minutes)
+   ```
+   
+   **For www:**
+   ```
+   Type: CNAME  
+   Name: www
+   Value: rubber-armstrong-main.pages.dev
+   TTL: 600 seconds (10 minutes)
+   ```
+
+5. **Save Changes**
+   - Click "Save" or "Add Record"
+   - Changes propagate in **1-2 hours** (much faster than nameserver changes!)
+
+6. **Verify Propagation**
+   - Wait 1-2 hours
+   - Visit: https://dnschecker.org
+   - Enter: `rubberarmstrong.com`
+   - Should show CNAME pointing to your `.pages.dev` URL
+
+---
+
+**Which Option Should You Choose?**
+
+| Factor | Option A (Cloudflare NS) | Option B (GoDaddy DNS) |
+|--------|-------------------------|------------------------|
+| Speed | 24-48 hours | 1-2 hours |
+| Complexity | Medium | Easy |
+| Features | Full Cloudflare | Basic (still works!) |
+| **Recommended** | Long-term | ⭐ Quick start |
+
+**My Recommendation:** Start with **Option B** to get live quickly. You can always switch to Option A later for more Cloudflare features.
 
 ---
 
