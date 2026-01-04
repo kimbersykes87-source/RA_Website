@@ -155,6 +155,24 @@ main {
   margin-bottom: var(--space-6);
 }
 
+/* Form row - two columns on desktop */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-row .form-group {
+  margin-bottom: 0;
+}
+
 label {
   display: block;
   font-weight: var(--font-weight-semibold);
@@ -185,6 +203,7 @@ label .optional {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
+input[type="number"],
 textarea,
 select {
   width: 100%;
@@ -198,9 +217,21 @@ select {
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
+/* Number input specific styling */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
+input[type="number"]:focus,
 textarea:focus,
 select:focus {
   outline: none;
@@ -211,6 +242,7 @@ select:focus {
 input[type="text"]:hover,
 input[type="email"]:hover,
 input[type="tel"]:hover,
+input[type="number"]:hover,
 textarea:hover,
 select:hover {
   border-color: var(--color-accent);
@@ -234,6 +266,27 @@ select {
   background-repeat: no-repeat;
   background-position: right var(--space-4) center;
   padding-right: var(--space-8);
+}
+
+/* Phone input group */
+.phone-input-group {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .phone-input-group {
+    grid-template-columns: 140px 1fr;
+  }
+}
+
+.phone-input-group select {
+  padding-right: var(--space-6);
+}
+
+.phone-input-group input[type="tel"] {
+  flex: 1;
 }
 
 /* Radio buttons and checkboxes */
@@ -275,6 +328,52 @@ select {
   cursor: pointer;
   font-weight: var(--font-weight-normal);
   flex: 1;
+}
+
+/* Checkbox grid for burns history */
+.checkbox-group-label {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-sm);
+}
+
+.checkbox-group-label .optional {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-xs);
+  margin-left: var(--space-2);
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-bg-elevated);
+}
+
+@media (min-width: 640px) {
+  .checkbox-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.checkbox-grid .checkbox-option {
+  padding: var(--space-2);
+  margin: 0;
+  background-color: transparent;
+}
+
+.checkbox-grid .checkbox-option:hover {
+  background-color: var(--color-bg-elevated);
+}
+
+.checkbox-grid .checkbox-option label {
+  font-size: var(--font-size-sm);
 }
 
 /* ====================================
@@ -486,6 +585,7 @@ select {
   input[type="text"],
   input[type="email"],
   input[type="tel"],
+  input[type="number"],
   textarea,
   select {
     border-width: 3px;

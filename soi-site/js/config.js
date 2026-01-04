@@ -16,43 +16,6 @@ export const CONFIG = {
   APPS_SCRIPT_ENDPOINT: 'PLACEHOLDER_APPS_SCRIPT_URL_TO_BE_UPDATED',
   
   // Form metadata
-  FORM_NAME: 'Statement of Intent 2026',
-  FORM_VERSION: '1.0',
-  
-  // Redirect after successful submission
-  REDIRECT_URL: 'https://rubberarmstrong.com/?submission=success',
-  
-  // Form field configuration
-  FIELDS: {
-    // Required fields
-    REQUIRED: [
-      'fullName',
-      'email'
-    ],
-    
-    // Optional fields
-    OPTIONAL: [
-      'preferredName',
-      'whatsapp',
-      'country',
-      'city',
-      'pronouns',
-      'accessNeeds'
-    ]
-  }
-};
-
-// Validation rules
-export const VALIDATION = {
-  email: {
-    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    message: 'Please enter a valid email address'
-  },
-  
-  maxLengths: {
-    shortText: 100,
-    paragraph: 500,
-    longParagraph: 1000
-  }
+  FORM_NAME: 'Statement of Intent 2026'
 };
 

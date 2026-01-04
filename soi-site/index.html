@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Statement of Intent for Rubber Armstrong 2026. Tell us who you are and why Rubber Armstrong resonates with you.">
+  <meta name="description" content="Statement of Intent for Rubber Armstrong 2026. Tell us about yourself and your connection to Burning Man.">
   <title>Statement of Intent | Rubber Armstrong 2026</title>
   
   <!-- Favicon -->
@@ -37,16 +37,16 @@
     <div class="container">
       <!-- Intro -->
       <div class="form-intro">
-        <h1>Tell Us About Yourself</h1>
+        <h1>Statement of Intent for RA 2026</h1>
         <p>
-          This Statement of Intent helps us understand who you are and whether Rubber Armstrong resonates with you.
+          Tell us about yourself and your connection to Burning Man. This form helps us understand your background and experience.
         </p>
         <p style="font-size: var(--font-size-base); color: var(--color-text-muted);">
-          This is about values and alignment, not logistics or operations.
+          Estimated time: 10-15 minutes
         </p>
         
         <div class="form-notice">
-          <p><strong>Important</strong>: This is not a Burning Man ticket. This is not a guarantee of a place. This is the start of a conversation.</p>
+          <p><strong>Important</strong>: This is not a Burning Man ticket. This is not a guarantee of placement. This is the start of a conversation.</p>
         </div>
       </div>
       
@@ -93,42 +93,117 @@
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
         
-        <!-- Section 1: Who You Are -->
+        <!-- Section 1: Personal Information -->
         <section class="form-section">
-          <h2 class="form-section-title">Who You Are</h2>
+          <h2 class="form-section-title">Personal Information</h2>
           <p class="form-section-description">
-            Basic contact information so we can stay in touch.
+            Basic information to help us get to know you.
           </p>
           
-          <div class="form-group">
-            <label for="fullName">
-              Full Name
-              <span class="required" aria-label="required">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="fullName" 
-              name="fullName" 
-              required
-              aria-required="true"
-              autocomplete="name"
-            >
-            <span class="field-error" role="alert">Please enter your full name</span>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">
+                First Name
+                <span class="required" aria-label="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="firstName" 
+                name="firstName" 
+                required
+                aria-required="true"
+                autocomplete="given-name"
+              >
+              <span class="field-error" role="alert">Please enter your first name</span>
+            </div>
+            
+            <div class="form-group">
+              <label for="lastName">
+                Last Name
+                <span class="required" aria-label="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="lastName" 
+                name="lastName" 
+                required
+                aria-required="true"
+                autocomplete="family-name"
+              >
+              <span class="field-error" role="alert">Please enter your last name</span>
+            </div>
           </div>
           
-          <div class="form-group">
-            <label for="preferredName">
-              Preferred or Playa Name
-              <span class="optional">(optional)</span>
-            </label>
-            <input 
-              type="text" 
-              id="preferredName" 
-              name="preferredName"
-              autocomplete="nickname"
-            >
-            <span class="field-hint">What should we call you?</span>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sex">
+                Sex
+                <span class="required" aria-label="required">*</span>
+              </label>
+              <select id="sex" name="sex" required aria-required="true">
+                <option value="">-- Please select --</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="non-binary">Non-binary</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="field-error" role="alert">Please select an option</span>
+            </div>
+            
+            <div class="form-group">
+              <label for="birthYear">
+                Birth Year
+                <span class="required" aria-label="required">*</span>
+              </label>
+              <input 
+                type="number" 
+                id="birthYear" 
+                name="birthYear" 
+                min="1940" 
+                max="2010"
+                required
+                aria-required="true"
+                placeholder="YYYY"
+                autocomplete="bday-year"
+              >
+              <span class="field-hint">Must be between 1940 and 2010</span>
+              <span class="field-error" role="alert">Please enter a valid birth year (1940-2010)</span>
+            </div>
           </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="countryOfBirth">
+                Country of Birth
+                <span class="required" aria-label="required">*</span>
+              </label>
+              <select id="countryOfBirth" name="countryOfBirth" required aria-required="true">
+                <option value="">-- Please select --</option>
+                <!-- Populated by JavaScript -->
+              </select>
+              <span class="field-error" role="alert">Please select your country of birth</span>
+            </div>
+            
+            <div class="form-group">
+              <label for="countryOfResidence">
+                Country of Residence
+                <span class="required" aria-label="required">*</span>
+              </label>
+              <select id="countryOfResidence" name="countryOfResidence" required aria-required="true">
+                <option value="">-- Please select --</option>
+                <!-- Populated by JavaScript -->
+              </select>
+              <span class="field-error" role="alert">Please select your country of residence</span>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Section 2: Contact Information -->
+        <section class="form-section">
+          <h2 class="form-section-title">Contact Information</h2>
+          <p class="form-section-description">
+            How we can reach you.
+          </p>
           
           <div class="form-group">
             <label for="email">
@@ -147,204 +222,277 @@
           </div>
           
           <div class="form-group">
-            <label for="whatsapp">
-              WhatsApp Number
-              <span class="optional">(optional)</span>
+            <label for="phone">
+              Phone Number
+              <span class="required" aria-label="required">*</span>
             </label>
-            <input 
-              type="tel" 
-              id="whatsapp" 
-              name="whatsapp"
-              placeholder="+1 555 123 4567"
-              autocomplete="tel"
-            >
-            <span class="field-hint">Include country code</span>
-          </div>
-          
-          <div class="form-group">
-            <label for="country">
-              Country
-              <span class="optional">(optional)</span>
-            </label>
-            <input 
-              type="text" 
-              id="country" 
-              name="country"
-              autocomplete="country-name"
-            >
-          </div>
-          
-          <div class="form-group">
-            <label for="city">
-              Closest Major City
-              <span class="optional">(optional)</span>
-            </label>
-            <input 
-              type="text" 
-              id="city" 
-              name="city"
-              autocomplete="address-level2"
-            >
-            <span class="field-hint">Helps us understand geographic distribution</span>
-          </div>
-          
-          <div class="form-group">
-            <label for="pronouns">
-              Pronouns
-              <span class="optional">(optional)</span>
-            </label>
-            <input 
-              type="text" 
-              id="pronouns" 
-              name="pronouns"
-              placeholder="e.g., they/them, she/her, he/him"
-            >
+            <div class="phone-input-group">
+              <select id="phoneCountryCode" name="phoneCountryCode" required aria-required="true" aria-label="Country code">
+                <option value="">Code</option>
+                <!-- Populated by JavaScript -->
+              </select>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                required
+                aria-required="true"
+                placeholder="Enter phone number"
+                autocomplete="tel-national"
+              >
+            </div>
+            <span class="field-hint">Enter number without country code or leading zeros</span>
+            <span class="field-error" role="alert">Please enter a valid phone number</span>
           </div>
         </section>
         
-        <!-- Section 2: Why Rubber Armstrong -->
+        <!-- Section 3: Camp Connection -->
         <section class="form-section">
-          <h2 class="form-section-title">Why Rubber Armstrong?</h2>
+          <h2 class="form-section-title">Camp Connection</h2>
           <p class="form-section-description">
-            Tell us what draws you to RA. Be reflective, be honest, be yourself.
+            How did you find us?
           </p>
           
           <div class="form-group">
-            <label for="whyRA">
-              What about Rubber Armstrong resonates with you?
+            <label for="referringCampmate">
+              Referring Camp Mate
               <span class="required" aria-label="required">*</span>
             </label>
-            <textarea 
-              id="whyRA" 
-              name="whyRA" 
-              class="large"
+            <input 
+              type="text" 
+              id="referringCampmate" 
+              name="referringCampmate" 
               required
               aria-required="true"
-              maxlength="1000"
-            ></textarea>
-            <span class="field-hint">Take your time. We want to understand what brings you here.</span>
-            <span class="field-error" role="alert">Please share why you're interested in RA</span>
-          </div>
-          
-          <div class="form-group">
-            <label for="values">
-              Which of our values speak to you most, and why?
-              <span class="required" aria-label="required">*</span>
-            </label>
-            <textarea 
-              id="values" 
-              name="values"
-              required
-              aria-required="true"
-              maxlength="1000"
-              placeholder="Participation, respect, consent, community, sustainability, contribution..."
-            ></textarea>
-            <span class="field-hint">Reference specific values from our About page</span>
-            <span class="field-error" role="alert">Please share which values resonate with you</span>
+              placeholder="Who referred you to Rubber Armstrong?"
+            >
+            <span class="field-hint">Name of the RA member who told you about the camp</span>
+            <span class="field-error" role="alert">Please enter who referred you</span>
           </div>
         </section>
         
-        <!-- Section 3: What You Bring -->
+        <!-- Section 4: Burning Man History -->
         <section class="form-section">
-          <h2 class="form-section-title">What You Bring</h2>
+          <h2 class="form-section-title">Burning Man History</h2>
           <p class="form-section-description">
-            Not about skills or qualifications — about you as a person and community member.
+            Tell us about your experience at Burning Man.
+          </p>
+          <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-5);">
+            <em>Note: 2020 and 2021 excluded (event cancelled due to COVID)</em>
           </p>
           
           <div class="form-group">
-            <label for="contribution">
-              What do you think you could bring to the Rubber Armstrong community?
-              <span class="required" aria-label="required">*</span>
+            <label class="checkbox-group-label">
+              Previous Burns with Rubber Armstrong
+              <span class="optional">(select all that apply)</span>
             </label>
-            <textarea 
-              id="contribution" 
-              name="contribution"
-              class="large"
-              required
-              aria-required="true"
-              maxlength="1000"
-              placeholder="Think about energy, perspective, experience, willingness to participate..."
-            ></textarea>
-            <span class="field-hint">This is about who you are, not what you do professionally</span>
-            <span class="field-error" role="alert">Please share what you could bring to RA</span>
+            <div class="checkbox-grid" role="group" aria-label="Years camped with Rubber Armstrong">
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2010" name="burnsWithRA" value="2010">
+                <label for="burnsRA2010">2010</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2011" name="burnsWithRA" value="2011">
+                <label for="burnsRA2011">2011</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2012" name="burnsWithRA" value="2012">
+                <label for="burnsRA2012">2012</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2013" name="burnsWithRA" value="2013">
+                <label for="burnsRA2013">2013</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2014" name="burnsWithRA" value="2014">
+                <label for="burnsRA2014">2014</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2015" name="burnsWithRA" value="2015">
+                <label for="burnsRA2015">2015</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2016" name="burnsWithRA" value="2016">
+                <label for="burnsRA2016">2016</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2017" name="burnsWithRA" value="2017">
+                <label for="burnsRA2017">2017</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2018" name="burnsWithRA" value="2018">
+                <label for="burnsRA2018">2018</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2019" name="burnsWithRA" value="2019">
+                <label for="burnsRA2019">2019</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2022" name="burnsWithRA" value="2022">
+                <label for="burnsRA2022">2022</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2023" name="burnsWithRA" value="2023">
+                <label for="burnsRA2023">2023</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2024" name="burnsWithRA" value="2024">
+                <label for="burnsRA2024">2024</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsRA2025" name="burnsWithRA" value="2025">
+                <label for="burnsRA2025">2025</label>
+              </div>
+            </div>
           </div>
           
           <div class="form-group">
-            <label for="workingCamp">
-              RA is a working camp, not a hotel. How does that feel to you?
+            <label class="checkbox-group-label">
+              Previous Burns (not with RA)
+              <span class="optional">(select all that apply)</span>
+            </label>
+            <div class="checkbox-grid" role="group" aria-label="Years attended Burning Man without Rubber Armstrong">
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2010" name="burnsWithoutRA" value="2010">
+                <label for="burnsOther2010">2010</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2011" name="burnsWithoutRA" value="2011">
+                <label for="burnsOther2011">2011</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2012" name="burnsWithoutRA" value="2012">
+                <label for="burnsOther2012">2012</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2013" name="burnsWithoutRA" value="2013">
+                <label for="burnsOther2013">2013</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2014" name="burnsWithoutRA" value="2014">
+                <label for="burnsOther2014">2014</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2015" name="burnsWithoutRA" value="2015">
+                <label for="burnsOther2015">2015</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2016" name="burnsWithoutRA" value="2016">
+                <label for="burnsOther2016">2016</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2017" name="burnsWithoutRA" value="2017">
+                <label for="burnsOther2017">2017</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2018" name="burnsWithoutRA" value="2018">
+                <label for="burnsOther2018">2018</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2019" name="burnsWithoutRA" value="2019">
+                <label for="burnsOther2019">2019</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2022" name="burnsWithoutRA" value="2022">
+                <label for="burnsOther2022">2022</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2023" name="burnsWithoutRA" value="2023">
+                <label for="burnsOther2023">2023</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2024" name="burnsWithoutRA" value="2024">
+                <label for="burnsOther2024">2024</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="burnsOther2025" name="burnsWithoutRA" value="2025">
+                <label for="burnsOther2025">2025</label>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Section 5: Commitment & Contribution -->
+        <section class="form-section">
+          <h2 class="form-section-title">Commitment & Contribution</h2>
+          <p class="form-section-description">
+            Your plans and what you can offer.
+          </p>
+          
+          <div class="form-group">
+            <label>
+              Likelihood of Attending
               <span class="required" aria-label="required">*</span>
             </label>
             <div class="radio-group" role="radiogroup" aria-required="true">
               <div class="radio-option">
-                <input type="radio" id="workingCamp1" name="workingCamp" value="fully-aligned" required>
-                <label for="workingCamp1">Fully aligned — I'm here to contribute</label>
+                <input type="radio" id="likelihood1" name="likelihoodOfAttending" value="committed" required>
+                <label for="likelihood1">Committed</label>
               </div>
               <div class="radio-option">
-                <input type="radio" id="workingCamp2" name="workingCamp" value="sounds-fair">
-                <label for="workingCamp2">Sounds fair — I want to learn more about what that means</label>
+                <input type="radio" id="likelihood2" name="likelihoodOfAttending" value="maybe">
+                <label for="likelihood2">Maybe</label>
               </div>
               <div class="radio-option">
-                <input type="radio" id="workingCamp3" name="workingCamp" value="not-sure">
-                <label for="workingCamp3">Not sure this style of camp is for me</label>
+                <input type="radio" id="likelihood3" name="likelihoodOfAttending" value="unlikely">
+                <label for="likelihood3">Unlikely</label>
               </div>
             </div>
-            <span class="field-error" role="alert">Please select an option</span>
+            <span class="field-error" role="alert">Please select your likelihood of attending</span>
           </div>
-        </section>
-        
-        <!-- Section 4: How You Found Us -->
-        <section class="form-section">
-          <h2 class="form-section-title">How You Found Us</h2>
           
           <div class="form-group">
-            <label for="howHeard">
-              How did you hear about Rubber Armstrong?
+            <label>
+              Interest in Securing RA Steward Sale Ticket
               <span class="required" aria-label="required">*</span>
             </label>
-            <select id="howHeard" name="howHeard" required aria-required="true">
-              <option value="">-- Please select --</option>
-              <option value="friend-camped">Friend who has camped with RA</option>
-              <option value="friend-not-camped">Friend who hasn't camped with RA</option>
-              <option value="found-on-playa">Found you on playa in previous years</option>
-              <option value="online-research">Online research</option>
-              <option value="burning-man-placement">Burning Man placement guide</option>
-              <option value="other">Other</option>
-            </select>
-            <span class="field-error" role="alert">Please select how you heard about us</span>
+            <div class="radio-group" role="radiogroup" aria-required="true">
+              <div class="radio-option">
+                <input type="radio" id="steward1" name="stewardTicketInterest" value="yes" required>
+                <label for="steward1">Yes</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="steward2" name="stewardTicketInterest" value="no">
+                <label for="steward2">No</label>
+              </div>
+            </div>
+            <span class="field-hint">RA may have access to Steward Sale tickets for dedicated members</span>
+            <span class="field-error" role="alert">Please select your interest</span>
           </div>
           
           <div class="form-group">
-            <label for="hearMore">
-              If you selected "Other" or want to add context:
-              <span class="optional">(optional)</span>
+            <label for="whatYouOffer">
+              What can you offer the camp this year?
+              <span class="required" aria-label="required">*</span>
             </label>
             <textarea 
-              id="hearMore" 
-              name="hearMore"
-              maxlength="500"
-            ></textarea>
-          </div>
-        </section>
-        
-        <!-- Section 5: Access & Support -->
-        <section class="form-section">
-          <h2 class="form-section-title">Access & Support</h2>
-          <p class="form-section-description">
-            Help us understand any access or support needs so we can build an inclusive camp.
-          </p>
-          
-          <div class="form-group">
-            <label for="accessNeeds">
-              Any access, physical, or support needs you'd like us to be aware of?
-              <span class="optional">(optional)</span>
-            </label>
-            <textarea 
-              id="accessNeeds" 
-              name="accessNeeds"
+              id="whatYouOffer" 
+              name="whatYouOffer" 
+              class="large"
+              required
+              aria-required="true"
               maxlength="1000"
-              placeholder="Mobility considerations, dietary needs, sensory sensitivities, anything that would help us support you better..."
+              placeholder="Skills, experience, energy, perspective, willingness to participate..."
             ></textarea>
-            <span class="field-hint">This information helps us plan and is kept confidential</span>
+            <span class="field-hint">This is about what you bring as a person and community member</span>
+            <span class="field-error" role="alert">Please share what you can offer</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="notes">
+              Notes we should know about this year
+              <span class="required" aria-label="required">*</span>
+            </label>
+            <textarea 
+              id="notes" 
+              name="notes"
+              required
+              aria-required="true"
+              maxlength="1000"
+              placeholder="Anything else you want us to know about your plans, circumstances, or situation..."
+            ></textarea>
+            <span class="field-hint">Context that helps us understand your situation</span>
+            <span class="field-error" role="alert">Please provide any relevant notes</span>
           </div>
         </section>
         
@@ -354,7 +502,7 @@
             Submit Statement of Intent
           </button>
           <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: var(--space-4);">
-            By submitting, you acknowledge this is not a ticket, not a guarantee of placement, and is the beginning of a conversation about values alignment.
+            By submitting, you acknowledge this is not a ticket, not a guarantee of placement, and is the beginning of a conversation.
           </p>
         </div>
       </form>
@@ -378,4 +526,3 @@
   <script type="module" src="js/form.js"></script>
 </body>
 </html>
-
