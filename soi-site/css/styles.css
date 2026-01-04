@@ -384,6 +384,89 @@ select {
   font-size: var(--font-size-sm);
 }
 
+/* Burns history table layout */
+.burns-table {
+  background-color: var(--color-bg-secondary);
+  border: 2px solid var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.burns-table-header {
+  display: grid;
+  grid-template-columns: 1fr 100px 100px;
+  background-color: var(--color-bg-elevated);
+  padding: var(--space-3) var(--space-4);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  border-bottom: 2px solid var(--color-bg-primary);
+}
+
+.burns-year-column {
+  text-align: left;
+}
+
+.burns-checkbox-column {
+  text-align: center;
+}
+
+.burns-table-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 100px;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-bg-elevated);
+  align-items: center;
+}
+
+.burns-table-row:last-child {
+  border-bottom: none;
+}
+
+.burns-table-row:hover {
+  background-color: var(--color-bg-elevated);
+}
+
+.burns-covid-note {
+  background-color: rgba(212, 165, 116, 0.05);
+}
+
+.burns-year-label {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.burns-checkbox-cell {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burns-checkbox-cell input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .burns-table-header,
+  .burns-table-row {
+    grid-template-columns: 1fr 80px 80px;
+  }
+  
+  .burns-table-header {
+    font-size: var(--font-size-xs);
+  }
+  
+  .burns-checkbox-cell input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+}
+
 /* ====================================
    Validation & Error States
    ==================================== */

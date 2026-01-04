@@ -39,6 +39,19 @@ import {
   const STORAGE_KEY = 'ra_soi_submissions';
   
   /**
+   * Populate birth year dropdown (2010 to 1940)
+   */
+  function populateBirthYearDropdown() {
+    const birthYearSelect = document.getElementById('birthYear');
+    for (let year = 2010; year >= 1940; year--) {
+      const option = document.createElement('option');
+      option.value = year;
+      option.textContent = year;
+      birthYearSelect.appendChild(option);
+    }
+  }
+  
+  /**
    * Populate country dropdowns
    */
   function populateCountryDropdowns() {
@@ -165,15 +178,10 @@ import {
       }
     }
     
-    // Validate birth year
-    if (field.id === 'birthYear' && field.value) {
-      if (!validateBirthYear(field.value)) {
-        formGroup?.classList.add('has-error');
-        if (errorSpan) {
-          errorSpan.textContent = getBirthYearError(field.value);
-        }
-        return false;
-      }
+    // Birth year dropdown validation (just check if selected)
+    if (field.id === 'birthYear' && field.tagName === 'SELECT') {
+      // Dropdown validation is handled by required attribute
+      // No special validation needed
     }
     
     // Validate phone number
@@ -284,6 +292,9 @@ import {
    * Collect form data
    */
   function collectFormData() {
+    const firstBurnCheckbox = document.getElementById('firstBurn');
+    const isFirstBurn = firstBurnCheckbox ? firstBurnCheckbox.checked : false;
+    
     const data = {
       timestamp: new Date().toISOString(),
       formName: CONFIG.FORM_NAME,
@@ -308,6 +319,7 @@ import {
       // Burning Man History (comma-separated years)
       burnsWithRA: getCheckedValues('burnsWithRA'),
       burnsWithoutRA: getCheckedValues('burnsWithoutRA'),
+      firstBurn: isFirstBurn ? 'Yes' : 'No',
       
       // Commitment & Contribution
       likelihoodOfAttending: getRadioValue('likelihoodOfAttending'),
@@ -478,10 +490,7 @@ import {
       phoneInput.addEventListener('blur', () => validateField(phoneInput));
     }
     
-    // Handle birth year validation
-    if (birthYearInput) {
-      birthYearInput.addEventListener('blur', () => validateField(birthYearInput));
-    }
+    // Birth year dropdown doesn't need special validation beyond required
     
     // Validate on blur for all required fields
     const fields = form.querySelectorAll('input, textarea, select');
@@ -531,6 +540,7 @@ import {
     }
     
     // Populate dropdowns
+    populateBirthYearDropdown();
     populateCountryDropdowns();
     
     // Setup validation

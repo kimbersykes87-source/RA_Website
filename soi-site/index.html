@@ -155,19 +155,10 @@
                 Birth Year
                 <span class="required" aria-label="required">*</span>
               </label>
-              <input 
-                type="number" 
-                id="birthYear" 
-                name="birthYear" 
-                min="1940" 
-                max="2010"
-                required
-                aria-required="true"
-                placeholder="YYYY"
-                autocomplete="bday-year"
-              >
-              <span class="field-hint">Must be between 1940 and 2010</span>
-              <span class="field-error" role="alert">Please enter a valid birth year (1940-2010)</span>
+              <select id="birthYear" name="birthYear" required aria-required="true">
+                <option value="">-- Select year --</option>
+              </select>
+              <span class="field-error" role="alert">Please select your birth year</span>
             </div>
           </div>
           
@@ -218,6 +209,7 @@
               aria-required="true"
               autocomplete="email"
             >
+            <span class="field-hint">Same as Burner Profile if possible</span>
             <span class="field-error" role="alert">Please enter a valid email address</span>
           </div>
           
@@ -283,130 +275,167 @@
           
           <div class="form-group">
             <label class="checkbox-group-label">
-              Previous Burns with Rubber Armstrong
-              <span class="optional">(select all that apply)</span>
+              Previous Burns
+              <span class="optional">(check all years that apply)</span>
             </label>
-            <div class="checkbox-grid" role="group" aria-label="Years camped with Rubber Armstrong">
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2010" name="burnsWithRA" value="2010">
-                <label for="burnsRA2010">2010</label>
+            
+            <div class="burns-table">
+              <div class="burns-table-header">
+                <div class="burns-year-column">Year</div>
+                <div class="burns-checkbox-column">With RA</div>
+                <div class="burns-checkbox-column">Without RA</div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2011" name="burnsWithRA" value="2011">
-                <label for="burnsRA2011">2011</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2010</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2010" name="burnsWithRA" value="2010" aria-label="2010 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2010" name="burnsWithoutRA" value="2010" aria-label="2010 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2012" name="burnsWithRA" value="2012">
-                <label for="burnsRA2012">2012</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2011</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2011" name="burnsWithRA" value="2011" aria-label="2011 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2011" name="burnsWithoutRA" value="2011" aria-label="2011 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2013" name="burnsWithRA" value="2013">
-                <label for="burnsRA2013">2013</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2012</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2012" name="burnsWithRA" value="2012" aria-label="2012 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2012" name="burnsWithoutRA" value="2012" aria-label="2012 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2014" name="burnsWithRA" value="2014">
-                <label for="burnsRA2014">2014</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2013</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2013" name="burnsWithRA" value="2013" aria-label="2013 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2013" name="burnsWithoutRA" value="2013" aria-label="2013 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2015" name="burnsWithRA" value="2015">
-                <label for="burnsRA2015">2015</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2014</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2014" name="burnsWithRA" value="2014" aria-label="2014 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2014" name="burnsWithoutRA" value="2014" aria-label="2014 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2016" name="burnsWithRA" value="2016">
-                <label for="burnsRA2016">2016</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2015</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2015" name="burnsWithRA" value="2015" aria-label="2015 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2015" name="burnsWithoutRA" value="2015" aria-label="2015 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2017" name="burnsWithRA" value="2017">
-                <label for="burnsRA2017">2017</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2016</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2016" name="burnsWithRA" value="2016" aria-label="2016 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2016" name="burnsWithoutRA" value="2016" aria-label="2016 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2018" name="burnsWithRA" value="2018">
-                <label for="burnsRA2018">2018</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2017</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2017" name="burnsWithRA" value="2017" aria-label="2017 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2017" name="burnsWithoutRA" value="2017" aria-label="2017 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2019" name="burnsWithRA" value="2019">
-                <label for="burnsRA2019">2019</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2018</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2018" name="burnsWithRA" value="2018" aria-label="2018 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2018" name="burnsWithoutRA" value="2018" aria-label="2018 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2022" name="burnsWithRA" value="2022">
-                <label for="burnsRA2022">2022</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2019</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2019" name="burnsWithRA" value="2019" aria-label="2019 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2019" name="burnsWithoutRA" value="2019" aria-label="2019 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2023" name="burnsWithRA" value="2023">
-                <label for="burnsRA2023">2023</label>
+              
+              <div class="burns-table-row burns-covid-note">
+                <div class="burns-year-label" style="font-style: italic; color: var(--color-text-muted);">2020-2021</div>
+                <div class="burns-checkbox-cell" colspan="2" style="grid-column: 2 / 4; text-align: center; font-size: var(--font-size-xs); color: var(--color-text-muted);">Event cancelled</div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2024" name="burnsWithRA" value="2024">
-                <label for="burnsRA2024">2024</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2022</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2022" name="burnsWithRA" value="2022" aria-label="2022 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2022" name="burnsWithoutRA" value="2022" aria-label="2022 without RA">
+                </div>
               </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsRA2025" name="burnsWithRA" value="2025">
-                <label for="burnsRA2025">2025</label>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2023</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2023" name="burnsWithRA" value="2023" aria-label="2023 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2023" name="burnsWithoutRA" value="2023" aria-label="2023 without RA">
+                </div>
+              </div>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2024</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2024" name="burnsWithRA" value="2024" aria-label="2024 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2024" name="burnsWithoutRA" value="2024" aria-label="2024 without RA">
+                </div>
+              </div>
+              
+              <div class="burns-table-row">
+                <div class="burns-year-label">2025</div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsRA2025" name="burnsWithRA" value="2025" aria-label="2025 with RA">
+                </div>
+                <div class="burns-checkbox-cell">
+                  <input type="checkbox" id="burnsOther2025" name="burnsWithoutRA" value="2025" aria-label="2025 without RA">
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div class="form-group">
-            <label class="checkbox-group-label">
-              Previous Burns (not with RA)
-              <span class="optional">(select all that apply)</span>
-            </label>
-            <div class="checkbox-grid" role="group" aria-label="Years attended Burning Man without Rubber Armstrong">
+            
+            <div style="margin-top: var(--space-4);">
               <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2010" name="burnsWithoutRA" value="2010">
-                <label for="burnsOther2010">2010</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2011" name="burnsWithoutRA" value="2011">
-                <label for="burnsOther2011">2011</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2012" name="burnsWithoutRA" value="2012">
-                <label for="burnsOther2012">2012</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2013" name="burnsWithoutRA" value="2013">
-                <label for="burnsOther2013">2013</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2014" name="burnsWithoutRA" value="2014">
-                <label for="burnsOther2014">2014</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2015" name="burnsWithoutRA" value="2015">
-                <label for="burnsOther2015">2015</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2016" name="burnsWithoutRA" value="2016">
-                <label for="burnsOther2016">2016</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2017" name="burnsWithoutRA" value="2017">
-                <label for="burnsOther2017">2017</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2018" name="burnsWithoutRA" value="2018">
-                <label for="burnsOther2018">2018</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2019" name="burnsWithoutRA" value="2019">
-                <label for="burnsOther2019">2019</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2022" name="burnsWithoutRA" value="2022">
-                <label for="burnsOther2022">2022</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2023" name="burnsWithoutRA" value="2023">
-                <label for="burnsOther2023">2023</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2024" name="burnsWithoutRA" value="2024">
-                <label for="burnsOther2024">2024</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="burnsOther2025" name="burnsWithoutRA" value="2025">
-                <label for="burnsOther2025">2025</label>
+                <input type="checkbox" id="firstBurn" name="firstBurn" value="yes">
+                <label for="firstBurn" style="font-weight: var(--font-weight-semibold);">This is my first Burn</label>
               </div>
             </div>
           </div>
@@ -426,16 +455,16 @@
             </label>
             <div class="radio-group" role="radiogroup" aria-required="true">
               <div class="radio-option">
-                <input type="radio" id="likelihood1" name="likelihoodOfAttending" value="committed" required>
-                <label for="likelihood1">Committed</label>
+                <input type="radio" id="likelihood1" name="likelihoodOfAttending" value="hell-yeah" required>
+                <label for="likelihood1">Hell yeah!</label>
               </div>
               <div class="radio-option">
-                <input type="radio" id="likelihood2" name="likelihoodOfAttending" value="maybe">
-                <label for="likelihood2">Maybe</label>
+                <input type="radio" id="likelihood2" name="likelihoodOfAttending" value="probably">
+                <label for="likelihood2">Probably</label>
               </div>
               <div class="radio-option">
-                <input type="radio" id="likelihood3" name="likelihoodOfAttending" value="unlikely">
-                <label for="likelihood3">Unlikely</label>
+                <input type="radio" id="likelihood3" name="likelihoodOfAttending" value="keep-me-in-loop">
+                <label for="likelihood3">Keep me in the loop</label>
               </div>
             </div>
             <span class="field-error" role="alert">Please select your likelihood of attending</span>

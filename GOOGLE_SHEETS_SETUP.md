@@ -36,15 +36,16 @@ All tabs should have the same column structure for consistency.
 | 11 | Referring Camp Mate | Text | Name of RA member who referred applicant |
 | 12 | Burns with RA | Text | Comma-separated years camped with RA (e.g., "2015,2016,2017") |
 | 13 | Burns without RA | Text | Comma-separated years at Burning Man not with RA |
-| 14 | Likelihood of Attending | Choice | Committed / Maybe / Unlikely |
-| 15 | Steward Ticket Interest | Choice | Yes / No |
-| 16 | What You Offer | Long Text | What they can offer the camp this year |
-| 17 | Notes | Long Text | Notes they want us to know about this year |
-| 18 | Status | Text | Pending / Approved / Rejected |
-| 19 | Reviewed By | Text | Name of person who reviewed (manual) |
-| 20 | Reviewed At | DateTime | Date/time of review (manual) |
-| 21 | Internal Notes | Long Text | Private notes about applicant (manual) |
-| 22 | Form Name | Text | Always "Statement of Intent 2026" |
+| 14 | First Burn | Text | Yes / No (indicates if this is their first Burning Man) |
+| 15 | Likelihood of Attending | Choice | Hell yeah! / Probably / Keep me in the loop |
+| 16 | Steward Ticket Interest | Choice | Yes / No |
+| 17 | What You Offer | Long Text | What they can offer the camp this year |
+| 18 | Notes | Long Text | Notes they want us to know about this year |
+| 19 | Status | Text | Pending / Approved / Rejected |
+| 20 | Reviewed By | Text | Name of person who reviewed (manual) |
+| 21 | Reviewed At | DateTime | Date/time of review (manual) |
+| 22 | Internal Notes | Long Text | Private notes about applicant (manual) |
+| 23 | Form Name | Text | Always "Statement of Intent 2026" |
 
 ### Column Formatting
 
@@ -54,10 +55,11 @@ All tabs should have the same column structure for consistency.
 - Frozen (freeze first row for scrolling)
 
 **Data Validation**:
-- **Status** (Column 18): Data validation dropdown with values: "Pending", "Approved", "Rejected"
+- **Status** (Column 19): Data validation dropdown with values: "Pending", "Approved", "Rejected"
 - **Sex** (Column 4): Data validation dropdown with values: "Male", "Female", "Non-binary", "Other"
-- **Likelihood of Attending** (Column 14): Data validation dropdown with values: "Committed", "Maybe", "Unlikely"
-- **Steward Ticket Interest** (Column 15): Data validation dropdown with values: "Yes", "No"
+- **First Burn** (Column 14): Data validation dropdown with values: "Yes", "No"
+- **Likelihood of Attending** (Column 15): Data validation dropdown with values: "Hell yeah!", "Probably", "Keep me in the loop"
+- **Steward Ticket Interest** (Column 16): Data validation dropdown with values: "Yes", "No"
 
 **Conditional Formatting**:
 - Status = "Pending": Light yellow background (#fff3cd)
@@ -164,14 +166,15 @@ function doPost(e) {
       data.referringCampmate || '',             // 11. Referring Camp Mate
       data.burnsWithRA || '',                   // 12. Burns with RA
       data.burnsWithoutRA || '',                // 13. Burns without RA
-      data.likelihoodOfAttending || '',         // 14. Likelihood of Attending
-      data.stewardTicketInterest || '',         // 15. Steward Ticket Interest
-      data.whatYouOffer || '',                  // 16. What You Offer
-      data.notes || '',                         // 17. Notes
-      'Pending',                                // 18. Status (default)
-      '',                                       // 19. Reviewed By (empty initially)
-      '',                                       // 20. Reviewed At (empty initially)
-      '',                                       // 21. Internal Notes (empty initially)
+      data.firstBurn || 'No',                   // 14. First Burn
+      data.likelihoodOfAttending || '',         // 15. Likelihood of Attending
+      data.stewardTicketInterest || '',         // 16. Steward Ticket Interest
+      data.whatYouOffer || '',                  // 17. What You Offer
+      data.notes || '',                         // 18. Notes
+      'Pending',                                // 19. Status (default)
+      '',                                       // 20. Reviewed By (empty initially)
+      '',                                       // 21. Reviewed At (empty initially)
+      '',                                       // 22. Internal Notes (empty initially)
       data.formName || 'Statement of Intent 2026'  // 22. Form Name
     ];
     
@@ -226,7 +229,33 @@ curl -X POST "YOUR_SCRIPT_URL" \
 ```
 
 2. Check SOI_Staging tab for new row
-3. Verify all fields populated correctly (22 columns)
+3. Verify all fields populated correctly (23 columns)
+
+## Google Contacts Integration
+
+The form data structure is compatible with Google Contacts import via CSV export:
+
+**Key fields for Google Contacts:**
+- **First Name** → Given Name
+- **Last Name** → Family Name
+- **Email** → Email 1 - Value
+- **Phone Country Code + Phone Number** → Phone 1 - Value (combine as: +1 5551234567)
+- **Notes** → Notes field
+
+**To import to Google Contacts:**
+1. Export SOI_Approved tab as CSV
+2. Use Google Sheets IMPORTRANGE or export directly
+3. Create a column combining: `phoneCountryCode & phoneNumber` (e.g., "+15551234567")
+4. Import CSV to Google Contacts
+5. Map columns during import
+6. Add label "2026 Rubbers" in bulk after import
+
+**Recommended CSV column mapping:**
+- Column B (First Name) → Given Name
+- Column C (Last Name) → Family Name  
+- Column H (Email) → Email 1 - Value
+- Combined Phone → Phone 1 - Value (format: +15551234567)
+- Column F (Country of Residence) → Address 1 - Country
 
 ## Manual Approval Workflow
 
