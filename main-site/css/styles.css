@@ -3,7 +3,7 @@
  * Minimalist dark theme, mobile-first, WCAG 2.1 AA compliant
  */
 
-@import url('../../shared/design-tokens.css');
+@import url('design-tokens.css');
 
 /* ====================================
    Layout & Container
