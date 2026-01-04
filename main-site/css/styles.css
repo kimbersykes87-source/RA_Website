@@ -650,6 +650,44 @@ li {
 }
 
 /* ====================================
+   Ticketing Page Backgrounds
+   ==================================== */
+
+/* Hero background */
+.ticketing-hero-background {
+  background-image: url('../images/ticketing/Ticketing-Hero-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .ticketing-hero-background {
+    background-image: url('../images/ticketing/Ticketing-Hero-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .ticketing-hero-background {
+    background-image: url('../images/ticketing/Ticketing-Hero-desktop.jpg');
+  }
+}
+
+/* Steward Sale section background */
+.ticketing-steward-background {
+  background-image: url('../images/ticketing/Ticketing-Steward-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .ticketing-steward-background {
+    background-image: url('../images/ticketing/Ticketing-Steward-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .ticketing-steward-background {
+    background-image: url('../images/ticketing/Ticketing-Steward-desktop.jpg');
+  }
+}
+
+/* ====================================
    Camp Life Page Backgrounds
    ==================================== */
 
