@@ -394,14 +394,18 @@ import {
   
   /**
    * Submit form to Google Apps Script
+   * Note: Google Apps Script requires special handling for CORS
    */
   async function submitForm(data) {
     try {
-      const response = await fetch(CONFIG.APPS_SCRIPT_ENDPOINT, {
+      // Add a redirect parameter to force Google to handle CORS properly
+      const url = CONFIG.APPS_SCRIPT_ENDPOINT + '?redirect=false';
+      
+      const response = await fetch(url, {
         method: 'POST',
-        mode: 'cors',
+        redirect: 'follow',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain;charset=utf-8',
         },
         body: JSON.stringify(data)
       });
