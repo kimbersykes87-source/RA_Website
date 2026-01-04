@@ -600,52 +600,52 @@ li {
 
 /* Hero background - mobile first */
 .hero-background {
-  background-image: url('../images/about/AboutUs-WhoWeAre-mobile.webp');
+  background-image: url('../images/about/AboutUs-WhoWeAre-mobile.jpg');
 }
 
 @media (min-width: 768px) {
   .hero-background {
-    background-image: url('../images/about/AboutUs-WhoWeAre-tablet.webp');
+    background-image: url('../images/about/AboutUs-WhoWeAre-tablet.jpg');
   }
 }
 
 @media (min-width: 1440px) {
   .hero-background {
-    background-image: url('../images/about/AboutUs-WhoWeAre-desktop.webp');
+    background-image: url('../images/about/AboutUs-WhoWeAre-desktop.jpg');
   }
 }
 
 /* Sustainability section background */
 .sustainability-background {
-  background-image: url('../images/about/AboutUs-Sustainability-mobile.webp');
+  background-image: url('../images/about/AboutUs-Sustainability-mobile.jpg');
 }
 
 @media (min-width: 768px) {
   .sustainability-background {
-    background-image: url('../images/about/AboutUs-Sustainability-tablet.webp');
+    background-image: url('../images/about/AboutUs-Sustainability-tablet.jpg');
   }
 }
 
 @media (min-width: 1440px) {
   .sustainability-background {
-    background-image: url('../images/about/AboutUs-Sustainability-desktop.webp');
+    background-image: url('../images/about/AboutUs-Sustainability-desktop.jpg');
   }
 }
 
 /* Community/Ethos section background */
 .community-background {
-  background-image: url('../images/about/AboutUs-Community-mobile.webp');
+  background-image: url('../images/about/AboutUs-Community-mobile.jpg');
 }
 
 @media (min-width: 768px) {
   .community-background {
-    background-image: url('../images/about/AboutUs-Community-tablet.webp');
+    background-image: url('../images/about/AboutUs-Community-tablet.jpg');
   }
 }
 
 @media (min-width: 1440px) {
   .community-background {
-    background-image: url('../images/about/AboutUs-Community-desktop.webp');
+    background-image: url('../images/about/AboutUs-Community-desktop.jpg');
   }
 }
 

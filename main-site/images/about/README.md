@@ -11,7 +11,7 @@
 
 **How to Run:**
 1. **Open Photoshop** (no files need to be open)
-2. **Run the script:** `File → Scripts → Browse → ExportAboutImages.jsx`
+2. **Run the script:** `File → Scripts → Browse → ExportAboutImages-JPG.jsx`
 3. ✅ **Done!** Script automatically processes all 3 images
 
 **No prompts. No manual selection. Fully automated.**
@@ -23,7 +23,8 @@
   - Mobile: 800×600
   - Tablet: 1400×800
   - Desktop: 2400×1200
-- Saves as optimized WebP (80% quality)
+- Saves as high-quality JPG (quality: 10/12)
+- Cloudflare automatically converts JPG→WebP on delivery for optimal performance
 - Closes files without saving
 - Exports to `main-site/images/about/`
 - Shows completion report
@@ -35,17 +36,17 @@
 When complete, this folder should contain:
 
 ```
-✅ AboutUs-WhoWeAre-mobile.webp (800×600)
-✅ AboutUs-WhoWeAre-tablet.webp (1400×800)
-✅ AboutUs-WhoWeAre-desktop.webp (2400×1200)
+✅ AboutUs-WhoWeAre-mobile.jpg (800×600)
+✅ AboutUs-WhoWeAre-tablet.jpg (1400×800)
+✅ AboutUs-WhoWeAre-desktop.jpg (2400×1200)
 
-✅ AboutUs-Sustainability-mobile.webp (800×600)
-✅ AboutUs-Sustainability-tablet.webp (1400×800)
-✅ AboutUs-Sustainability-desktop.webp (2400×1200)
+✅ AboutUs-Sustainability-mobile.jpg (800×600)
+✅ AboutUs-Sustainability-tablet.jpg (1400×800)
+✅ AboutUs-Sustainability-desktop.jpg (2400×1200)
 
-✅ AboutUs-Community-mobile.webp (800×600)
-✅ AboutUs-Community-tablet.webp (1400×800)
-✅ AboutUs-Community-desktop.webp (2400×1200)
+✅ AboutUs-Community-mobile.jpg (800×600)
+✅ AboutUs-Community-tablet.jpg (1400×800)
+✅ AboutUs-Community-desktop.jpg (2400×1200)
 ```
 
 ---
@@ -60,9 +61,10 @@ When complete, this folder should contain:
 
 ## Technical Details
 
-- **Format:** WebP (30% smaller than JPG)
-- **Quality:** 80 (excellent quality/size balance)
+- **Format:** JPG (Cloudflare auto-converts to WebP on delivery)
+- **Quality:** 10/12 (maximum quality)
 - **Responsive:** 3 sizes auto-load based on device screen width
 - **Performance:** Background images lazy load with parallax effect (desktop only)
 - **Accessibility:** Dark overlay ensures text is readable over any image
+- **Optimization:** Cloudflare Polish automatically converts JPG→WebP for browsers that support it
 
