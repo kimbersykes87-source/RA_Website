@@ -1,16 +1,17 @@
 // Photoshop Script: Export ALL About Page Background Images
-// This script prompts you to select 3 images and exports all 9 files automatically
-// Place this script in: C:\dev\RubberArmstrongWebsite\main-site\images\about\
+// This script automatically processes all 3 images and exports 9 WebP files
+// Just run once - no prompts needed!
 
 // Configuration
+var sourceFolder = "C:/dev/RubberArmstrongWebsite/camp_assets/images";
 var outputFolder = Folder("C:/dev/RubberArmstrongWebsite/main-site/images/about");
 var quality = 80; // WebP quality (0-100)
 
-// Image configurations
+// Image configurations - maps source files to output prefixes
 var imageTypes = [
-    { prefix: "AboutUs-WhoWeAre", prompt: "Select HERO image (camp overview/iconic moment)" },
-    { prefix: "AboutUs-Sustainability", prompt: "Select SUSTAINABILITY image (solar/infrastructure)" },
-    { prefix: "AboutUs-Community", prompt: "Select COMMUNITY image (people/Radiance Hour)" }
+    { sourceFile: "AboutUs-WhoWeAre.jpg", prefix: "AboutUs-WhoWeAre" },
+    { sourceFile: "AboutUs-Sustainability.jpg", prefix: "AboutUs-Sustainability" },
+    { sourceFile: "AboutUs-Community.jpg", prefix: "AboutUs-Community" }
 ];
 
 // Size configurations
@@ -29,19 +30,20 @@ function exportAllAboutImages() {
     for (var i = 0; i < imageTypes.length; i++) {
         var imageType = imageTypes[i];
         
-        // Prompt user to select image file
-        var imageFile = File.openDialog(imageType.prompt + "\n\nSelect a JPG, PNG, or PSD file:");
+        // Build full path to source file
+        var imageFile = new File(sourceFolder + "/" + imageType.sourceFile);
         
-        if (!imageFile) {
-            alert("Cancelled. Stopping export.");
-            return;
+        // Check if file exists
+        if (!imageFile.exists) {
+            errors.push("Source file not found: " + imageFile.fsName);
+            continue;
         }
         
         // Open the file
         try {
             var doc = app.open(imageFile);
         } catch (e) {
-            errors.push("Could not open " + imageFile.name + ": " + e.message);
+            errors.push("Could not open " + imageType.sourceFile + ": " + e.message);
             continue;
         }
         
@@ -105,19 +107,28 @@ function exportAllAboutImages() {
     }
     
     // Final report
-    var message = "Export Complete!\n\n";
-    message += "✅ " + totalExported + " files exported successfully\n\n";
+    var message = "🎉 Export Complete!\n\n";
+    message += "✅ Successfully exported " + totalExported + "/9 files\n\n";
     
     if (errors.length > 0) {
-        message += "⚠️ Errors:\n" + errors.join("\n") + "\n\n";
+        message += "⚠️ Errors encountered:\n" + errors.join("\n") + "\n\n";
     }
     
-    message += "Files saved to:\n" + outputFolder.fsName + "\n\n";
-    message += "Expected files:\n";
-    message += "• AboutUs-WhoWeAre (mobile/tablet/desktop)\n";
-    message += "• AboutUs-Sustainability (mobile/tablet/desktop)\n";
-    message += "• AboutUs-Community (mobile/tablet/desktop)\n\n";
-    message += "Total: " + totalExported + "/9 files";
+    message += "📂 Output location:\n" + outputFolder.fsName + "\n\n";
+    message += "📦 Exported files:\n";
+    message += "• AboutUs-WhoWeAre-mobile.webp (800×600)\n";
+    message += "• AboutUs-WhoWeAre-tablet.webp (1400×800)\n";
+    message += "• AboutUs-WhoWeAre-desktop.webp (2400×1200)\n\n";
+    message += "• AboutUs-Sustainability-mobile.webp (800×600)\n";
+    message += "• AboutUs-Sustainability-tablet.webp (1400×800)\n";
+    message += "• AboutUs-Sustainability-desktop.webp (2400×1200)\n\n";
+    message += "• AboutUs-Community-mobile.webp (800×600)\n";
+    message += "• AboutUs-Community-tablet.webp (1400×800)\n";
+    message += "• AboutUs-Community-desktop.webp (2400×1200)\n\n";
+    
+    if (totalExported === 9) {
+        message += "✨ All images ready for deployment!";
+    }
     
     alert(message);
 }

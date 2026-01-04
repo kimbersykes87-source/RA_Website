@@ -1,24 +1,32 @@
 # About Page Background Images
 
-## Export Workflow (Single Run!)
+## Fully Automated Export Workflow
 
-### One Script, All 9 Images Exported
+### One Click, All 9 Images Exported! 🚀
 
-1. **Open Photoshop** (no need to open any files first)
+**Source Images:**
+- `camp_assets/images/AboutUs-WhoWeAre.jpg`
+- `camp_assets/images/AboutUs-Sustainability.jpg`
+- `camp_assets/images/AboutUs-Community.jpg`
+
+**How to Run:**
+1. **Open Photoshop** (no files need to be open)
 2. **Run the script:** `File → Scripts → Browse → ExportAboutImages.jsx`
-3. **Follow the 3 prompts:**
-   - Prompt 1: Select your **HERO** image (camp overview/iconic moment)
-   - Prompt 2: Select your **SUSTAINABILITY** image (solar/infrastructure)
-   - Prompt 3: Select your **COMMUNITY** image (people/Radiance Hour)
-4. ✅ **Done!** All 9 files exported automatically
+3. ✅ **Done!** Script automatically processes all 3 images
+
+**No prompts. No manual selection. Fully automated.**
 
 ### What the Script Does:
-- Opens each image you select
-- Resizes to 2400×1200 if needed
-- Exports 3 responsive sizes (mobile/tablet/desktop) as WebP
-- Closes the file without saving
-- Repeats for all 3 images
-- Shows success report
+- Automatically opens each JPG from `camp_assets/images/`
+- Resizes to 2400×1200 (preserving aspect ratio)
+- Exports 3 responsive sizes per image:
+  - Mobile: 800×600
+  - Tablet: 1400×800
+  - Desktop: 2400×1200
+- Saves as optimized WebP (80% quality)
+- Closes files without saving
+- Exports to `main-site/images/about/`
+- Shows completion report
 
 ---
 
