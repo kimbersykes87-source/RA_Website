@@ -191,6 +191,19 @@ function runCompleteSetup() {
 // ============================================================================
 
 /**
+ * Handles GET requests (needed for CORS to work properly)
+ * Google Apps Script requires this even for POST-only endpoints
+ */
+function doGet(e) {
+  return ContentService
+    .createTextOutput(JSON.stringify({
+      status: 'info',
+      message: 'This endpoint accepts POST requests only'
+    }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+/**
  * Handles POST requests from the SOI form
  * This is called automatically when someone submits the form
  */
