@@ -240,7 +240,7 @@ function doPost(e) {
     // Log successful submission
     Logger.log('Submission received from: ' + data.email);
     
-    // Return success response
+    // Return success response with CORS headers
     return ContentService
       .createTextOutput(JSON.stringify({ 
         status: 'success',
@@ -253,7 +253,7 @@ function doPost(e) {
     // Log error
     Logger.log('Error processing submission: ' + error.toString());
     
-    // Return error response
+    // Return error response with CORS headers
     return ContentService
       .createTextOutput(JSON.stringify({ 
         status: 'error',
@@ -262,6 +262,16 @@ function doPost(e) {
       }))
       .setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+/**
+ * Handles OPTIONS preflight requests for CORS
+ * This is required for cross-origin POST requests
+ */
+function doOptions(e) {
+  return ContentService
+    .createTextOutput('')
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 /**
