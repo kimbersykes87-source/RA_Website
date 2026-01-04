@@ -557,6 +557,98 @@ li {
   }
 }
 
+/* ====================================
+   Section Background Images
+   ==================================== */
+
+.section-with-background {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Dark overlay for text readability */
+.section-with-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.75) 0%,
+    rgba(10, 10, 10, 0.85) 100%
+  );
+  z-index: 0;
+}
+
+/* Ensure content appears above overlay */
+.section-with-background .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Disable parallax on mobile for performance */
+@media (max-width: 767px) {
+  .section-with-background {
+    background-attachment: scroll;
+  }
+}
+
+/* Hero background - mobile first */
+.hero-background {
+  background-image: url('../images/about/AboutUs-WhoWeAre-mobile.webp');
+}
+
+@media (min-width: 768px) {
+  .hero-background {
+    background-image: url('../images/about/AboutUs-WhoWeAre-tablet.webp');
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-background {
+    background-image: url('../images/about/AboutUs-WhoWeAre-desktop.webp');
+  }
+}
+
+/* Sustainability section background */
+.sustainability-background {
+  background-image: url('../images/about/AboutUs-Sustainability-mobile.webp');
+}
+
+@media (min-width: 768px) {
+  .sustainability-background {
+    background-image: url('../images/about/AboutUs-Sustainability-tablet.webp');
+  }
+}
+
+@media (min-width: 1440px) {
+  .sustainability-background {
+    background-image: url('../images/about/AboutUs-Sustainability-desktop.webp');
+  }
+}
+
+/* Community/Ethos section background */
+.community-background {
+  background-image: url('../images/about/AboutUs-Community-mobile.webp');
+}
+
+@media (min-width: 768px) {
+  .community-background {
+    background-image: url('../images/about/AboutUs-Community-tablet.webp');
+  }
+}
+
+@media (min-width: 1440px) {
+  .community-background {
+    background-image: url('../images/about/AboutUs-Community-desktop.webp');
+  }
+}
+
 /* Print styles */
 @media print {
   .mobile-nav,
