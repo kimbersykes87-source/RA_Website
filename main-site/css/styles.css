@@ -650,6 +650,44 @@ li {
 }
 
 /* ====================================
+   Home Page Backgrounds
+   ==================================== */
+
+/* Hero background */
+.home-hero-background {
+  background-image: url('../images/home/Home-Hero-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .home-hero-background {
+    background-image: url('../images/home/Home-Hero-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .home-hero-background {
+    background-image: url('../images/home/Home-Hero-desktop.jpg');
+  }
+}
+
+/* Infrastructure/What We Bring section background */
+.home-infrastructure-background {
+  background-image: url('../images/home/Home-Infrastructure-mobile.jpg');
+}
+
+@media (min-width: 768px) {
+  .home-infrastructure-background {
+    background-image: url('../images/home/Home-Infrastructure-tablet.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  .home-infrastructure-background {
+    background-image: url('../images/home/Home-Infrastructure-desktop.jpg');
+  }
+}
+
+/* ====================================
    Join Page Backgrounds
    ==================================== */
 
