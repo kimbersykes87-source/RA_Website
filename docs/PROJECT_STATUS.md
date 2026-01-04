@@ -11,9 +11,12 @@
 
 | Site | URL | Status |
 |------|-----|--------|
-| Main Site | https://rubberarmstrong.com | ✅ Live |
+| Main Site | https://rubberarmstrong.com | 🔄 Ready to migrate from Adobe Portfolio |
 | SOI Form | https://soi.rubberarmstrong.com | ✅ Live & Working |
 | Join Form | join.rubberarmstrong.com | ⏳ Phase 2 |
+
+**Note:** Main site needs to be migrated from Adobe Portfolio to Cloudflare Pages.  
+See [ADOBE_TO_CLOUDFLARE_MIGRATION.md](./ADOBE_TO_CLOUDFLARE_MIGRATION.md) for step-by-step guide.
 
 ---
 
