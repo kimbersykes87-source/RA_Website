@@ -241,26 +241,32 @@ function doPost(e) {
     Logger.log('Submission received from: ' + data.email);
     
     // Return success response with CORS headers
-    return ContentService
-      .createTextOutput(JSON.stringify({ 
-        status: 'success',
-        success: true,
-        message: 'Submission received'
-      }))
-      .setMimeType(ContentService.MimeType.JSON);
+    const successOutput = ContentService.createTextOutput(JSON.stringify({ 
+      status: 'success',
+      success: true,
+      message: 'Submission received'
+    }));
+    successOutput.setMimeType(ContentService.MimeType.JSON);
+    successOutput.setHeader('Access-Control-Allow-Origin', '*');
+    successOutput.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    successOutput.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    return successOutput;
       
   } catch (error) {
     // Log error
     Logger.log('Error processing submission: ' + error.toString());
     
     // Return error response with CORS headers
-    return ContentService
-      .createTextOutput(JSON.stringify({ 
-        status: 'error',
-        success: false,
-        message: error.toString()
-      }))
-      .setMimeType(ContentService.MimeType.JSON);
+    const errorOutput = ContentService.createTextOutput(JSON.stringify({ 
+      status: 'error',
+      success: false,
+      message: error.toString()
+    }));
+    errorOutput.setMimeType(ContentService.MimeType.JSON);
+    errorOutput.setHeader('Access-Control-Allow-Origin', '*');
+    errorOutput.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    errorOutput.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    return errorOutput;
   }
 }
 
@@ -269,9 +275,13 @@ function doPost(e) {
  * This is required for cross-origin POST requests
  */
 function doOptions(e) {
-  return ContentService
-    .createTextOutput('')
-    .setMimeType(ContentService.MimeType.JSON);
+  const output = ContentService.createTextOutput('');
+  output.setMimeType(ContentService.MimeType.JSON);
+  output.setHeader('Access-Control-Allow-Origin', '*');
+  output.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  output.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  output.setHeader('Access-Control-Max-Age', '86400');
+  return output;
 }
 
 /**
