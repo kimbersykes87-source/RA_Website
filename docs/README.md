@@ -1,99 +1,138 @@
 # Documentation Index
 
-**Rubber Armstrong 2026 - Website Documentation**
+Complete documentation for the Rubber Armstrong website project.
+
+## Quick Start
+
+**New to the project?** Start here:
+1. [Project Status](PROJECT_STATUS.md) - Current state and completed work
+2. [Deployment Checklist](DEPLOYMENT_CHECKLIST.md) - Deployment verification
+3. [Quick Start Summary](QUICK_START_SUMMARY.md) - Essential information
+
+## Setup Guides
+
+### Google Apps Script Automation
+- **[Add Analytics to Apps Script](ADD_ANALYTICS_TO_APPS_SCRIPT.md)** - Add weekly analytics reports to existing project
+- **[Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md)** - Detailed GA4 automation guide
+- **[Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md)** - Auto-sync approved applicants
+- **[Google Sheets Setup](GOOGLE_SHEETS_SETUP.md)** - Database configuration
+
+### Data Management
+- **[Fix Burns Display](FIX_BURNS_DISPLAY.md)** - Fix burn count display and scientific notation
+- **[Fix Burns Scientific Notation](FIX_BURNS_SCIENTIFIC_NOTATION.md)** - Prevent data corruption
+
+## Content & Design
+
+- **[Content Manifesto Reference](content-manifesto-reference.md)** - Writing guidelines and brand voice
+- **[Tone of Voice Refactor](TONE_OF_VOICE_REFACTOR.md)** - January 2026 site-wide refactor details
+
+## Migration & History
+
+- **[Adobe to Cloudflare Migration](ADOBE_TO_CLOUDFLARE_MIGRATION.md)** - Migration from Adobe Portfolio
+- **[Testing Results](TESTING_RESULTS.md)** - Cross-browser and accessibility testing
+
+## Project Management
+
+### Active Checklists
+- **[Phase 2 Checklist](../PHASE_2_CHECKLIST.md)** - Pre-Stewards Sale tasks (root folder)
+- **[Phase 3 Checklist](../PHASE_3_CHECKLIST.md)** - Pre-event tasks (root folder)
+
+### Archived Documentation
+See [`docs/archive/`](archive/) for:
+- Completed task summaries
+- Historical migration notes
+- Deprecated guides
+
+## By Topic
+
+### Analytics & Reporting
+- [Add Analytics to Apps Script](ADD_ANALYTICS_TO_APPS_SCRIPT.md)
+- [Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md)
+
+### Form & Database
+- [Google Sheets Setup](GOOGLE_SHEETS_SETUP.md)
+- [Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md)
+- [Fix Burns Display](FIX_BURNS_DISPLAY.md)
+
+### Content & Voice
+- [Content Manifesto Reference](content-manifesto-reference.md)
+- [Tone of Voice Refactor](TONE_OF_VOICE_REFACTOR.md)
+
+### Deployment & Testing
+- [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
+- [Testing Results](TESTING_RESULTS.md)
+- [Adobe to Cloudflare Migration](ADOBE_TO_CLOUDFLARE_MIGRATION.md)
+
+## Key Information
+
+### Live Sites
+- **Main Site**: https://rubberarmstrong.com
+- **SOI Form**: https://soi.rubberarmstrong.com
+
+### Google Analytics
+- **Measurement ID**: G-1GN0CT0WN9
+- **Property ID**: 518391310
+- **Reports**: Weekly Mondays 9 AM PT to rubberarmstrongcamp@gmail.com
+
+### Cloudflare
+- **Main Site Project**: Connected to GitHub main branch
+- **SOI Site Project**: Connected to GitHub main branch
+- **Auto-deploy**: 1-2 minutes after push
+
+### Google Apps Script
+- **Project**: SOI Form Handler
+- **Scripts**: Form handler, Google Contacts sync, Analytics reporting
+- **Triggers**: Form submit, Status change, Weekly Monday 9 AM PT
+
+## File Locations
+
+### Scripts
+All automation scripts are in [`../scripts/`](../scripts/):
+- `google-analytics-daily-report.js` - Weekly analytics email
+- `google-contacts-sync.js` - Auto-sync to Google Contacts
+- `fix-burns-count-display.js` - Fix burn count display
+- `apps-script-complete.js` - Complete SOI form handler
+
+### Site Files
+- **Main Site**: [`../main-site/`](../main-site/)
+- **SOI Form**: [`../soi-site/`](../soi-site/)
+- **Shared Assets**: [`../shared/`](../shared/)
+- **Original Assets**: [`../camp_assets/`](../camp_assets/)
+
+## Getting Help
+
+### Common Issues
+
+**Analytics not working?**
+- Check [Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md) troubleshooting section
+- Verify Property ID: 518391310
+- Ensure Google Analytics Data API is enabled
+
+**Form submissions not syncing?**
+- Check [Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md) troubleshooting
+- Verify trigger is set up in Apps Script
+- Check execution logs for errors
+
+**Burns count showing scientific notation?**
+- Run the script in [Fix Burns Display](FIX_BURNS_DISPLAY.md)
+- Ensures future entries are collected as text
+
+**Site not deploying?**
+- Check Cloudflare Pages dashboard for build errors
+- Verify GitHub connection
+- Check [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
+
+## Contributing
+
+When adding new documentation:
+1. Add file to appropriate location (`docs/` or `docs/archive/`)
+2. Update this index
+3. Use clear, descriptive titles
+4. Include troubleshooting sections
+5. Add cross-references to related docs
 
 ---
 
-## 📚 **Quick Start**
-
-Start here if you're new to the project:
-
-- **[QUICK_START_SUMMARY.md](./QUICK_START_SUMMARY.md)** - Overview and quick reference
-- **[PROJECT_STATUS.md](./PROJECT_STATUS.md)** - Current project status
-
----
-
-## 🚀 **Phase Checklists**
-
-Task lists for each development phase:
-
-- **[PHASE_2_CHECKLIST.md](../PHASE_2_CHECKLIST.md)** - Pre-Stewards Sale tasks (in root folder)
-- **[PHASE_3_CHECKLIST.md](../PHASE_3_CHECKLIST.md)** - Pre-event tasks (in root folder)
-
----
-
-## 🔧 **Setup & Deployment**
-
-Guides for setting up and deploying the project:
-
-- **[DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md)** - Complete deployment guide
-- **[GOOGLE_SHEETS_SETUP.md](./GOOGLE_SHEETS_SETUP.md)** - Backend setup (SOI form)
-- **[GOOGLE_CONTACTS_SYNC.md](./GOOGLE_CONTACTS_SYNC.md)** - Google Contacts integration
-- **[ADOBE_TO_CLOUDFLARE_MIGRATION.md](./ADOBE_TO_CLOUDFLARE_MIGRATION.md)** - Migration guide (completed)
-
----
-
-## 📝 **Content & Reference**
-
-Content guidelines and reference materials:
-
-- **[content-manifesto-reference.md](./content-manifesto-reference.md)** - Manifesto content reference
-
----
-
-## 🧪 **Testing**
-
-Testing guides and results:
-
-- **[TESTING_RESULTS.md](./TESTING_RESULTS.md)** - Testing status and results
-
----
-
-## 📂 **File Organization**
-
-```
-RubberArmstrongWebsite/
-├── PHASE_2_CHECKLIST.md          ← Phase 2 tasks (root)
-├── PHASE_3_CHECKLIST.md          ← Phase 3 tasks (root)
-├── COMPLETED_TODAY.md            ← Today's work summary
-├── docs/                         ← All documentation
-│   ├── README.md                 ← This file
-│   ├── QUICK_START_SUMMARY.md    ← Quick reference
-│   ├── PROJECT_STATUS.md         ← Project status
-│   ├── DEPLOYMENT_CHECKLIST.md   ← Deployment guide
-│   ├── GOOGLE_SHEETS_SETUP.md    ← Backend setup
-│   ├── GOOGLE_CONTACTS_SYNC.md   ← Contacts integration
-│   ├── TESTING_RESULTS.md        ← Testing results
-│   └── ...
-├── main-site/                    ← Main website
-├── soi-site/                     ← SOI form site
-├── scripts/                      ← Backend scripts
-│   ├── apps-script-complete.js   ← SOI form handler
-│   └── google-contacts-sync.js   ← Contacts sync script
-└── ...
-```
-
----
-
-## 🎯 **Common Tasks**
-
-### **I want to...**
-
-- **Start working on Phase 2** → See [PHASE_2_CHECKLIST.md](../PHASE_2_CHECKLIST.md)
-- **Deploy the site** → See [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md)
-- **Set up Google Contacts sync** → See [GOOGLE_CONTACTS_SYNC.md](./GOOGLE_CONTACTS_SYNC.md)
-- **Check project status** → See [PROJECT_STATUS.md](./PROJECT_STATUS.md)
-- **Test the site** → See [TESTING_RESULTS.md](./TESTING_RESULTS.md)
-- **Update content** → See [QUICK_START_SUMMARY.md](./QUICK_START_SUMMARY.md)
-
----
-
-## 📊 **Project Status Summary**
-
-- ✅ **Phase 1:** Complete & Live
-- ⏳ **Phase 2:** Ready to start (see checklist)
-- ⏳ **Phase 3:** Planned (see checklist)
-
----
-
-**Last Updated:** January 4, 2026
+**Last Updated**: January 2026  
+**Project Phase**: Phase 1 Complete ✅  
+**Next Milestone**: Stewards Sale (typically mid-March)

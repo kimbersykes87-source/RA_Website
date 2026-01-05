@@ -1,196 +1,113 @@
-# Rubber Armstrong 2026 - Official Website
+# Rubber Armstrong Website
 
-A monorepo containing three static websites for the Rubber Armstrong Burning Man camp.
+Official website for Rubber Armstrong Burning Man camp.
 
-**Est. 2015** | Burning Man Camp | Black Rock City, Nevada
+## Live Sites
 
-## Overview
+- **Main Site**: https://rubberarmstrong.com
+- **Statement of Intent Form**: https://soi.rubberarmstrong.com
 
-This repository contains:
+## Project Status
 
-1. **Main Site** (`rubberarmstrong.com`) - Informational hub about the camp
-2. **Statement of Intent** (`soi.rubberarmstrong.com`) - Values-focused alignment form
-3. **Join Form** (`join.rubberarmstrong.com`) - Phase 2: Operational commitment form (post-ticket sales)
+✅ **Phase 1 Complete** - Initial launch (January 2026)
+- Main site deployed on Cloudflare Pages
+- SOI form live and collecting submissions
+- Google Sheets database operational
+- Google Contacts auto-sync configured
+- Google Analytics 4 tracking installed
+- SEO optimized (sitemaps, robots.txt, meta tags)
+- Site-wide tone-of-voice refactor complete
 
-## Repository Structure
+## Quick Links
+
+- **Phase 2 Checklist**: [`PHASE_2_CHECKLIST.md`](PHASE_2_CHECKLIST.md) - Pre-Stewards Sale tasks
+- **Phase 3 Checklist**: [`PHASE_3_CHECKLIST.md`](PHASE_3_CHECKLIST.md) - Pre-event tasks
+- **Documentation**: [`docs/README.md`](docs/README.md) - Complete documentation index
+
+## Project Structure
 
 ```
-rubber-armstrong-2026/
-├── main-site/           # Main informational website
-├── soi-site/            # Statement of Intent form subdomain
-├── shared/              # Shared assets, fonts, design tokens
-├── content-manifesto-reference.md
-└── README.md (this file)
+├── main-site/           # Main website (rubberarmstrong.com)
+├── soi-site/            # Statement of Intent form (soi.rubberarmstrong.com)
+├── scripts/             # Google Apps Scripts for automation
+├── docs/                # Documentation
+├── shared/              # Shared assets and design tokens
+└── camp_assets/         # Original assets and reference materials
 ```
-
-## Phasing
-
-### Phase 1 (COMPLETE ✅)
-- ✅ Main site with 6 pages - **LIVE**
-- ✅ SOI form subdomain - **LIVE**
-- ✅ Gallery with curated images
-- ✅ Full WCAG 2.1 AA accessibility
-- ✅ Cloudflare Web Analytics - **ENABLED**
-- ✅ Deployed to Cloudflare Pages
-
-### Phase 2 (After Ticket Sales)
-- Join subdomain for confirmed camper intake
 
 ## Technology Stack
 
-- **Hosting**: Cloudflare Pages
-- **Frontend**: Plain HTML5, CSS3, Vanilla JavaScript
-- **No Build Step**: Static files only
-- **Analytics**: Cloudflare Web Analytics (privacy-focused)
-- **Image Optimization**: Cloudflare automatic optimization (WebP, AVIF)
-- **Form Backend**: Google Apps Script → Google Sheets
+- **Hosting**: Cloudflare Pages (automatic deployment from GitHub)
+- **Analytics**: Google Analytics 4 + Cloudflare Web Analytics
+- **Backend**: Google Apps Script (form handling, contacts sync, analytics reporting)
+- **Database**: Google Sheets
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Version Control**: Git + GitHub
 
-## Design Principles
-
-- **Separation of intent vs commitment** - Deliberate workflow design
-- **Minimal copy, strong tone** - No fluff, confident language
-- **Calm and intentional** - Serene, purposeful pages
-- **Values-driven** - Culture and alignment over logistics
-- **No social media** - Private community, not broadcast platform
-- **Accessibility first** - WCAG 2.1 AA compliance
-- **Privacy-focused** - No tracking cookies
-
-## Local Development
-
-Each site can be developed independently:
-
-```bash
-# Main site
-cd main-site
-# Open index.html in browser or use local server
-
-# SOI site
-cd soi-site
-# Open index.html in browser or use local server
-
-# Recommended: Use Python's simple HTTP server
-python -m http.server 8000
-# Then navigate to http://localhost:8000/main-site/
-```
-
-## Deployment
-
-### Main Site (rubberarmstrong.com)
-
-1. Connect repository to Cloudflare Pages
-2. Set build configuration:
-   - **Build command**: (none)
-   - **Build output directory**: `main-site`
-   - **Root directory**: (leave as root)
-3. Add custom domain: `rubberarmstrong.com`
-
-### SOI Site (soi.rubberarmstrong.com)
-
-1. Create new Cloudflare Pages project
-2. Connect same repository
-3. Set build configuration:
-   - **Build command**: (none)
-   - **Build output directory**: `soi-site`
-   - **Root directory**: (leave as root)
-4. Add custom domain: `soi.rubberarmstrong.com`
-5. Configure `soi-site/js/config.js` with Google Apps Script endpoint URL
-
-### Join Site (Phase 2)
-
-Will be deployed similarly after Phase 2 development.
-
-## Shared Assets
-
-The `shared/` directory contains resources used across all sites:
-
-- **design-tokens.css** - Color palette, spacing, typography
-- **assets/** - Logo, favicon
-- **fonts/** - Self-hosted custom fonts for headings
-
-All sites import these shared resources to maintain consistent branding.
-
-## Content Updates
+## Key Features
 
 ### Main Site
+- Responsive design (mobile, tablet, desktop)
+- Optimized images with responsive srcsets
+- Custom Rubber Armstrong font
+- Accessible navigation
+- SEO optimized
 
-Content is stored directly in HTML files. To update:
+### SOI Form
+- Real-time validation
+- Duplicate detection
+- Country selection with phone code integration
+- Burn history tracking (2010-2025)
+- Automatic Google Sheets integration
+- Spam protection (honeypot field)
 
-1. Edit the relevant HTML file in `main-site/`
-2. Commit and push changes
-3. Cloudflare Pages automatically redeploys
+### Automation
+- **Google Contacts Sync**: Approved applicants automatically added with "2026 Rubbers" label
+- **Analytics Reporting**: Weekly email reports (Mondays 9 AM PT) to rubberarmstrongcamp@gmail.com
+- **Burns Count Display**: Automatic calculation of burn counts from year lists
 
-### Gallery Images
+## Development
 
-1. Add optimized JPG images to `main-site/images/gallery/[year]/`
-2. Update `gallery.html` with new image references
-3. Cloudflare automatically serves WebP/AVIF versions
+### Local Testing
 
-### Ticketing Information
+Main site:
+```bash
+cd main-site
+python -m http.server 8000
+# Visit http://localhost:8000
+```
 
-The `ticketing.html` page should be updated annually with:
-- Current Burning Man ticket sale dates
-- RA's directed group sale approach
-- Any changes to membership/ticket relationship
+SOI form (requires backend configuration):
+```bash
+cd soi-site
+python -m http.server 8001
+# Visit http://localhost:8001
+```
 
-## Google Sheets Integration
+### Deployment
 
-### Required Sheets Structure
+Automatic deployment via Cloudflare Pages:
+1. Push to `main` branch
+2. Cloudflare automatically builds and deploys
+3. Changes live in 1-2 minutes
 
-Create a Google Sheet with these tabs:
+## Documentation
 
-1. **SOI_Staging** - All form submissions (Status: Pending)
-2. **SOI_Approved** - Approved applicants
-3. **SOI_Rejected** - Declined applicants
-4. **SOI_2026** - End-of-season archive
+See [`docs/README.md`](docs/README.md) for complete documentation including:
+- Setup guides
+- Google Apps Script configuration
+- Analytics automation
+- Troubleshooting
+- Migration history
 
-### Column Structure
+## Contact
 
-(See `soi-site/README.md` for detailed column definitions)
-
-### Approval Workflow
-
-1. Review entries in `SOI_Staging` with Status = "Pending"
-2. Update Status to "Approved" or "Rejected"
-3. Copy entire row to `SOI_Approved` or `SOI_Rejected` tab
-4. Add "Reviewed By" (your name) and "Reviewed At" (timestamp)
-5. Optionally add "Internal Notes"
-
-## Analytics
-
-Access Cloudflare Web Analytics through your Cloudflare dashboard:
-- Navigate to Web Analytics
-- View page views, referrers, device types
-- Privacy-focused: no cookies, no personal data collection
-
-## Support & Maintenance
-
-### Browser Support
-- Chrome (last 2 versions)
-- Firefox (last 2 versions)
-- Safari (last 2 versions)
-- Edge (last 2 versions)
-
-### Performance Targets
-- Lighthouse score: 90+ on all metrics
-- First Contentful Paint: <2s
-- Time to Interactive: <3s
-
-### Accessibility
-- WCAG 2.1 AA compliant
-- Keyboard navigation supported
-- Screen reader tested
-- Proper ARIA landmarks and labels
-
-## Project History
-
-**2026** - New static site launches  
-**2015** - Rubber Armstrong camp established
-
-## License
-
-© 2026 Rubber Armstrong. All rights reserved.
+**Email**: rubberarmstrongcamp@gmail.com  
+**Established**: 2015  
+**Location**: Black Rock City, Nevada
 
 ---
 
-*"Named in cosmic tribute to humanity's giant leap, Rubber Armstrong honours a crew whose arms need barely twisting to launch spontaneously into journeys of wonder."*
-
+**Current Phase**: Phase 1 Complete ✅  
+**Next Milestone**: Stewards Sale (typically mid-March)  
+**Last Updated**: January 2026
