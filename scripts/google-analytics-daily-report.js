@@ -12,31 +12,32 @@
 // Configuration
 const CONFIG = {
   // Your GA4 Property ID (format: properties/123456789)
+  // Get this from GA4: Admin > Property Settings > Property ID
   propertyId: 'properties/YOUR_GA4_PROPERTY_ID',
   
   // Email to send reports to
-  emailRecipient: 'your-email@example.com',
+  emailRecipient: 'rubberarmstrongcamp@gmail.com',
   
-  // Date range (yesterday's data)
-  startDate: 'yesterday',
+  // Date range (last 7 days for weekly report)
+  startDate: '7daysAgo',
   endDate: 'yesterday'
 };
 
 /**
- * Main function - runs daily via trigger
+ * Main function - runs weekly via trigger (Mondays at 9 AM LA time)
  */
-function sendDailyAnalyticsReport() {
+function sendWeeklyAnalyticsReport() {
   try {
     const report = getAnalyticsData();
     const emailBody = formatEmailReport(report);
     sendEmail(emailBody);
-    Logger.log('Daily analytics report sent successfully');
+    Logger.log('Weekly analytics report sent successfully');
   } catch (error) {
-    Logger.log('Error sending daily report: ' + error.message);
+    Logger.log('Error sending weekly report: ' + error.message);
     // Send error notification
     MailApp.sendEmail({
       to: CONFIG.emailRecipient,
-      subject: 'Analytics Report Error',
+      subject: 'RA Analytics Report Error',
       body: 'Failed to generate analytics report: ' + error.message
     });
   }
@@ -109,12 +110,17 @@ function parseAnalyticsResponse(response) {
  * Format data into email body
  */
 function formatEmailReport(data) {
-  const date = new Date();
-  date.setDate(date.getDate() - 1); // Yesterday
-  const dateStr = Utilities.formatDate(date, Session.getScriptTimeZone(), 'EEEE, MMMM dd, yyyy');
+  const endDate = new Date();
+  endDate.setDate(endDate.getDate() - 1); // Yesterday
+  const startDate = new Date();
+  startDate.setDate(startDate.getDate() - 7); // 7 days ago
   
-  let body = `Rubber Armstrong Website Analytics\n`;
-  body += `Report for: ${dateStr}\n`;
+  const dateStr = Utilities.formatDate(startDate, 'America/Los_Angeles', 'MMM dd') + 
+                  ' - ' + 
+                  Utilities.formatDate(endDate, 'America/Los_Angeles', 'MMM dd, yyyy');
+  
+  let body = `Rubber Armstrong Website Analytics - Weekly Report\n`;
+  body += `Period: ${dateStr}\n`;
   body += `${'='.repeat(60)}\n\n`;
   
   // Summary
@@ -146,9 +152,14 @@ function formatEmailReport(data) {
  * Send email report
  */
 function sendEmail(body) {
-  const date = new Date();
-  date.setDate(date.getDate() - 1);
-  const dateStr = Utilities.formatDate(date, Session.getScriptTimeZone(), 'MMM dd, yyyy');
+  const endDate = new Date();
+  endDate.setDate(endDate.getDate() - 1);
+  const startDate = new Date();
+  startDate.setDate(startDate.getDate() - 7);
+  
+  const dateStr = Utilities.formatDate(startDate, 'America/Los_Angeles', 'MMM dd') + 
+                  ' - ' + 
+                  Utilities.formatDate(endDate, 'America/Los_Angeles', 'MMM dd');
   
   MailApp.sendEmail({
     to: CONFIG.emailRecipient,
@@ -158,25 +169,27 @@ function sendEmail(body) {
 }
 
 /**
- * Set up daily trigger (run this once manually)
+ * Set up weekly trigger (run this once manually)
+ * Runs every Monday at 9 AM LA time
  */
-function setupDailyTrigger() {
-  // Delete existing triggers
+function setupWeeklyTrigger() {
+  // Delete existing triggers for this function
   const triggers = ScriptApp.getProjectTriggers();
   triggers.forEach(trigger => {
-    if (trigger.getHandlerFunction() === 'sendDailyAnalyticsReport') {
+    if (trigger.getHandlerFunction() === 'sendWeeklyAnalyticsReport') {
       ScriptApp.deleteTrigger(trigger);
     }
   });
   
-  // Create new trigger - runs every day at 9 AM
-  ScriptApp.newTrigger('sendDailyAnalyticsReport')
+  // Create new trigger - runs every Monday at 9 AM (LA time)
+  ScriptApp.newTrigger('sendWeeklyAnalyticsReport')
     .timeBased()
-    .everyDays(1)
+    .onWeekDay(ScriptApp.WeekDay.MONDAY)
     .atHour(9)
+    .inTimezone('America/Los_Angeles')
     .create();
   
-  Logger.log('Daily trigger created successfully');
+  Logger.log('Weekly trigger created successfully - Mondays at 9 AM LA time');
 }
 
 /**
