@@ -12,10 +12,13 @@ Complete documentation for the Rubber Armstrong website project.
 ## Setup Guides
 
 ### Google Apps Script Automation
+- **[Apps Script Rebuild Guide](APPS_SCRIPT_REBUILD_GUIDE.md)** ⭐ - **NEW** Consolidated, improved Apps Script setup
+- **[Apps Script Comparison](APPS_SCRIPT_COMPARISON.md)** - Old vs new system comparison
 - **[Add Analytics to Apps Script](ADD_ANALYTICS_TO_APPS_SCRIPT.md)** - Add weekly analytics reports to existing project
 - **[Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md)** - Detailed GA4 automation guide
 - **[Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md)** - Auto-sync approved applicants
 - **[Google Sheets Setup](GOOGLE_SHEETS_SETUP.md)** - Database configuration
+- **[Apps Script Column Mapping](APPS_SCRIPT_COLUMN_MAPPING.md)** - Header-based column system
 
 ### Data Management
 - **[Fix Burns Display](FIX_BURNS_DISPLAY.md)** - Fix burn count display and scientific notation
@@ -88,9 +91,18 @@ See [`docs/archive/`](archive/) for:
 
 ### Scripts
 All automation scripts are in [`../scripts/`](../scripts/):
+
+**Consolidated (Recommended):**
+- `apps-script-consolidated/Config.gs` - Unified configuration
+- `apps-script-consolidated/FormHandler.gs` - Setup + form submission
+- `apps-script-consolidated/ContactsSync.gs` - Google Contacts integration
+- `apps-script-consolidated/Analytics.gs` - Weekly analytics reporting
+- `apps-script-consolidated/appsscript.json` - Dependencies
+
+**Legacy (Current):**
 - `google-analytics-daily-report.js` - Weekly analytics email
 - `google-contacts-sync.js` - Auto-sync to Google Contacts
-- `fix-burns-count-display.js` - Fix burn count display
+- `fix-burns-count-display.js` - Fix burn count display (run once)
 - `apps-script-complete.js` - Complete SOI form handler
 
 ### Site Files
