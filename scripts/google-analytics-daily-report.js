@@ -9,8 +9,8 @@
  * 4. Set up daily trigger
  */
 
-// Configuration
-const CONFIG = {
+// Analytics Configuration
+const ANALYTICS_CONFIG = {
   // Your GA4 Property ID (format: properties/123456789)
   // Get this from GA4: Admin > Property Settings > Property ID
   propertyId: 'properties/518391310',
@@ -36,7 +36,7 @@ function sendWeeklyAnalyticsReport() {
     Logger.log('Error sending weekly report: ' + error.message);
     // Send error notification
     MailApp.sendEmail({
-      to: CONFIG.emailRecipient,
+      to: ANALYTICS_CONFIG.emailRecipient,
       subject: 'RA Analytics Report Error',
       body: 'Failed to generate analytics report: ' + error.message
     });
@@ -49,8 +49,8 @@ function sendWeeklyAnalyticsReport() {
 function getAnalyticsData() {
   const request = {
     dateRanges: [{
-      startDate: CONFIG.startDate,
-      endDate: CONFIG.endDate
+      startDate: ANALYTICS_CONFIG.startDate,
+      endDate: ANALYTICS_CONFIG.endDate
     }],
     dimensions: [
       { name: 'country' }
@@ -62,7 +62,7 @@ function getAnalyticsData() {
     ]
   };
   
-  const response = AnalyticsData.Properties.runReport(request, CONFIG.propertyId);
+  const response = AnalyticsData.Properties.runReport(request, ANALYTICS_CONFIG.propertyId);
   
   return parseAnalyticsResponse(response);
 }
@@ -162,7 +162,7 @@ function sendEmail(body) {
                   Utilities.formatDate(endDate, 'America/Los_Angeles', 'MMM dd');
   
   MailApp.sendEmail({
-    to: CONFIG.emailRecipient,
+    to: ANALYTICS_CONFIG.emailRecipient,
     subject: `RA Website Analytics - ${dateStr}`,
     body: body
   });
