@@ -13,7 +13,7 @@
 export const CONFIG = {
   // Google Apps Script web app endpoint URL
   // Format: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
-  APPS_SCRIPT_ENDPOINT: 'https://script.google.com/macros/s/AKfycbwuiWeVlLTun8RpKx2NvhwnMKFBLoU6e5WbywFqsbm9HMb21JhofPVFj-_uI58DGN1G/exec',
+  APPS_SCRIPT_ENDPOINT: 'https://script.google.com/macros/s/AKfycbwKLPTsbsw2WeIdZ_qdlz7Njj4uOodgSxDa_X47-_8tda5Uk4FltSZYPBYT3yZq8eVXpg/exec',
   
   // Form metadata
   FORM_NAME: 'Statement of Intent 2026'
