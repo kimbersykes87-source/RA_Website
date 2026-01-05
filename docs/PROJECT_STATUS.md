@@ -1,6 +1,6 @@
 # Project Status
 
-**Last Updated:** January 4, 2026  
+**Last Updated:** January 5, 2026  
 **Status:** ✅ Phase 1 Complete & LIVE
 
 ---
@@ -11,11 +11,11 @@
 
 | Site | URL | Status |
 |------|-----|--------|
-| Main Site | https://rubberarmstrong.com | ✅ Live on Cloudflare Pages |
+| Main Site | https://rubberarmstrong.com | ✅ Live & Fully Functional |
 | SOI Form | https://soi.rubberarmstrong.com | ✅ Live & Working |
 | Join Form | join.rubberarmstrong.com | ⏳ Phase 2 |
 
-**Note:** Both sites successfully deployed to Cloudflare Pages with Web Analytics enabled!
+**Note:** Both sites successfully deployed to Cloudflare Pages with Web Analytics enabled. All HTML issues resolved as of January 5, 2026.
 
 ---
 
@@ -33,6 +33,7 @@
 - [x] WCAG 2.1 AA accessibility compliance
 - [x] **Deployed to Cloudflare Pages**
 - [x] **Cloudflare Web Analytics enabled**
+- [x] **All pages displaying correctly (fixed Jan 5, 2026)**
 
 ### SOI Form (soi.rubberarmstrong.com)
 - [x] 15-field operational intake form
@@ -53,10 +54,31 @@
 - [x] Automatic formatting and conditional formatting
 - [x] Status workflow (Pending → Approved/Rejected)
 - [x] Apps Script deployment with CORS fix
+- [x] Google Contacts auto-sync for approved applicants
+- [x] Weekly analytics reporting (Mondays 9 AM PT)
 
 ---
 
 ## 🔧 Technical Achievements
+
+### HTML Encoding Fix (January 5, 2026)
+Fixed critical HTML encoding issue where hyphens were incorrectly converted to semicolons:
+
+**Issues Fixed:**
+- Character encoding: `UTF;8` → `UTF-8`
+- CSS classes: `site;header` → `site-header`
+- CSS variables: `var(;;space;4)` → `var(--space-4)`
+- HTML comments: `<!;;` → `<!--`
+- Asset paths: `logo;landscape.svg` → `logo-landscape.svg`
+- Links: `camp;life.html` → `camp-life.html`
+- Removed duplicate content from about.html and camp-life.html
+
+**Affected Files:**
+- `main-site/index.html`
+- `main-site/about.html`
+- `main-site/camp-life.html`
+
+**Result:** All pages now display correctly with proper headers, navigation, logos, and styling.
 
 ### CORS Solution
 The key breakthrough was changing the form submission content-type from `application/json` to `text/plain`:
@@ -117,15 +139,35 @@ This avoids CORS preflight requests while Google Apps Script still correctly par
 - [ ] Shift commitments
 - [ ] Integration with `Camp_Confirmed_2026` sheet tab
 
+### Site Enhancements
+- [ ] Complete 2022 gallery images
+- [ ] Refine copy/voice across pages
+- [ ] Add FAQ page or sections
+- [ ] Add packing list
+- [ ] Rubber Armstrong Express page
+- [ ] Steward Sale ticket tracker
+
 ---
 
 ## 📝 Known Issues
 
 None currently! 🎉
 
+All previous HTML encoding issues have been resolved.
+
 ---
 
 ## 🔄 Recent Changes
+
+### January 5, 2026
+- ✅ Fixed HTML encoding issues (semicolons → hyphens)
+- ✅ Fixed all CSS class names and CSS variable references
+- ✅ Fixed logo path and asset links
+- ✅ Fixed camp-life.html links
+- ✅ Removed duplicate content from about.html and camp-life.html
+- ✅ Removed Monday meeting references from Camp Life page
+- ✅ Verified all pages displaying correctly
+- ✅ Updated all documentation
 
 ### January 4, 2026
 - ✅ Resolved CORS issue with `text/plain` content-type
@@ -134,7 +176,9 @@ None currently! 🎉
 - ✅ Organized project structure (docs/, scripts/)
 - ✅ Deployed main site to Cloudflare Pages
 - ✅ Enabled Cloudflare Web Analytics on both sites
-- ✅ Updated all documentation
+- ✅ Site-wide tone-of-voice refactor
+- ✅ Google Contacts sync configured
+- ✅ Weekly analytics reporting configured
 
 ### Earlier
 - ✅ Implemented 15-field SOI form
@@ -149,10 +193,12 @@ None currently! 🎉
 
 All documentation is in the `/docs` folder:
 
+- [README.md](./README.md) - Documentation index
 - [GOOGLE_SHEETS_SETUP.md](./GOOGLE_SHEETS_SETUP.md) - Backend setup guide
 - [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md) - Deployment steps
-- [TEST_NOW.md](./TEST_NOW.md) - Testing instructions & CORS solution
-- [TESTING_GUIDE.md](./TESTING_GUIDE.md) - Comprehensive testing guide
+- [GOOGLE_CONTACTS_SYNC.md](./GOOGLE_CONTACTS_SYNC.md) - Contacts sync setup
+- [ANALYTICS_AUTOMATION_SETUP.md](./ANALYTICS_AUTOMATION_SETUP.md) - Analytics setup
+- [TONE_OF_VOICE_REFACTOR.md](./TONE_OF_VOICE_REFACTOR.md) - Content guidelines
 - [content-manifesto-reference.md](./content-manifesto-reference.md) - Manifesto content
 
 ---
@@ -161,3 +207,11 @@ All documentation is in the `/docs` folder:
 
 The Rubber Armstrong 2026 website is fully functional and ready to accept Statement of Intent submissions!
 
+**All pages working correctly:**
+- ✅ Home (index.html)
+- ✅ About (about.html)
+- ✅ Camp Life (camp-life.html)
+- ✅ Gallery (gallery.html)
+- ✅ Ticketing (ticketing.html)
+- ✅ Join (join.html)
+- ✅ SOI Form (soi.rubberarmstrong.com)

@@ -17,6 +17,7 @@ Official website for Rubber Armstrong Burning Man camp.
 - Google Analytics 4 tracking installed
 - SEO optimized (sitemaps, robots.txt, meta tags)
 - Site-wide tone-of-voice refactor complete
+- **HTML encoding issues fixed (January 5, 2026)**
 
 ## Quick Links
 
@@ -52,6 +53,7 @@ Official website for Rubber Armstrong Burning Man camp.
 - Custom Rubber Armstrong font
 - Accessible navigation
 - SEO optimized
+- All pages fully functional
 
 ### SOI Form
 - Real-time validation
@@ -91,6 +93,22 @@ Automatic deployment via Cloudflare Pages:
 2. Cloudflare automatically builds and deploys
 3. Changes live in 1-2 minutes
 
+## Recent Updates
+
+### January 5, 2026
+- ✅ Fixed HTML encoding issues (semicolons → hyphens) in index.html, about.html, camp-life.html
+- ✅ Fixed all CSS class names and variable references
+- ✅ Fixed logo and asset paths
+- ✅ Removed duplicate content from about.html and camp-life.html
+- ✅ Removed Monday meeting references
+- ✅ All pages now displaying correctly with proper headers, navigation, and styling
+
+### January 4, 2026
+- ✅ Resolved CORS issue with SOI form
+- ✅ Deployed main site to Cloudflare Pages
+- ✅ Site-wide tone-of-voice refactor
+- ✅ Google Analytics and Contacts sync configured
+
 ## Documentation
 
 See [`docs/README.md`](docs/README.md) for complete documentation including:
@@ -110,4 +128,4 @@ See [`docs/README.md`](docs/README.md) for complete documentation including:
 
 **Current Phase**: Phase 1 Complete ✅  
 **Next Milestone**: Stewards Sale (typically mid-March)  
-**Last Updated**: January 2026
+**Last Updated**: January 5, 2026

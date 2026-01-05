@@ -32,6 +32,7 @@ Complete documentation for the Rubber Armstrong website project.
 ## Migration & History
 
 - **[Adobe to Cloudflare Migration](ADOBE_TO_CLOUDFLARE_MIGRATION.md)** - Migration from Adobe Portfolio
+- **[HTML Encoding Fix](HTML_ENCODING_FIX.md)** - Semicolon issue resolution (Jan 5, 2026)
 - **[Testing Results](TESTING_RESULTS.md)** - Cross-browser and accessibility testing
 
 ## Project Management
@@ -56,6 +57,9 @@ See [`docs/archive/`](archive/) for:
 - [Google Sheets Setup](GOOGLE_SHEETS_SETUP.md)
 - [Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md)
 - [Fix Burns Display](FIX_BURNS_DISPLAY.md)
+
+### Troubleshooting & Fixes
+- [HTML Encoding Fix](HTML_ENCODING_FIX.md) - Resolved semicolon issues (Jan 5, 2026)
 
 ### Content & Voice
 - [Content Manifesto Reference](content-manifesto-reference.md)
@@ -145,7 +149,7 @@ When adding new documentation:
 
 ---
 
-**Last Updated**: January 2026  
+**Last Updated**: January 5, 2026  
 **Project Phase**: Phase 1 Complete ✅  
 **Next Milestone**: Stewards Sale (typically mid-March)
 
@@ -196,7 +200,7 @@ When adding new documentation:
 
 ---
 
-**Last Updated**: January 2026  
+**Last Updated**: January 5, 2026  
 **Project Phase**: Phase 1 Complete ✅  
 **Next Milestone**: Stewards Sale (typically mid-March)
 
@@ -247,6 +251,6 @@ When adding new documentation:
 
 ---
 
-**Last Updated**: January 2026  
+**Last Updated**: January 5, 2026  
 **Project Phase**: Phase 1 Complete ✅  
 **Next Milestone**: Stewards Sale (typically mid-March)

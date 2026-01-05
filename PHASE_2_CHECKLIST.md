@@ -48,7 +48,7 @@
 
 - [ ] Review Home page - make it sound more like you
 - [ ] Review About page - inject personality
-- [ ] Review Camp Life page - add character
+- [x] Review Camp Life page - removed Monday meeting references (Jan 5, 2026)
 - [ ] Review Ticketing page - update with 2026 dates
 - [ ] Review Join page - clarify process
 - [ ] Review Gallery captions
