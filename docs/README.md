@@ -148,3 +148,105 @@ When adding new documentation:
 **Last Updated**: January 2026  
 **Project Phase**: Phase 1 Complete ✅  
 **Next Milestone**: Stewards Sale (typically mid-March)
+
+
+**Legacy (Current):**
+- `google-analytics-daily-report.js` - Weekly analytics email
+- `google-contacts-sync.js` - Auto-sync to Google Contacts
+- `fix-burns-count-display.js` - Fix burn count display (run once)
+- `apps-script-complete.js` - Complete SOI form handler
+
+### Site Files
+- **Main Site**: [`../main-site/`](../main-site/)
+- **SOI Form**: [`../soi-site/`](../soi-site/)
+- **Shared Assets**: [`../shared/`](../shared/)
+- **Original Assets**: [`../camp_assets/`](../camp_assets/)
+
+## Getting Help
+
+### Common Issues
+
+**Analytics not working?**
+- Check [Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md) troubleshooting section
+- Verify Property ID: 518391310
+- Ensure Google Analytics Data API is enabled
+
+**Form submissions not syncing?**
+- Check [Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md) troubleshooting
+- Verify trigger is set up in Apps Script
+- Check execution logs for errors
+
+**Burns count showing scientific notation?**
+- Run the script in [Fix Burns Display](FIX_BURNS_DISPLAY.md)
+- Ensures future entries are collected as text
+
+**Site not deploying?**
+- Check Cloudflare Pages dashboard for build errors
+- Verify GitHub connection
+- Check [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
+
+## Contributing
+
+When adding new documentation:
+1. Add file to appropriate location (`docs/` or `docs/archive/`)
+2. Update this index
+3. Use clear, descriptive titles
+4. Include troubleshooting sections
+5. Add cross-references to related docs
+
+---
+
+**Last Updated**: January 2026  
+**Project Phase**: Phase 1 Complete ✅  
+**Next Milestone**: Stewards Sale (typically mid-March)
+
+
+**Legacy (Current):**
+- `google-analytics-daily-report.js` - Weekly analytics email
+- `google-contacts-sync.js` - Auto-sync to Google Contacts
+- `fix-burns-count-display.js` - Fix burn count display (run once)
+- `apps-script-complete.js` - Complete SOI form handler
+
+### Site Files
+- **Main Site**: [`../main-site/`](../main-site/)
+- **SOI Form**: [`../soi-site/`](../soi-site/)
+- **Shared Assets**: [`../shared/`](../shared/)
+- **Original Assets**: [`../camp_assets/`](../camp_assets/)
+
+## Getting Help
+
+### Common Issues
+
+**Analytics not working?**
+- Check [Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md) troubleshooting section
+- Verify Property ID: 518391310
+- Ensure Google Analytics Data API is enabled
+
+**Form submissions not syncing?**
+- Check [Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md) troubleshooting
+- Verify trigger is set up in Apps Script
+- Check execution logs for errors
+
+**Burns count showing scientific notation?**
+- Run the script in [Fix Burns Display](FIX_BURNS_DISPLAY.md)
+- Ensures future entries are collected as text
+
+**Site not deploying?**
+- Check Cloudflare Pages dashboard for build errors
+- Verify GitHub connection
+- Check [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
+
+## Contributing
+
+When adding new documentation:
+1. Add file to appropriate location (`docs/` or `docs/archive/`)
+2. Update this index
+3. Use clear, descriptive titles
+4. Include troubleshooting sections
+5. Add cross-references to related docs
+
+---
+
+**Last Updated**: January 2026  
+**Project Phase**: Phase 1 Complete ✅  
+**Next Milestone**: Stewards Sale (typically mid-March)

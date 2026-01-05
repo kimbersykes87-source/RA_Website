@@ -1,10 +1,6 @@
-/**
- * Rubber Armstrong 2026 - Unified Configuration
- * Single source of truth for all Apps Script functions
- * 
- * IMPORTANT: This is the ONLY place where column names and settings are defined.
- * All other scripts reference this configuration.
- */
+// Rubber Armstrong 2026 - Unified Configuration
+// Single source of truth for all Apps Script functions
+// IMPORTANT: This is the ONLY place where column names and settings are defined.
 
 // ============================================================================
 // GLOBAL CONFIGURATION
@@ -81,24 +77,18 @@ const CONFIG = {
 };
 
 // ============================================================================
-// HELPER FUNCTIONS - Get column index by header name
+// HELPER FUNCTIONS
 // ============================================================================
 
-/**
- * Get column index (1-based) for a given header name
- * @param {string} headerName - The exact header name
- * @returns {number} Column index (1-based) or -1 if not found
- */
+// Get column index (1-based) for a given header name
+// Returns -1 if not found
 function getColumnIndex(headerName) {
   const index = CONFIG.HEADERS.indexOf(headerName);
   return index === -1 ? -1 : index + 1;
 }
 
-/**
- * Get column letter for a given header name
- * @param {string} headerName - The exact header name
- * @returns {string} Column letter (e.g., 'A', 'B', 'AA') or null if not found
- */
+// Get column letter for a given header name (e.g., 'A', 'B', 'AA')
+// Returns null if not found
 function getColumnLetter(headerName) {
   const index = getColumnIndex(headerName);
   if (index === -1) return null;
@@ -115,28 +105,18 @@ function getColumnLetter(headerName) {
   return letter;
 }
 
-/**
- * Get all sheet names as an array
- * @returns {Array<string>} Array of sheet names
- */
+// Get all sheet names as an array
 function getAllSheetNames() {
   return Object.values(CONFIG.SHEETS);
 }
 
-/**
- * Get header row from a sheet
- * @param {Sheet} sheet - The sheet object
- * @returns {Array<string>} Array of header names
- */
+// Get header row from a sheet
 function getSheetHeaders(sheet) {
   return sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
 }
 
-/**
- * Validate that sheet headers match CONFIG.HEADERS
- * @param {Sheet} sheet - The sheet object
- * @returns {Object} { valid: boolean, missing: Array, extra: Array }
- */
+// Validate that sheet headers match CONFIG.HEADERS
+// Returns: { valid: boolean, missing: Array, extra: Array }
 function validateHeaders(sheet) {
   const sheetHeaders = getSheetHeaders(sheet);
   const configHeaders = CONFIG.HEADERS;
@@ -165,7 +145,7 @@ const TIMEZONE = {
 // ============================================================================
 
 const ANALYTICS_CONFIG = {
-  // Your GA4 Property ID (format: properties/123456789)
+  // Your GA4 Property ID
   propertyId: 'properties/518391310',
   
   // Email to send reports to
@@ -184,4 +164,3 @@ const ANALYTICS_CONFIG = {
     endDate: 'yesterday'
   }
 };
-

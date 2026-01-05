@@ -216,3 +216,29 @@ function testReport() {
   Logger.log('Test email sent');
 }
 
+
+      { country: 'Canada', users: 5, sessions: 7, pageViews: 15 },
+      { country: 'Germany', users: 4, sessions: 5, pageViews: 12 },
+      { country: 'Netherlands', users: 3, sessions: 4, pageViews: 8 }
+    ]
+  };
+  
+  const emailBody = formatEmailReport(testData);
+  Logger.log(emailBody);
+  sendEmail(emailBody);
+  Logger.log('Test email sent');
+}
+
+
+      { country: 'Canada', users: 5, sessions: 7, pageViews: 15 },
+      { country: 'Germany', users: 4, sessions: 5, pageViews: 12 },
+      { country: 'Netherlands', users: 3, sessions: 4, pageViews: 8 }
+    ]
+  };
+  
+  const emailBody = formatEmailReport(testData);
+  Logger.log(emailBody);
+  sendEmail(emailBody);
+  Logger.log('Test email sent');
+}
+

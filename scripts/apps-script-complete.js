@@ -341,3 +341,45 @@ function testFormSubmission() {
   }
 }
 
+
+    notes: 'This is a test submission from Apps Script',
+    formName: 'Statement of Intent 2026'
+  };
+  
+  const mockEvent = {
+    postData: {
+      contents: JSON.stringify(testData)
+    }
+  };
+  
+  const response = doPost(mockEvent);
+  const result = JSON.parse(response.getContent());
+  
+  if (result.success) {
+    SpreadsheetApp.getUi().alert('✅ Test submission successful!\n\nCheck SOI_Staging tab for the test row.');
+  } else {
+    SpreadsheetApp.getUi().alert('❌ Test failed:\n\n' + result.message);
+  }
+}
+
+
+    notes: 'This is a test submission from Apps Script',
+    formName: 'Statement of Intent 2026'
+  };
+  
+  const mockEvent = {
+    postData: {
+      contents: JSON.stringify(testData)
+    }
+  };
+  
+  const response = doPost(mockEvent);
+  const result = JSON.parse(response.getContent());
+  
+  if (result.success) {
+    SpreadsheetApp.getUi().alert('✅ Test submission successful!\n\nCheck SOI_Staging tab for the test row.');
+  } else {
+    SpreadsheetApp.getUi().alert('❌ Test failed:\n\n' + result.message);
+  }
+}
+
