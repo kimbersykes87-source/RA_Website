@@ -54,10 +54,10 @@ const row = headers.map(header => columnData[header] || '');
 | `Phone Code` | `phoneCountryCode` | Required |
 | `Phone` | `phoneNumber` | Required |
 | `Ref. Campmate` | `referringCampmate` | Required |
-| `Burns (RA)` | `burnsWithRA` | Comma-separated years |
-| `Burns (RA) Count` | Auto-calculated | Empty on submission |
-| `Burns (Other)` | `burnsWithoutRA` | Comma-separated years |
-| `Burns (Other) Count` | Auto-calculated | Empty on submission |
+| `Burns (RA)` | `burnsWithRA` | Array → "2014, 2015, 2016" |
+| `Burns (RA) Count` | Auto-calculated | Count of years (e.g., 3) |
+| `Burns (Other)` | `burnsWithoutRA` | Array → "2022, 2023" |
+| `Burns (Other) Count` | Auto-calculated | Count of years (e.g., 2) |
 | `First Burn?` | `firstBurn` | Yes/No |
 | `Likelihood` | `likelihoodOfAttending` | Required |
 | `Steward Ticket?` | `stewardTicketInterest` | Yes/No |
@@ -69,6 +69,43 @@ const row = headers.map(header => columnData[header] || '');
 | `Internal Notes` | Manual | Empty on submission |
 | `Form` | `formName` | Default: "Statement of Intent 2026" |
 | `Synced to Contacts` | Auto-updated | Empty on submission |
+
+## Burns Data Format
+
+### How Burns Are Stored
+
+The form sends burn years as an array, which the script converts to a comma-separated string and calculates the count.
+
+**Example:**
+
+**Form sends:**
+```javascript
+{
+  burnsWithRA: ['2014', '2015', '2016'],
+  burnsWithoutRA: ['2022', '2023']
+}
+```
+
+**Stored in sheet:**
+- `Burns (RA)`: `2014, 2015, 2016`
+- `Burns (RA) Count`: `3`
+- `Burns (Other)`: `2022, 2023`
+- `Burns (Other) Count`: `2`
+
+### Format Handling
+
+The script handles both formats:
+1. **Array format** (from form): `['2014', '2015', '2016']` → Joins with ", " and counts length
+2. **String format** (manual entry): `"2014,2015,2016"` → Splits by comma and counts
+
+### First Burn Checkbox
+
+If "This is my first Burn" is checked:
+- `First Burn?`: `Yes`
+- `Burns (RA)`: Empty
+- `Burns (RA) Count`: `0`
+- `Burns (Other)`: Empty
+- `Burns (Other) Count`: `0`
 
 ## Setup Requirements
 

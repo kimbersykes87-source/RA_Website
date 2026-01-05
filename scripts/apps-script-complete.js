@@ -226,6 +226,15 @@ function doPost(e) {
     // Get headers from first row
     const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
     
+    // Process burns data - convert arrays to comma-separated strings and count
+    const burnsWithRA = Array.isArray(data.burnsWithRA) ? data.burnsWithRA.join(', ') : (data.burnsWithRA || '');
+    const burnsWithRACount = Array.isArray(data.burnsWithRA) ? data.burnsWithRA.length : 
+                             (data.burnsWithRA ? data.burnsWithRA.split(',').filter(y => y.trim()).length : 0);
+    
+    const burnsWithoutRA = Array.isArray(data.burnsWithoutRA) ? data.burnsWithoutRA.join(', ') : (data.burnsWithoutRA || '');
+    const burnsWithoutRACount = Array.isArray(data.burnsWithoutRA) ? data.burnsWithoutRA.length : 
+                                (data.burnsWithoutRA ? data.burnsWithoutRA.split(',').filter(y => y.trim()).length : 0);
+    
     // Create a map of column names to values
     const columnData = {
       'Timestamp': new Date(),
@@ -239,10 +248,10 @@ function doPost(e) {
       'Phone Code': data.phoneCountryCode || '',
       'Phone': data.phoneNumber || '',
       'Ref. Campmate': data.referringCampmate || '',
-      'Burns (RA)': data.burnsWithRA || '',
-      'Burns (RA) Count': '', // Will be calculated by fixEverything script
-      'Burns (Other)': data.burnsWithoutRA || '',
-      'Burns (Other) Count': '', // Will be calculated by fixEverything script
+      'Burns (RA)': burnsWithRA,
+      'Burns (RA) Count': burnsWithRACount,
+      'Burns (Other)': burnsWithoutRA,
+      'Burns (Other) Count': burnsWithoutRACount,
       'First Burn?': data.firstBurn || 'No',
       'Likelihood': data.likelihoodOfAttending || '',
       'Steward Ticket?': data.stewardTicketInterest || '',
@@ -306,8 +315,8 @@ function testFormSubmission() {
     phoneCountryCode: '+1',
     phoneNumber: '5551234567',
     referringCampmate: 'Jane Doe',
-    burnsWithRA: '2023,2024',
-    burnsWithoutRA: '2015,2016',
+    burnsWithRA: ['2014', '2015', '2016'],  // Array of years - will be stored as "2014, 2015, 2016" with count 3
+    burnsWithoutRA: ['2022', '2023'],       // Array of years - will be stored as "2022, 2023" with count 2
     firstBurn: 'No',
     likelihoodOfAttending: 'Hell yeah!',
     stewardTicketInterest: 'Yes',
