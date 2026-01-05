@@ -15,7 +15,7 @@ function setupAllTabs() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const tabNames = ['SOI_Staging', 'SOI_Approved', 'SOI_Rejected', 'SOI_2026'];
   
-  // Column headers (23 columns) - shortened for easier scanning
+  // Column headers (26 columns) - matches exact column titles
   const headers = [
     'Timestamp',
     'First',
@@ -29,7 +29,9 @@ function setupAllTabs() {
     'Phone',
     'Ref. Campmate',
     'Burns (RA)',
+    'Burns (RA) Count',
     'Burns (Other)',
+    'Burns (Other) Count',
     'First Burn?',
     'Likelihood',
     'Steward Ticket?',
@@ -39,7 +41,8 @@ function setupAllTabs() {
     'Reviewed By',
     'Reviewed At',
     'Internal Notes',
-    'Form'
+    'Form',
+    'Synced to Contacts'
   ];
   
   tabNames.forEach(tabName => {
@@ -220,32 +223,41 @@ function doPost(e) {
       throw new Error('SOI_Staging sheet not found');
     }
     
-    // Prepare row data (must match column order - 23 columns)
-    const row = [
-      new Date(),                                           // 1. Timestamp
-      data.firstName || '',                                 // 2. First Name
-      data.lastName || '',                                  // 3. Last Name
-      data.sex || '',                                       // 4. Sex
-      data.birthYear || '',                                 // 5. Birth Year
-      data.countryOfBirth || '',                            // 6. Country of Birth
-      data.countryOfResidence || '',                        // 7. Country of Residence
-      data.email || '',                                     // 8. Email
-      data.phoneCountryCode || '',                          // 9. Phone Country Code
-      data.phoneNumber || '',                               // 10. Phone Number
-      data.referringCampmate || '',                         // 11. Referring Camp Mate
-      data.burnsWithRA || '',                               // 12. Burns with RA
-      data.burnsWithoutRA || '',                            // 13. Burns without RA
-      data.firstBurn || 'No',                               // 14. First Burn
-      data.likelihoodOfAttending || '',                     // 15. Likelihood of Attending
-      data.stewardTicketInterest || '',                     // 16. Steward Ticket Interest
-      data.whatYouOffer || '',                              // 17. What You Offer
-      data.notes || '',                                     // 18. Notes
-      'Pending',                                            // 19. Status (default)
-      '',                                                   // 20. Reviewed By (empty initially)
-      '',                                                   // 21. Reviewed At (empty initially)
-      '',                                                   // 22. Internal Notes (empty initially)
-      data.formName || 'Statement of Intent 2026'          // 23. Form Name
-    ];
+    // Get headers from first row
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    
+    // Create a map of column names to values
+    const columnData = {
+      'Timestamp': new Date(),
+      'First': data.firstName || '',
+      'Last': data.lastName || '',
+      'Sex': data.sex || '',
+      'Birth Year': data.birthYear || '',
+      'Country (Birth)': data.countryOfBirth || '',
+      'Country (Res)': data.countryOfResidence || '',
+      'Email': data.email || '',
+      'Phone Code': data.phoneCountryCode || '',
+      'Phone': data.phoneNumber || '',
+      'Ref. Campmate': data.referringCampmate || '',
+      'Burns (RA)': data.burnsWithRA || '',
+      'Burns (RA) Count': '', // Will be calculated by fixEverything script
+      'Burns (Other)': data.burnsWithoutRA || '',
+      'Burns (Other) Count': '', // Will be calculated by fixEverything script
+      'First Burn?': data.firstBurn || 'No',
+      'Likelihood': data.likelihoodOfAttending || '',
+      'Steward Ticket?': data.stewardTicketInterest || '',
+      'What Offer': data.whatYouOffer || '',
+      'Notes': data.notes || '',
+      'Status': 'Pending',
+      'Reviewed By': '',
+      'Reviewed At': '',
+      'Internal Notes': '',
+      'Form': data.formName || 'Statement of Intent 2026',
+      'Synced to Contacts': ''
+    };
+    
+    // Build row array based on header order
+    const row = headers.map(header => columnData[header] || '');
     
     // Append row to sheet
     sheet.appendRow(row);
