@@ -25,7 +25,7 @@ Respect means treating people, art, and space like they matter; because they do.
 
 ### All for One and One for All
 
-As far as the camp is concerned, Monday morning will be your most important meeting. As far as the burn is concerned, hopefully, it is your least important.
+Everyone plays their part in the success of the camp. We work together as a collective, supporting each other throughout the burn.
 
 ### Leave No Trace
 

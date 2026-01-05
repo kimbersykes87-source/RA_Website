@@ -76,7 +76,7 @@ When complete, this folder should contain:
 ### Join-Review
 **Concept:** Camp leadership/team meeting/planning
 - Shows the human side of the review process
-- Could be: Camp organizers planning, Monday morning meeting, team huddle
+- Could be: Camp organizers planning, team huddle, leadership discussion
 - Conveys: "We care about who joins our community"
 - Landscape 2400×1200
 
