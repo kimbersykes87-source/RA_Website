@@ -3,13 +3,10 @@
 ## Pre-Deployment Tasks
 
 ### 1. Configure Cloudflare Web Analytics
-- [ ] Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) → Web Analytics
-- [ ] Create a new site for `rubberarmstrong.com`
-- [ ] Create a new site for `soi.rubberarmstrong.com`
-- [ ] Copy each token and update:
-  - `main-site/index.html` (and all other main-site pages)
-  - `soi-site/index.html`
-- [ ] Replace `YOUR_CLOUDFLARE_ANALYTICS_TOKEN` with actual tokens
+- [x] Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) → Web Analytics
+- [x] Create a new site for `rubberarmstrong.com`
+- [x] Create a new site for `soi.rubberarmstrong.com`
+- [x] Enabled automatic Web Analytics on both Cloudflare Pages projects
 
 ### 2. Set Up Google Apps Script Endpoint
 - [ ] Create a new Google Sheet named "RA 2026 SOI Submissions"

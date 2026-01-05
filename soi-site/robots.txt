@@ -1,0 +1,11 @@
+# Rubber Armstrong SOI - robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://soi.rubberarmstrong.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
