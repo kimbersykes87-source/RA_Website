@@ -274,10 +274,11 @@ import {
   
   /**
    * Collect checked values from checkbox group
+   * Returns an array of values (not a comma-separated string)
    */
   function getCheckedValues(name) {
     const checkboxes = form.querySelectorAll(`input[name="${name}"]:checked`);
-    return Array.from(checkboxes).map(cb => cb.value).sort().join(',');
+    return Array.from(checkboxes).map(cb => cb.value).sort();
   }
   
   /**
@@ -286,6 +287,40 @@ import {
   function getRadioValue(name) {
     const radio = form.querySelector(`input[name="${name}"]:checked`);
     return radio ? radio.value : '';
+  }
+  
+  /**
+   * Normalize sex value to match validation
+   */
+  function normalizeSex(value) {
+    const sexMap = {
+      'male': 'Male',
+      'female': 'Female',
+      'non-binary': 'Non-binary',
+      'other': 'Other'
+    };
+    return sexMap[value] || value;
+  }
+  
+  /**
+   * Normalize likelihood value to match validation
+   */
+  function normalizeLikelihood(value) {
+    const likelihoodMap = {
+      'hell-yeah': 'Hell yeah!',
+      'probably': 'Probably',
+      'keep-me-in-loop': 'Keep me in the loop'
+    };
+    return likelihoodMap[value] || value;
+  }
+  
+  /**
+   * Normalize yes/no values to match validation
+   */
+  function normalizeYesNo(value) {
+    if (value === 'yes') return 'Yes';
+    if (value === 'no') return 'No';
+    return value;
   }
   
   /**
@@ -303,7 +338,7 @@ import {
       // Personal Information
       firstName: capitalizeNameField(firstNameInput.value.trim()),
       lastName: capitalizeNameField(lastNameInput.value.trim()),
-      sex: document.getElementById('sex').value,
+      sex: normalizeSex(document.getElementById('sex').value),
       birthYear: birthYearInput.value,
       countryOfBirth: countryOfBirthSelect.value,
       countryOfResidence: countryOfResidenceSelect.value,
@@ -316,14 +351,14 @@ import {
       // Camp Connection
       referringCampmate: document.getElementById('referringCampmate').value.trim(),
       
-      // Burning Man History (comma-separated years)
+      // Burning Man History (arrays of years)
       burnsWithRA: getCheckedValues('burnsWithRA'),
       burnsWithoutRA: getCheckedValues('burnsWithoutRA'),
       firstBurn: isFirstBurn ? 'Yes' : 'No',
       
       // Commitment & Contribution
-      likelihoodOfAttending: getRadioValue('likelihoodOfAttending'),
-      stewardTicketInterest: getRadioValue('stewardTicketInterest'),
+      likelihoodOfAttending: normalizeLikelihood(getRadioValue('likelihoodOfAttending')),
+      stewardTicketInterest: normalizeYesNo(getRadioValue('stewardTicketInterest')),
       whatYouOffer: document.getElementById('whatYouOffer').value.trim(),
       notes: document.getElementById('notes').value.trim()
     };
