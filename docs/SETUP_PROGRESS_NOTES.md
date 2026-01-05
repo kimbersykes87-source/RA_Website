@@ -1,6 +1,6 @@
 # Apps Script Setup Progress Notes
-**Date:** January 5, 2026 (Afternoon)  
-**Status:** 🔧 FIXES APPLIED - Ready for redeployment
+**Date:** January 5, 2026 (Evening)  
+**Status:** ✅ COMPLETE - All systems operational
 
 ---
 
@@ -59,6 +59,48 @@ Form submissions were landing in the wrong columns with garbled Burns data:
 - ✅ Form.js fixes committed (needs deployment)
 
 **Old URL (replaced):** https://script.google.com/macros/s/AKfycbwuiWeVlLTun8RpKx2NvhwnMKFBLoU6e5WbywFqsbm9HMb21JhofPVFj-_uI58DGN1G/exec
+
+---
+
+## 🎊 FINAL STATUS - SYSTEM FULLY OPERATIONAL
+
+### ✅ Everything Working Correctly
+
+**Form Submission:**
+- Live form at https://soi.rubberarmstrong.com/ submits correctly
+- Data lands in SOI_Staging with Status = "Pending"
+- All 26 columns align properly
+- Burns data stores as comma-separated years with counts
+- Phone codes retain "+" prefix
+- Values normalized (Male, Hell yeah!, Yes/No)
+
+**Auto-Move Functionality:**
+- Changing Status to "Approved" → Row moves to SOI_Approved
+- Changing Status to "Rejected" → Row moves to SOI_Rejected
+- Row deleted from SOI_Staging after move
+- All 26 columns preserved during move
+
+**Data Validation:**
+- Sex: Male, Female, Non-binary, Other
+- First Burn?: Yes, No
+- Likelihood: Hell yeah!, Probably, Keep me in the loop
+- Steward Ticket?: Yes, No
+- Status: Pending, Approved, Rejected
+
+**Conditional Formatting (SOI_Staging):**
+- Pending rows = Yellow background
+- Approved rows = Green background (before auto-move)
+- Rejected rows = Red background (before auto-move)
+
+**Column Formatting:**
+- Burns (RA), Burns (Other), Phone Code = Plain text (@STRING@)
+- Prevents number coercion
+
+**Web App Deployment:**
+- URL: https://script.google.com/macros/s/AKfycbwKLPTsbsw2WeIdZ_qdlz7Njj4uOodgSxDa_X47-_8tda5Uk4FltSZYPBYT3yZq8eVXpg/exec
+- Status: Live and processing submissions correctly
+- Responds to GET with info message
+- Handles POST with form data
 
 ---
 
@@ -423,12 +465,141 @@ Tomorrow, you'll know setup is complete when:
 
 ---
 
-**Time Saved:** 7:59 PM, January 4, 2026  
-**Current Function:** `setupAllTabs()` - Appears to be running/hanging  
-**Next Action:** Check execution status in morning, verify sheet setup
+---
+
+## 📋 FINAL SYSTEM CONFIGURATION
+
+### Google Sheets Structure
+- **4 tabs:** SOI_Staging, SOI_Approved, SOI_Rejected, SOI_2026
+- **26 columns** in each tab with identical headers
+- **Header row:** Frozen, bold, gray background
+- **Text formatting:** Burns (RA), Burns (Other), Phone Code = @STRING@
+
+### Apps Script Files
+1. **Config.gs** - All configuration constants
+2. **FormHandler.gs** - Form submission handler, setup functions, validation
+3. **AutoMove.gs** - Automatic row movement between tabs
+4. **Analytics.gs** - GA4 analytics integration (optional)
+5. **ContactsSync.gs** - Google Contacts sync (optional)
+
+### Deployed Web App
+- **URL:** `...AKfycbwKLPTsbsw2WeIdZ_qdlz7Njj4uOodgSxDa_X47-_8tda5Uk4FltSZYPBYT3yZq8eVXpg/exec`
+- **Execution:** As your account
+- **Access:** Anyone
+- **Version:** 26-column with auto-counts and value normalization
+
+### Form Configuration
+- **Live URL:** https://soi.rubberarmstrong.com/
+- **Sends arrays** for Burns data (not comma-strings)
+- **Normalizes values** before submission
+- **Duplicate detection** via localStorage (client-side only)
 
 ---
 
-*Good night! The hard part (fixing syntax and uploading files) is done. Tomorrow is just running setup functions and testing.* 🌙
+## 🎯 HOW TO USE THE SYSTEM
+
+### Daily Workflow
+
+1. **Check SOI_Staging tab** for new submissions (yellow rows = Pending)
+
+2. **Review each entry:**
+   - Read through their information
+   - Check Burns history
+   - Consider what they offer
+   - Make a decision
+
+3. **Change Status dropdown:**
+   - Select "Approved" → Row automatically moves to SOI_Approved ✅
+   - Select "Rejected" → Row automatically moves to SOI_Rejected ❌
+   - Leave as "Pending" → Row stays in SOI_Staging for later review
+
+4. **That's it!** The row disappears from SOI_Staging and appears in the appropriate archive tab.
+
+### Optional: Bulk Move
+
+If you have many approved/rejected rows to move at once:
+1. Go to Apps Script editor
+2. Run function: **`moveApprovedAndRejectedRows`**
+3. All marked rows move in one batch
+
+### Year-End Archive
+
+At the end of 2026:
+1. Copy all data from SOI_Staging, SOI_Approved, SOI_Rejected
+2. Paste into SOI_2026 tab (permanent archive)
+3. Clear the three working tabs
+4. Ready for 2027 season!
+
+---
+
+## 🔧 MAINTENANCE & TROUBLESHOOTING
+
+### If Form Submissions Stop Working
+
+1. Check web app deployment is active
+2. Run `testFormSubmission()` in Apps Script
+3. Check Executions log (clock icon) for errors
+4. Verify SOI_Staging tab exists with correct headers
+
+### If Auto-Move Stops Working
+
+1. Check that AutoMove.gs is in your Apps Script project
+2. Verify `onEdit()` function exists
+3. Test by manually changing a Status dropdown
+4. Check Executions log for errors
+
+### If Data Looks Wrong
+
+1. Run `validateAllHeaders()` to check column structure
+2. Verify Burns columns are formatted as @STRING@
+3. Check that latest web app version is deployed
+4. Clear browser localStorage and test fresh submission
+
+### To Reset Test Email
+
+Open https://soi.rubberarmstrong.com/ and run in console:
+```javascript
+localStorage.removeItem('ra_soi_submissions')
+```
+
+---
+
+## 📊 SUCCESS METRICS
+
+**Everything is considered working if:**
+- ✅ Form submissions land in SOI_Staging with all fields correct
+- ✅ Burns data shows as "2015, 2016, 2017" not "201520162017"
+- ✅ Burns count columns show numbers (3, 2, etc.)
+- ✅ First Burn? appears in column P, not column N
+- ✅ Phone Code shows "+1" not "1"
+- ✅ Status change to Approved/Rejected auto-moves row
+- ✅ All data preserved during move (26 columns)
+
+**All metrics confirmed: January 5, 2026** ✅
+
+---
+
+**Setup Completed:** January 5, 2026, 10:00 PM  
+**Total Time:** ~3 hours (debugging, fixing, testing)  
+**Status:** Production-ready and operational  
+**Last Tested:** Live form submission successful
+
+---
+
+## 📞 QUICK REFERENCE
+
+| Need to... | Do this... |
+|------------|-----------|
+| Test form handler | Run `testFormSubmission()` in Apps Script |
+| Check column structure | Run `validateAllHeaders()` in Apps Script |
+| Move multiple rows at once | Run `moveApprovedAndRejectedRows()` in Apps Script |
+| Update web app | Deploy → Manage → Edit → New version → Deploy |
+| Clear test email | Console: `localStorage.removeItem('ra_soi_submissions')` |
+| Add data validation | Run `setupDataValidation()` in Apps Script |
+| Reset all tabs | Delete tabs, run `setupAllTabs()` |
+
+---
+
+*System fully operational and ready for production use!* 🚀✨
 
 

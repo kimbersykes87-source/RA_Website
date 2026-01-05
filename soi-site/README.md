@@ -58,9 +58,14 @@ function doPost(e) {
 
 ### 2. Update Configuration
 
-Edit `js/config.js` and replace:
+Edit `js/config.js` with your deployed web app URL:
 ```javascript
-APPS_SCRIPT_ENDPOINT: 'YOUR_ACTUAL_SCRIPT_URL_HERE'
+APPS_SCRIPT_ENDPOINT: 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'
+```
+
+**Current Production URL:**
+```javascript
+APPS_SCRIPT_ENDPOINT: 'https://script.google.com/macros/s/AKfycbwKLPTsbsw2WeIdZ_qdlz7Njj4uOodgSxDa_X47-_8tda5Uk4FltSZYPBYT3yZq8eVXpg/exec'
 ```
 
 ### 3. Google Sheets Setup
@@ -122,14 +127,23 @@ Archive of all 2026 submissions (end of season).
 - Uses localStorage to check if email has been submitted before
 - Shows warning message but allows resubmission
 - Warning: "This email has already been submitted. You can submit again to update your information."
+- **To clear for testing:** Console: `localStorage.removeItem('ra_soi_submissions')`
+
+### Data Normalization (NEW - Jan 2026)
+Form automatically normalizes values before submission:
+- **Sex:** `male` → `Male`, `female` → `Female`, etc.
+- **Likelihood:** `hell-yeah` → `Hell yeah!`, `probably` → `Probably`, etc.
+- **Yes/No fields:** `yes` → `Yes`, `no` → `No`
+- **Burns data:** Sent as arrays (`['2015','2016','2017']`) not comma-strings
 
 ### Success Flow
 1. Form data collected and validated
-2. POST to Google Apps Script endpoint
-3. On success (200 response):
+2. Values normalized to match backend validation
+3. POST to Google Apps Script endpoint
+4. On success (200 response):
    - Store email in localStorage
    - Redirect to: `https://rubberarmstrong.com/?submission=success`
-4. Main site detects query parameter and shows success message
+5. Main site detects query parameter and shows success message
 
 ### Error Handling
 - Network errors: Show inline error message, keep form data
