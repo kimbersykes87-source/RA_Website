@@ -13,7 +13,7 @@
 const CONFIG = {
   // Your GA4 Property ID (format: properties/123456789)
   // Get this from GA4: Admin > Property Settings > Property ID
-  propertyId: 'properties/YOUR_GA4_PROPERTY_ID',
+  propertyId: 'properties/518391310',
   
   // Email to send reports to
   emailRecipient: 'rubberarmstrongcamp@gmail.com',
