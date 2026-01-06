@@ -1,256 +1,268 @@
-# Documentation Index
+# Documentation - Rubber Armstrong 2026
 
 Complete documentation for the Rubber Armstrong website project.
+
+**Project Status:** Phase 1 Complete ✅  
+**Last Updated:** January 5, 2026
+
+---
 
 ## Quick Start
 
 **New to the project?** Start here:
-1. [Project Status](PROJECT_STATUS.md) - Current state and completed work
-2. [Deployment Checklist](DEPLOYMENT_CHECKLIST.md) - Deployment verification
-3. [Quick Start Summary](QUICK_START_SUMMARY.md) - Essential information
 
-## Setup Guides
+1. **[GETTING_STARTED.md](GETTING_STARTED.md)** - Project overview, what's working, daily workflow
+2. **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Complete setup instructions (if starting fresh)
+3. **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Solutions to common problems
 
-### Google Apps Script Automation
-- **[Apps Script Rebuild Guide](APPS_SCRIPT_REBUILD_GUIDE.md)** ⭐ - **NEW** Consolidated, improved Apps Script setup
-- **[Apps Script Comparison](APPS_SCRIPT_COMPARISON.md)** - Old vs new system comparison
-- **[Add Analytics to Apps Script](ADD_ANALYTICS_TO_APPS_SCRIPT.md)** - Add weekly analytics reports to existing project
-- **[Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md)** - Detailed GA4 automation guide
-- **[Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md)** - Auto-sync approved applicants
-- **[Google Sheets Setup](GOOGLE_SHEETS_SETUP.md)** - Database configuration
-- **[Apps Script Column Mapping](APPS_SCRIPT_COLUMN_MAPPING.md)** - Header-based column system
+---
 
-### Data Management
-- **[Fix Burns Display](FIX_BURNS_DISPLAY.md)** - Fix burn count display and scientific notation
-- **[Fix Burns Scientific Notation](FIX_BURNS_SCIENTIFIC_NOTATION.md)** - Prevent data corruption
+## Documentation Files
 
-## Content & Design
+### Core Documentation
 
-- **[Content Manifesto Reference](content-manifesto-reference.md)** - Writing guidelines and brand voice
-- **[Tone of Voice Refactor](TONE_OF_VOICE_REFACTOR.md)** - January 2026 site-wide refactor details
+| File | Purpose | When to Use |
+|------|---------|-------------|
+| **[GETTING_STARTED.md](GETTING_STARTED.md)** | Project overview and daily workflow | First thing to read; reference for common tasks |
+| **[SETUP_GUIDE.md](SETUP_GUIDE.md)** | Complete setup instructions | Setting up from scratch or adding new features |
+| **[APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md)** | Apps Script technical reference | Working with backend code or customizing system |
+| **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** | Common issues and solutions | When something isn't working right |
+| **[content-manifesto-reference.md](content-manifesto-reference.md)** | Writing guidelines and brand voice | Creating or editing website content |
 
-## Migration & History
+### Archive
 
-- **[Adobe to Cloudflare Migration](ADOBE_TO_CLOUDFLARE_MIGRATION.md)** - Migration from Adobe Portfolio
-- **[HTML Encoding Fix](HTML_ENCODING_FIX.md)** - Semicolon issue resolution (Jan 5, 2026)
-- **[Testing Results](TESTING_RESULTS.md)** - Cross-browser and accessibility testing
+Historical documentation (completed tasks, migrations, fixes):
+- [archive/HTML_ENCODING_FIX.md](archive/HTML_ENCODING_FIX.md) - Fixed Jan 5, 2026
+- [archive/ADOBE_TO_CLOUDFLARE_MIGRATION.md](archive/ADOBE_TO_CLOUDFLARE_MIGRATION.md) - Migration completed
+- [archive/TONE_OF_VOICE_REFACTOR.md](archive/TONE_OF_VOICE_REFACTOR.md) - Completed Jan 4, 2026
+- [archive/SETUP_PROGRESS_NOTES.md](archive/SETUP_PROGRESS_NOTES.md) - Detailed debugging log
 
-## Project Management
-
-### Active Checklists
-- **[Phase 2 Checklist](../PHASE_2_CHECKLIST.md)** - Pre-Stewards Sale tasks (root folder)
-- **[Phase 3 Checklist](../PHASE_3_CHECKLIST.md)** - Pre-event tasks (root folder)
-
-### Archived Documentation
-See [`docs/archive/`](archive/) for:
-- Completed task summaries
-- Historical migration notes
-- Deprecated guides
+---
 
 ## By Topic
 
-### Analytics & Reporting
-- [Add Analytics to Apps Script](ADD_ANALYTICS_TO_APPS_SCRIPT.md)
-- [Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md)
+### Getting Started
+- **Project overview** → [GETTING_STARTED.md](GETTING_STARTED.md)
+- **What's working** → [GETTING_STARTED.md](GETTING_STARTED.md#whats-live-and-working)
+- **Quick reference (URLs, credentials)** → [GETTING_STARTED.md](GETTING_STARTED.md#quick-reference)
+- **How to review submissions** → [GETTING_STARTED.md](GETTING_STARTED.md#how-to-review-soi-submissions)
+- **How to update content** → [GETTING_STARTED.md](GETTING_STARTED.md#how-to-update-content)
 
-### Form & Database
-- [Google Sheets Setup](GOOGLE_SHEETS_SETUP.md)
-- [Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md)
-- [Fix Burns Display](FIX_BURNS_DISPLAY.md)
+### Setup & Configuration
+- **Initial setup** → [SETUP_GUIDE.md](SETUP_GUIDE.md)
+- **Cloudflare deployment** → [SETUP_GUIDE.md](SETUP_GUIDE.md#cloudflare-pages-deployment)
+- **Google Sheets setup** → [SETUP_GUIDE.md](SETUP_GUIDE.md#google-sheets-setup)
+- **Apps Script setup** → [SETUP_GUIDE.md](SETUP_GUIDE.md#google-apps-script-setup)
+- **Google Contacts sync** → [SETUP_GUIDE.md](SETUP_GUIDE.md#google-contacts-sync-optional)
+- **Analytics setup** → [SETUP_GUIDE.md](SETUP_GUIDE.md#analytics-setup-optional)
 
-### Troubleshooting & Fixes
-- [HTML Encoding Fix](HTML_ENCODING_FIX.md) - Resolved semicolon issues (Jan 5, 2026)
+### Apps Script Technical Details
+- **System overview** → [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md#overview)
+- **File structure** → [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md#file-structure)
+- **Configuration** → [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md#configuration)
+- **Functions reference** → [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md#key-functions)
+- **Column mapping** → [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md#column-mapping-system)
+- **Adding/changing columns** → [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md#addingchanging-columns)
+- **Deployment** → [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md#deployment)
 
-### Content & Voice
-- [Content Manifesto Reference](content-manifesto-reference.md)
-- [Tone of Voice Refactor](TONE_OF_VOICE_REFACTOR.md)
+### Troubleshooting
+- **Form submission problems** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md#form-submission-problems)
+- **Burns data issues** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md#burns-data-issues)
+- **Google Sheets issues** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md#google-sheets-issues)
+- **Auto-move problems** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md#auto-move-problems)
+- **Contacts sync issues** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md#google-contacts-sync-issues)
+- **Analytics issues** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md#analytics-issues)
+- **Deployment issues** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md#deployment-issues)
+- **Apps Script errors** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md#apps-script-errors)
 
-### Deployment & Testing
-- [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
-- [Testing Results](TESTING_RESULTS.md)
-- [Adobe to Cloudflare Migration](ADOBE_TO_CLOUDFLARE_MIGRATION.md)
+### Content & Design
+- **Writing guidelines** → [content-manifesto-reference.md](content-manifesto-reference.md)
+- **Brand voice** → [content-manifesto-reference.md](content-manifesto-reference.md)
+- **Manifesto content** → [content-manifesto-reference.md](content-manifesto-reference.md)
+
+---
 
 ## Key Information
 
 ### Live Sites
-- **Main Site**: https://rubberarmstrong.com
-- **SOI Form**: https://soi.rubberarmstrong.com
+- **Main Site:** https://rubberarmstrong.com
+- **SOI Form:** https://soi.rubberarmstrong.com
 
 ### Google Analytics
-- **Measurement ID**: G-1GN0CT0WN9
-- **Property ID**: 518391310
-- **Reports**: Weekly Mondays 9 AM PT to rubberarmstrongcamp@gmail.com
+- **Measurement ID:** G-1GN0CT0WN9
+- **Property ID:** 518391310
+- **Reports:** Weekly Mondays 9 AM PT to rubberarmstrongcamp@gmail.com
 
 ### Cloudflare
-- **Main Site Project**: Connected to GitHub main branch
-- **SOI Site Project**: Connected to GitHub main branch
-- **Auto-deploy**: 1-2 minutes after push
+- **Main Site Project:** Connected to GitHub main branch
+- **SOI Site Project:** Connected to GitHub main branch
+- **Auto-deploy:** 1-2 minutes after push
 
 ### Google Apps Script
-- **Project**: SOI Form Handler
-- **Scripts**: Form handler, Google Contacts sync, Analytics reporting
-- **Triggers**: Form submit, Status change, Weekly Monday 9 AM PT
-
-## File Locations
-
-### Scripts
-All automation scripts are in [`../scripts/`](../scripts/):
-
-**Consolidated (Recommended):**
-- `apps-script-consolidated/Config.gs` - Unified configuration
-- `apps-script-consolidated/FormHandler.gs` - Setup + form submission
-- `apps-script-consolidated/ContactsSync.gs` - Google Contacts integration
-- `apps-script-consolidated/Analytics.gs` - Weekly analytics reporting
-- `apps-script-consolidated/appsscript.json` - Dependencies
-
-**Legacy (Current):**
-- `google-analytics-daily-report.js` - Weekly analytics email
-- `google-contacts-sync.js` - Auto-sync to Google Contacts
-- `fix-burns-count-display.js` - Fix burn count display (run once)
-- `apps-script-complete.js` - Complete SOI form handler
-
-### Site Files
-- **Main Site**: [`../main-site/`](../main-site/)
-- **SOI Form**: [`../soi-site/`](../soi-site/)
-- **Shared Assets**: [`../shared/`](../shared/)
-- **Original Assets**: [`../camp_assets/`](../camp_assets/)
-
-## Getting Help
-
-### Common Issues
-
-**Analytics not working?**
-- Check [Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md) troubleshooting section
-- Verify Property ID: 518391310
-- Ensure Google Analytics Data API is enabled
-
-**Form submissions not syncing?**
-- Check [Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md) troubleshooting
-- Verify trigger is set up in Apps Script
-- Check execution logs for errors
-
-**Burns count showing scientific notation?**
-- Run the script in [Fix Burns Display](FIX_BURNS_DISPLAY.md)
-- Ensures future entries are collected as text
-
-**Site not deploying?**
-- Check Cloudflare Pages dashboard for build errors
-- Verify GitHub connection
-- Check [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
-
-## Contributing
-
-When adding new documentation:
-1. Add file to appropriate location (`docs/` or `docs/archive/`)
-2. Update this index
-3. Use clear, descriptive titles
-4. Include troubleshooting sections
-5. Add cross-references to related docs
+- **Project:** SOI Form Handler
+- **Scripts:** Form handler, Contacts sync, Analytics reporting
+- **Triggers:** Form submit, Status change, Weekly Monday 9 AM PT
 
 ---
 
-**Last Updated**: January 5, 2026  
-**Project Phase**: Phase 1 Complete ✅  
-**Next Milestone**: Stewards Sale (typically mid-March)
+## Project Structure
 
-
-**Legacy (Current):**
-- `google-analytics-daily-report.js` - Weekly analytics email
-- `google-contacts-sync.js` - Auto-sync to Google Contacts
-- `fix-burns-count-display.js` - Fix burn count display (run once)
-- `apps-script-complete.js` - Complete SOI form handler
-
-### Site Files
-- **Main Site**: [`../main-site/`](../main-site/)
-- **SOI Form**: [`../soi-site/`](../soi-site/)
-- **Shared Assets**: [`../shared/`](../shared/)
-- **Original Assets**: [`../camp_assets/`](../camp_assets/)
-
-## Getting Help
-
-### Common Issues
-
-**Analytics not working?**
-- Check [Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md) troubleshooting section
-- Verify Property ID: 518391310
-- Ensure Google Analytics Data API is enabled
-
-**Form submissions not syncing?**
-- Check [Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md) troubleshooting
-- Verify trigger is set up in Apps Script
-- Check execution logs for errors
-
-**Burns count showing scientific notation?**
-- Run the script in [Fix Burns Display](FIX_BURNS_DISPLAY.md)
-- Ensures future entries are collected as text
-
-**Site not deploying?**
-- Check Cloudflare Pages dashboard for build errors
-- Verify GitHub connection
-- Check [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
-
-## Contributing
-
-When adding new documentation:
-1. Add file to appropriate location (`docs/` or `docs/archive/`)
-2. Update this index
-3. Use clear, descriptive titles
-4. Include troubleshooting sections
-5. Add cross-references to related docs
+```
+RubberArmstrongWebsite/
+├── main-site/              # Main website (rubberarmstrong.com)
+│   ├── index.html
+│   ├── about.html
+│   ├── camp-life.html
+│   ├── gallery.html
+│   ├── ticketing.html
+│   ├── join.html
+│   └── images/
+├── soi-site/               # SOI form (soi.rubberarmstrong.com)
+│   ├── index.html
+│   └── js/
+├── shared/                 # Shared assets (CSS, fonts, images)
+│   ├── css/
+│   ├── fonts/
+│   └── images/
+├── scripts/                # Backend scripts
+│   ├── apps-script-consolidated/  # Recommended
+│   │   ├── Config.gs
+│   │   ├── FormHandler.gs
+│   │   ├── ContactsSync.gs
+│   │   ├── Analytics.gs
+│   │   └── appsscript.json
+│   └── [legacy scripts]
+├── docs/                   # Documentation (you are here)
+│   ├── README.md           # This file
+│   ├── GETTING_STARTED.md
+│   ├── SETUP_GUIDE.md
+│   ├── APPS_SCRIPT_GUIDE.md
+│   ├── TROUBLESHOOTING.md
+│   ├── content-manifesto-reference.md
+│   └── archive/            # Historical docs
+└── camp_assets/            # Original assets from camp
+```
 
 ---
 
-**Last Updated**: January 5, 2026  
-**Project Phase**: Phase 1 Complete ✅  
-**Next Milestone**: Stewards Sale (typically mid-March)
+## Common Tasks
 
+### View Analytics
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com)
+2. Workers & Pages → Select your project
+3. Metrics tab
 
-**Legacy (Current):**
-- `google-analytics-daily-report.js` - Weekly analytics email
-- `google-contacts-sync.js` - Auto-sync to Google Contacts
-- `fix-burns-count-display.js` - Fix burn count display (run once)
-- `apps-script-complete.js` - Complete SOI form handler
+### Review SOI Submissions
+1. Open Google Sheet: "RA 2026 SOI Submissions"
+2. Go to SOI_Staging tab
+3. Review entries with Status = "Pending"
+4. Change Status to "Approved" or "Rejected"
+5. Row auto-moves to appropriate tab
 
-### Site Files
-- **Main Site**: [`../main-site/`](../main-site/)
-- **SOI Form**: [`../soi-site/`](../soi-site/)
-- **Shared Assets**: [`../shared/`](../shared/)
-- **Original Assets**: [`../camp_assets/`](../camp_assets/)
+### Update Website Content
+```bash
+# 1. Edit HTML files in main-site/ or soi-site/
+# 2. Commit and push:
+git add .
+git commit -m "Update content"
+git push
+# 3. Cloudflare auto-deploys in 1-2 minutes
+```
 
-## Getting Help
+### Add Gallery Images
+1. Add images to `main-site/images/gallery/YEAR/`
+2. Update `main-site/gallery.html`
+3. Commit and push
 
-### Common Issues
-
-**Analytics not working?**
-- Check [Analytics Automation Setup](ANALYTICS_AUTOMATION_SETUP.md) troubleshooting section
-- Verify Property ID: 518391310
-- Ensure Google Analytics Data API is enabled
-
-**Form submissions not syncing?**
-- Check [Google Contacts Sync](GOOGLE_CONTACTS_SYNC.md) troubleshooting
-- Verify trigger is set up in Apps Script
-- Check execution logs for errors
-
-**Burns count showing scientific notation?**
-- Run the script in [Fix Burns Display](FIX_BURNS_DISPLAY.md)
-- Ensures future entries are collected as text
-
-**Site not deploying?**
-- Check Cloudflare Pages dashboard for build errors
-- Verify GitHub connection
-- Check [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
-
-## Contributing
-
-When adding new documentation:
-1. Add file to appropriate location (`docs/` or `docs/archive/`)
-2. Update this index
-3. Use clear, descriptive titles
-4. Include troubleshooting sections
-5. Add cross-references to related docs
+### Backup Data
+1. Open Google Sheet
+2. File → Download → Microsoft Excel (.xlsx)
+3. Save with date stamp
 
 ---
 
-**Last Updated**: January 5, 2026  
-**Project Phase**: Phase 1 Complete ✅  
-**Next Milestone**: Stewards Sale (typically mid-March)
+## Getting Help
+
+### By Problem Type
+
+**Something's broken?**  
+→ Check [TROUBLESHOOTING.md](TROUBLESHOOTING.md) first
+
+**Need to set something up?**  
+→ See [SETUP_GUIDE.md](SETUP_GUIDE.md)
+
+**Want to understand how it works?**  
+→ Read [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md)
+
+**Need daily workflow help?**  
+→ See [GETTING_STARTED.md](GETTING_STARTED.md)
+
+**Creating content?**  
+→ Follow [content-manifesto-reference.md](content-manifesto-reference.md)
+
+### Quick Troubleshooting
+
+**Form not working?** → [Form submission problems](TROUBLESHOOTING.md#form-submission-problems)  
+**Burns data wrong?** → [Burns data issues](TROUBLESHOOTING.md#burns-data-issues)  
+**Auto-move not working?** → [Auto-move problems](TROUBLESHOOTING.md#auto-move-problems)  
+**Site not deploying?** → [Deployment issues](TROUBLESHOOTING.md#deployment-issues)
+
+---
+
+## What Makes This Project Work
+
+### Technology Stack
+- **Static Sites** - HTML/CSS/JavaScript, no server needed
+- **Google Apps Script** - Free backend for form processing
+- **Cloudflare Pages** - Free hosting with auto-deploy from GitHub
+- **Google Sheets** - Free database with powerful review interface
+- **Zero Monthly Costs** - Everything uses free tiers
+
+### Design Principles
+- **Custom Rubber Armstrong branding** - Unique font and logo
+- **Dark theme** - Easy on the eyes for playa dust
+- **Mobile-first** - Works on any device
+- **Accessibility** - WCAG 2.1 AA compliant
+- **Fast** - Optimized images, minimal JS, blazing fast load times
+
+---
+
+## Next Steps
+
+### Now (January 2026)
+- ✅ Share SOI form with potential campers
+- ✅ Review submissions as they come in
+- Optional: Deploy Google Contacts sync
+- Optional: Enable weekly analytics emails
+
+### Before Stewards Sale (mid-March)
+- Add custom icons/favicon
+- Complete 2022 gallery images
+- Refine copy and voice
+- Add packing list page
+- Add FAQ page
+- Build join.rubberarmstrong.com
+
+### After Stewards Sale
+- Launch Join form for confirmed campers
+- Continue reviewing and approving applicants
+
+---
+
+## Documentation History
+
+### Latest Changes (January 5, 2026)
+- ✅ Consolidated 23 docs → 6 core files
+- ✅ Removed massive duplication (~67% reduction)
+- ✅ Archived historical/completed docs
+- ✅ Created clear topic-based structure
+- ✅ Improved navigation and findability
+
+### Previous Documentation
+Historical documentation preserved in [archive/](archive/) folder.
+
+---
+
+**The system is fully operational and ready to accept SOI submissions!** 🎪🔥
+
+For questions or issues, start with [GETTING_STARTED.md](GETTING_STARTED.md) or [TROUBLESHOOTING.md](TROUBLESHOOTING.md).

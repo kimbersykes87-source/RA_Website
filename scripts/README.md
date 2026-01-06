@@ -17,5 +17,5 @@ This folder contains backend scripts and automation.
 4. Deploy as Web App with "Anyone" access
 5. Copy the deployment URL to `soi-site/js/config.js`
 
-See [GOOGLE_SHEETS_SETUP.md](../docs/GOOGLE_SHEETS_SETUP.md) for detailed instructions.
+See [SETUP_GUIDE.md](../docs/SETUP_GUIDE.md) and [APPS_SCRIPT_GUIDE.md](../docs/APPS_SCRIPT_GUIDE.md) for detailed instructions.
 

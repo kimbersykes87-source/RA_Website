@@ -383,9 +383,9 @@ After finishing Phase 3:
 ## 🔗 Related Documentation
 
 - [PHASE_2_CHECKLIST.md](./PHASE_2_CHECKLIST.md) - Previous phase
-- [GOOGLE_SHEETS_SETUP.md](./docs/GOOGLE_SHEETS_SETUP.md) - Backend setup
-- [DEPLOYMENT_CHECKLIST.md](./docs/DEPLOYMENT_CHECKLIST.md) - Deployment guide
-- [PROJECT_STATUS.md](./docs/PROJECT_STATUS.md) - Current status
+- [SETUP_GUIDE.md](./docs/SETUP_GUIDE.md) - Complete setup and deployment guide
+- [GETTING_STARTED.md](./docs/GETTING_STARTED.md) - Project overview and current status
+- [APPS_SCRIPT_GUIDE.md](./docs/APPS_SCRIPT_GUIDE.md) - Google Apps Script technical reference
 
 ---
 
