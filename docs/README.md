@@ -2,8 +2,8 @@
 
 Complete documentation for the Rubber Armstrong website project.
 
-**Project Status:** Phase 1 Complete ✅  
-**Last Updated:** January 5, 2026
+**Project Status:** Phase 1 Complete ✅ | Pre-Launch Audit Complete ✅  
+**Last Updated:** January 2026
 
 ---
 
@@ -28,6 +28,7 @@ Complete documentation for the Rubber Armstrong website project.
 | **[APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md)** | Apps Script technical reference | Working with backend code or customizing system |
 | **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** | Common issues and solutions | When something isn't working right |
 | **[content-manifesto-reference.md](content-manifesto-reference.md)** | Writing guidelines and brand voice | Creating or editing website content |
+| **[CHANGELOG.md](CHANGELOG.md)** | Project changelog and version history | See what changed and when |
 
 ### Archive
 
@@ -251,7 +252,12 @@ git push
 
 ## Documentation History
 
-### Latest Changes (January 5, 2026)
+### Latest Changes (January 2026)
+- ✅ **Pre-Launch Audit Complete** - All critical issues fixed, ready for email campaign
+- ✅ **Steward Sale Process Clarified** - Added disclaimers across all pages and emails
+- ✅ **Timeline Expectations Set** - Clear "4-8 weeks" and "by late March" messaging
+- ✅ **Email Templates Updated** - Contact info, SOI explanations, Steward disclaimers added
+- ✅ **Approval Language Improved** - Clearer about what approval means and requires
 - ✅ Consolidated 23 docs → 6 core files
 - ✅ Removed massive duplication (~67% reduction)
 - ✅ Archived historical/completed docs
