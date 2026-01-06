@@ -12,10 +12,11 @@ const CONFIG = {
     STAGING: 'SOI_Staging',
     APPROVED: 'SOI_Approved',
     REJECTED: 'SOI_Rejected',
-    ARCHIVE: 'SOI_2026'
+    ARCHIVE: 'SOI_2026',
+    EMAIL_CAMPAIGN: 'Email_Campaign_2026'  // Email campaign tracking
   },
   
-  // Column Headers (26 columns) - MUST match sheet exactly
+  // Column Headers (33 columns) - MUST match sheet exactly
   HEADERS: [
     'Timestamp',
     'First',
@@ -42,7 +43,15 @@ const CONFIG = {
     'Reviewed At',
     'Internal Notes',
     'Form',
-    'Synced to Contacts'
+    'Synced to Contacts',
+    // Email Tracking Columns (added for email campaign tracking)
+    'Email Sent',          // Column 27 - Was invitation email sent?
+    'Email Sent At',       // Column 28 - When was email sent
+    'Email Opened',        // Column 29 - Did they open the email?
+    'First Open At',       // Column 30 - When did they first open
+    'Open Count',          // Column 31 - Number of times opened
+    'Link Clicked',        // Column 32 - Did they click the SOI link?
+    'First Click At'       // Column 33 - When did they first click
   ],
   
   // Data Validation Options

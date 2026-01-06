@@ -105,7 +105,7 @@ Automatic deployment via Cloudflare Pages:
 - ✅ **Follow-up email fixed** - Removed false urgency, clarified actual timeline
 - ✅ **Duplicate HTML removed** - Fixed file corruption in join.html and ticketing.html
 
-See [PRE_LAUNCH_AUDIT_REPORT.md](PRE_LAUNCH_AUDIT_REPORT.md) and [FIXES_SUMMARY.md](FIXES_SUMMARY.md) for complete details.
+See [`docs/archive/PRE_LAUNCH_AUDIT_AND_FIXES.md`](docs/archive/PRE_LAUNCH_AUDIT_AND_FIXES.md) for complete details.
 
 ### January 5, 2026
 - ✅ Fixed HTML encoding issues (semicolons → hyphens) in index.html, about.html, camp-life.html

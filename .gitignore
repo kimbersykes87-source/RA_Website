@@ -47,3 +47,11 @@ yarn-error.log*
 .cloudflare/
 wrangler.toml.local
 
+# Credentials and secrets
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!tsconfig.*.json
+email_tracking/assets/*.json
+
