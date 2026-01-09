@@ -4,6 +4,22 @@ All notable changes to the project are documented in this file.
 
 ---
 
+## [January 9, 2026] - 2026 Ticket Sales Information Added
+
+### ✅ Added
+- **2026 Ticket Sales Section** - New section on Ticketing page with confirmed Burning Man 2026 ticket sale information:
+  - **Sunrise Sale**: Registration opens 26 January 2026, Sale takes place 4 February 2026
+  - Contact note for Sunrise Sale ticket holders to reach out before purchasing
+  - **Steward Sale**: Placeholder with expected timing (March)
+  - **Main Sale**: Placeholder with expected timing (April)
+- Content is factual and restrained, does not imply guarantees or eligibility
+- Funnels Sunrise Sale ticket holders to contact camp early via rubberarmstrongcamp@gmail.com
+
+### 📝 Files Modified
+- `main-site/ticketing.html` - Added "2026 Ticket Sales" section with Sunrise Sale dates and contact information
+
+---
+
 ## [January 2026] - Pre-Launch Audit & Fixes
 
 ### ✅ Fixed - Critical Issues

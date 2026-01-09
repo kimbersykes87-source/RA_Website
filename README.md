@@ -95,6 +95,11 @@ Automatic deployment via Cloudflare Pages:
 
 ## Recent Updates
 
+### January 9, 2026
+- ✅ **2026 Ticket Sales section added** - Added confirmed Burning Man 2026 ticket sale information to ticketing page
+- ✅ **Sunrise Sale dates** - Registration (26 January) and Sale (4 February) dates with contact note
+- ✅ **Steward and Main Sale placeholders** - Added expected timing (March and April respectively)
+
 ### January 2026 - Pre-Launch Audit Complete
 - ✅ **All critical issues fixed** - Ready for email campaign launch
 - ✅ **Steward Sale process clarified** - Added disclaimers that interest ≠ guarantee across all pages
