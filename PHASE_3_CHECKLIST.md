@@ -274,6 +274,48 @@ Tuesday, Aug 26
 
 ---
 
+### 4. RA Phone Lock Screen 📱
+**Effort:** Low | **Timeline:** 15-30 minutes
+
+Create and provide RA-branded phone lock screen image for campmates.
+
+#### Purpose
+- Branded camp identity on campmates' devices
+- Easy identification at events
+- Community building
+- Professional presentation
+
+#### Tasks
+- [ ] Locate or create RA Phone Lock Screen PNG
+- [ ] Ensure proper dimensions for various phone sizes:
+  - iPhone: 1170×2532px (6.7"), 1125×2436px (6.5"), 750×1334px (SE)
+  - Android: 1080×2340px (standard), 1440×3200px (high-res)
+- [ ] Optimize file size (< 500KB recommended)
+- [ ] Add to shared assets folder (`camp_assets/` or `shared/assets/`)
+- [ ] Create download link/page or share via camp communications
+- [ ] Document location and usage instructions
+
+#### Content Guidelines
+- Include Rubber Armstrong logo/branding
+- Use camp colors (reference `design-tokens.css`)
+- Keep text minimal (optional: "Rubber Armstrong", year)
+- Ensure readability at lock screen size
+- Dark/light mode consideration (or provide both versions)
+
+#### File Specifications
+- **Format:** PNG (transparency if needed) or JPG
+- **Dimensions:** Multiple sizes or single high-res (min 1080×2340px)
+- **File Size:** < 500KB per image
+- **Naming:** `RA-LockScreen-2026.png` or `RA-LockScreen-Phone-[size].png`
+
+#### Distribution Options
+- [ ] Add download section to campmate portal/roster page
+- [ ] Share via email/camp communications
+- [ ] Host on camp website (password-protected section)
+- [ ] Provide in multiple sizes (iPhone, Android, universal)
+
+---
+
 ## 📊 Progress Tracking
 
 | Task | Status | Time Estimate | Actual Time |
@@ -281,13 +323,16 @@ Tuesday, Aug 26
 | 1. Hitch-Hiking Page | ⏳ Not Started | 2-3 hours | - |
 | 2. Roster Page | ⏳ Not Started | 2-3 hours | - |
 | 3. Persians (Shifts) | ⏳ Not Started | 3-4 hours | - |
-| **TOTAL** | **0% Complete** | **7-10 hours** | **-** |
+| 4. RA Phone Lock Screen | ⏳ Not Started | 15-30 min | - |
+| **TOTAL** | **0% Complete** | **7.25-10.5 hours** | **-** |
 
 ---
 
 ## 🎯 Recommended Timeline
 
 **6 weeks before event:**
+- Create RA Phone Lock Screen (task 4) - 15-30 min
+- Share with campmates
 - Build Roster page (task 2) - 2-3 hours
 - Populate with confirmed campmates
 
