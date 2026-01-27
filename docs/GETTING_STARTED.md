@@ -9,7 +9,7 @@
 
 ### Live Sites
 - **Main Site:** https://rubberarmstrong.com  
-  ✅ 6 pages (Home, About, Camp Life, Gallery, Ticketing, Join)
+  ✅ 7 pages (Home, About, Camp Life, Gallery, Ticketing, Join, Dates)
 - **SOI Form:** https://soi.rubberarmstrong.com  
   ✅ 15-field operational intake form with validation
 
@@ -22,6 +22,7 @@
 - ✅ SEO optimization (sitemap, robots.txt, meta tags)
 - ✅ Google Contacts auto-sync (ready to deploy)
 - ✅ Weekly analytics reporting (ready to deploy)
+- ✅ **Interactive Calendar** (`/dates`) - CSV-based event management with modal details
 
 ---
 

@@ -1,0 +1,632 @@
+/*
+ * Rubber Armstrong Roles Page Styles
+ * Org chart layout and modal styling
+ */
+
+/* ====================================
+   Roles Container
+   ==================================== */
+
+/* Standard section spacing - will be overridden for desktop in media query below */
+.section.roles-section {
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-10);
+  margin-top: calc(-1 * var(--space-10) - var(--space-4)); /* Pull up further */
+}
+
+@media (min-width: 768px) {
+  .section.roles-section {
+    margin-top: calc(-1 * var(--space-12) - var(--space-6)); /* Pull up much further */
+  }
+}
+
+.roles-container {
+  position: relative;
+  min-height: 400px;
+}
+
+.roles-loading {
+  text-align: center;
+  padding: var(--space-10);
+  color: var(--color-text-muted);
+}
+
+/* ====================================
+   Roles Pods Layout
+   ==================================== */
+
+.roles-pods {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  padding: 0;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .roles-pods {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .roles-pods {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.role-pod {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pod-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0;
+}
+
+.pod-roles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .org-chart {
+    gap: var(--space-4);
+  }
+}
+
+.org-chart-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .org-chart {
+    display: none;
+  }
+  
+  .org-chart-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}
+
+/* Org Chart Levels */
+.org-level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  position: relative;
+}
+
+.org-level.leadership {
+  flex-direction: column;
+}
+
+.org-level.leadership-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.org-level.leadership-split {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  position: relative;
+  width: 100%;
+}
+
+.org-level-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.org-level.area-leads {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.org-level.area-leads-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.area-leads-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.area-leads-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1023px) {
+  .org-level.leadership-split {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .org-connector-split {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .org-connector-split .org-connector {
+    max-width: 100%;
+  }
+  
+  .org-level.area-leads {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .area-leads-column {
+    width: 100%;
+  }
+}
+
+/* Connector Lines */
+.org-connector {
+  background-color: var(--color-accent);
+  opacity: 0.3;
+  margin: var(--space-2) 0;
+}
+
+.org-connector.vertical {
+  height: var(--space-3);
+  width: 2px;
+}
+
+.org-connector.horizontal {
+  height: 2px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* ====================================
+   Role Cards
+   ==================================== */
+
+.role-card {
+  background-color: var(--color-bg-secondary);
+  border: 2px solid var(--color-accent); /* Mustard yellow border */
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-3); /* Reduced padding to make box smaller */
+  cursor: pointer;
+  transition: all var(--transition-base);
+  min-width: 140px; /* Reduced from 160px */
+  text-align: center;
+  position: relative;
+}
+
+.role-card:hover,
+.role-card:focus {
+  border-color: var(--color-accent);
+  background-color: var(--color-bg-elevated);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  outline: none;
+}
+
+.role-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.role-card.active {
+  border-color: var(--color-accent);
+  background-color: var(--color-bg-elevated);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.role-card-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* Match CAMP STRUCTURE styling */
+}
+
+.role-card-name {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.role-card-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-2);
+}
+
+.badge-leadership {
+  background-color: rgba(212, 165, 116, 0.2);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.badge-experience {
+  background-color: rgba(212, 165, 116, 0.2);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.badge-area-lead {
+  background-color: rgba(212, 165, 116, 0.15);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-bg-elevated);
+}
+
+/* Mobile Role List */
+.mobile-role-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.mobile-role-item {
+  background-color: var(--color-bg-secondary);
+  border: 2px solid var(--color-accent); /* Mustard yellow border */
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3); /* Reduced padding to make box smaller */
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.mobile-role-item:hover,
+.mobile-role-item:focus {
+  border-color: var(--color-accent);
+  background-color: var(--color-bg-elevated);
+  outline: none;
+}
+
+.mobile-role-item:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.mobile-role-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.mobile-role-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* Match CAMP STRUCTURE styling */
+}
+
+.mobile-role-name {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* ====================================
+   Modal
+   ==================================== */
+
+.role-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.role-modal[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-bg-elevated);
+  border-radius: var(--radius-lg);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  z-index: var(--z-modal);
+  transform: scale(0.95);
+  transition: transform var(--transition-base);
+  
+  /* Scrollbar styling - matches roles page */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-bg-elevated);
+}
+
+/* Webkit scrollbar styling (Chrome, Safari, Edge) */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-sm);
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-bg-elevated);
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.role-modal[aria-hidden="false"] .modal-content {
+  transform: scale(1);
+}
+
+@media (max-width: 767px) {
+  .modal-content {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    margin: 0;
+  }
+  
+  .role-modal {
+    padding: 0;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  background-color: var(--color-accent);
+  color: var(--color-bg-primary);
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.modal-body {
+  padding: var(--space-8) var(--space-6);
+}
+
+@media (max-width: 767px) {
+  .modal-body {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+  padding-right: var(--space-10);
+}
+
+.modal-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.modal-section {
+  margin-bottom: var(--space-6);
+}
+
+.modal-section-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.modal-section-content {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.modal-section-content p {
+  margin-bottom: var(--space-3);
+}
+
+.modal-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.modal-list li {
+  padding-left: var(--space-5);
+  position: relative;
+  margin-bottom: var(--space-2);
+}
+
+.modal-list li::before {
+  content: '•';
+  position: absolute;
+  left: var(--space-2);
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* ====================================
+   Roles Page Footer
+   ==================================== */
+
+.roles-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-bg-elevated);
+  padding: var(--space-4) 0;
+  z-index: var(--z-sticky);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Account for mobile navigation on mobile */
+@media (max-width: 767px) {
+  .roles-footer {
+    bottom: 60px; /* Height of mobile nav */
+  }
+}
+
+.roles-footer-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+  white-space: nowrap; /* Keep on one line on desktop */
+}
+
+/* Allow wrapping on mobile only */
+@media (max-width: 767px) {
+  .roles-footer-text {
+    white-space: normal;
+  }
+}
+
+/* Standard main padding for roles page - add extra bottom padding for fixed footer */
+.roles-page main {
+  padding-bottom: calc(var(--space-8) + 80px); /* Extra space for fixed footer */
+}
+
+@media (max-width: 767px) {
+  .roles-page main {
+    padding-bottom: calc(var(--space-8) + 140px); /* Extra space for fixed footer + mobile nav */
+  }
+}
+
+/* ====================================
+   Desktop Layout Adjustments (16:9 fit)
+   ==================================== */
+
+@media (min-width: 768px) {
+  /* Use standard hero spacing but slightly reduced for 16:9 fit */
+  .roles-page .hero {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-10);
+  }
+  
+  /* Standard section spacing */
+  .roles-page .section.roles-section {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+}
+
+/* ====================================
+   Accessibility
+   ==================================== */
+
+/* Hide modal from screen readers when closed */
+.role-modal[aria-hidden="true"] {
+  display: none;
+}
+
+/* Ensure focus trap works */
+.role-modal[aria-hidden="false"] .modal-content {
+  /* Focus trap handled in JavaScript */
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .role-card,
+  .modal-content,
+  .role-modal {
+    transition: none;
+  }
+}

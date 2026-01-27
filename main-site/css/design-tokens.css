@@ -201,3 +201,19 @@ button {
   text-transform: uppercase;
 }
 
+/* ====================================
+   Image Aspect Ratio Protection
+   Prevent warping on all images
+   ==================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* SVG elements should preserve aspect ratio */
+svg {
+  max-width: 100%;
+  height: auto;
+}
+

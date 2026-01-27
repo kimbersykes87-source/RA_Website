@@ -165,6 +165,23 @@ main {
 .mobile-nav-icon {
   font-size: 20px;
   margin-bottom: var(--space-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: invert(70%) sepia(0%) saturate(0%) brightness(100%);
+  transition: filter var(--transition-fast);
+}
+
+.mobile-nav-item:hover .mobile-nav-icon img,
+.mobile-nav-item:focus .mobile-nav-icon img,
+.mobile-nav-item.active .mobile-nav-icon img {
+  filter: invert(73%) sepia(20%) saturate(600%) hue-rotate(345deg) brightness(95%);
 }
 
 /* ====================================
@@ -409,6 +426,7 @@ blockquote {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
   transition: transform var(--transition-slow);
 }
 
@@ -591,8 +609,15 @@ li {
   z-index: 1;
 }
 
-/* Disable parallax on mobile for performance */
+/* Disable parallax on mobile for performance and iOS compatibility */
 @media (max-width: 767px) {
+  .section-with-background {
+    background-attachment: scroll;
+  }
+}
+
+/* iOS Safari fix: force scroll attachment on touch devices */
+@supports (-webkit-touch-callout: none) {
   .section-with-background {
     background-attachment: scroll;
   }

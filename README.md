@@ -54,6 +54,7 @@ Official website for Rubber Armstrong Burning Man camp.
 - Accessible navigation
 - SEO optimized
 - All pages fully functional
+- **Interactive calendar** (`/dates`) with event details modal
 
 ### SOI Form
 - Real-time validation
@@ -94,6 +95,14 @@ Automatic deployment via Cloudflare Pages:
 3. Changes live in 1-2 minutes
 
 ## Recent Updates
+
+### January 2026 - Calendar/Dates Page Complete
+- ✅ **Interactive calendar page** (`/dates`) - Shows important dates July 27 - September 13, 2026
+- ✅ **CSV-based event management** - Easy to update via `main-site/data/dates.csv`
+- ✅ **Event details modal** - Click any event to view Title, Crew, and Notes
+- ✅ **Responsive design** - No scrollbars, works perfectly on all devices
+- ✅ **Multi-day event spanning** - Events seamlessly span across multiple days
+- ✅ **Navigation integration** - Added to all page navigation menus
 
 ### January 9, 2026 - Ticketing Page Complete Update
 - ✅ **Hero background image applied** - Added responsive Ticketing-Hero background to hero section

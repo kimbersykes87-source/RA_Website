@@ -4,6 +4,43 @@ All notable changes to the project are documented in this file.
 
 ---
 
+## [January 2026] - Calendar/Dates Page Complete
+
+### ✅ Added
+- **Interactive Calendar Page** (`/dates`) - New page showing important dates and events for Rubber Armstrong 2026
+- **CSV-Based Event Management** - Events managed via `main-site/data/dates.csv` with columns: start_date, end_date, title, color, Title, Crew, Notes
+- **Event Details Modal** - Click any event to view detailed information (Title, Crew, Notes) in a centered, responsive modal
+- **Multi-Day Event Spanning** - Events seamlessly span across multiple days with visual continuity
+- **Responsive Design** - Fully responsive calendar with no horizontal or vertical scrollbars
+- **Month Header Customization** - Custom row spans for July (row 2), August (rows 3-6), and September (rows 7-8)
+- **Navigation Integration** - Added "Dates" link to all page navigation menus (desktop and mobile)
+
+### ✅ Features
+- Calendar displays July 27 - September 13, 2026
+- Weeks start on Monday, end on Sunday
+- Events can span multiple days with seamless visual connection
+- Event text uses charcoal color (#36454F) for readability
+- Vertical centering of event titles
+- Accessible (keyboard navigation, ARIA labels, focus states)
+- Mobile-optimized with reduced event box heights
+
+### 📝 Files Created
+- `main-site/dates.html` - Calendar page with standard site structure
+- `main-site/css/calendar.css` - Complete calendar styling (responsive, dark theme)
+- `main-site/js/calendar.js` - Calendar rendering logic, CSV parsing, event modal
+- `main-site/data/dates.csv` - Event data source (easily updatable)
+
+### 📝 Files Modified
+- `main-site/index.html` - Added "Dates" to navigation
+- `main-site/about.html` - Added "Dates" to navigation
+- `main-site/camp-life.html` - Added "Dates" to navigation
+- `main-site/ticketing.html` - Added "Dates" to navigation
+- `main-site/join.html` - Added "Dates" to navigation
+- `main-site/gallery.html` - Added "Dates" to navigation
+- `main-site/roles.html` - Added "Dates" to navigation
+
+---
+
 ## [January 9, 2026] - Ticketing Page Complete Update
 
 ### ✅ Added

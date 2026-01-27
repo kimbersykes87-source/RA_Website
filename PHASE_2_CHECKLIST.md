@@ -166,7 +166,38 @@ Create a dedicated page for the Rubber Armstrong Express - the camp's transporta
 
 ---
 
-### 8. Add Steward Sale Ticket Tracker 🎫
+### 8. Calendar/Dates Page ✅
+**Effort:** Medium | **Timeline:** 4-5 hours | **Status:** Complete (January 2026)
+
+Interactive calendar showing important dates and events for Rubber Armstrong 2026.
+
+**Completed:**
+- [x] Created `main-site/dates.html` calendar page
+- [x] Built responsive calendar grid (July 27 - September 13, 2026)
+- [x] CSV-based event data (`main-site/data/dates.csv`)
+- [x] Multi-day event spanning with seamless visual connection
+- [x] Event modal popup with details (Title, Crew, Notes)
+- [x] Responsive design (no scrollbars, mobile-optimized)
+- [x] Month headers with custom row spans
+- [x] Navigation links added to all pages
+- [x] Styled to match site design (dark theme, charcoal text)
+
+**Files created:**
+- `main-site/dates.html`
+- `main-site/css/calendar.css`
+- `main-site/js/calendar.js`
+- `main-site/data/dates.csv`
+
+**Features:**
+- Events span multiple days seamlessly
+- Click events to view details in modal
+- Responsive layout (mobile, tablet, desktop)
+- No horizontal/vertical scrollbars
+- Accessible (keyboard navigation, ARIA labels)
+
+---
+
+### 9. Add Steward Sale Ticket Tracker 🎫
 **Effort:** Medium-High | **Timeline:** 3-4 hours
 
 Create a tool to track Steward Sale ticket allocation and distribution.
@@ -305,8 +336,9 @@ Create a tool to track Steward Sale ticket allocation and distribution.
 | 5. FAQ | ⏳ Not Started | 2-3 hours | - |
 | 6. Join Page | ⏳ Not Started | 4-6 hours | - |
 | 7. RA Express Page | ⏳ Not Started | 2-3 hours | - |
-| 8. Steward Tracker | ⏳ Not Started | 3-4 hours | - |
-| **TOTAL** | **0% Complete** | **18-26 hours** | **-** |
+| 8. Calendar/Dates Page | ✅ Complete | 4-5 hours | - |
+| 9. Steward Tracker | ⏳ Not Started | 3-4 hours | - |
+| **TOTAL** | **12.5% Complete** | **22-31 hours** | **-** |
 
 ---
 
@@ -314,6 +346,7 @@ Create a tool to track Steward Sale ticket allocation and distribution.
 
 **4 weeks before Stewards Sale ends:**
 - Complete tasks 1-3 (icons, gallery, copy) - 5-7 hours
+- ✅ Calendar/Dates page (task 8) - Complete (January 2026)
 
 **3 weeks before:**
 - Complete tasks 4-5 (packing list, FAQ) - 4-6 hours
@@ -321,7 +354,7 @@ Create a tool to track Steward Sale ticket allocation and distribution.
 
 **2 weeks before:**
 - Build Join page (task 6) - 4-6 hours
-- Build Steward Tracker (task 8) - 3-4 hours
+- Build Steward Tracker (task 9) - 3-4 hours
 
 **1 week before:**
 - Test everything thoroughly
@@ -357,6 +390,16 @@ After finishing all tasks:
 - [ ] Verify all analytics tracking
 - [ ] Check mobile experience
 - [ ] Announce Join form to approved applicants
+
+## ✅ Completed Tasks
+
+### Calendar/Dates Page (January 2026)
+- ✅ Interactive calendar page created and deployed
+- ✅ CSV-based event management system
+- ✅ Event details modal with Title, Crew, Notes
+- ✅ Fully responsive design (no scrollbars)
+- ✅ Navigation integration complete
+- ✅ Ready for production deployment
 
 ---
 
