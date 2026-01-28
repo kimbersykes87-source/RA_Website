@@ -127,7 +127,7 @@ body.dates-page .hero-subtitle {
 .calendar-event {
   position: absolute;
   padding: var(--space-1) var(--space-2);
-  font-size: var(--font-size-xs);
+  font-size: 0.7rem; /* Reduced from font-size-xs */
   font-weight: var(--font-weight-medium);
   color: #36454F; /* Charcoal color - darker than muted text */
   white-space: nowrap; /* Prevent text wrapping */
@@ -235,7 +235,7 @@ body.dates-page .hero-subtitle {
     top: auto !important; /* Override all nth-of-type top values */
     left: 0;
     right: 0;
-    font-size: 7px;
+    font-size: 6px; /* Reduced by 10% */
     padding: 1px 2px;
     height: auto; /* Allow dynamic height */
     min-height: 12px;
@@ -292,7 +292,7 @@ body.dates-page .hero-subtitle {
   }
   
   .calendar-event {
-    font-size: 11px;
+    font-size: 10px; /* Reduced by 10% */
     height: 18px;
   }
 }
@@ -308,7 +308,7 @@ body.dates-page .hero-subtitle {
   }
   
   .calendar-event {
-    font-size: var(--font-size-xs);
+    font-size: 0.7rem; /* Reduced by 10% */
     padding: var(--space-1) var(--space-2);
   }
 }
