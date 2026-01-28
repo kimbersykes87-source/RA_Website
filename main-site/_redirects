@@ -1,0 +1,19 @@
+# Cloudflare Pages Redirects
+# Format: [source] [destination] [status code]
+
+# Remove Contact page - return 404
+/contact /404.html 404
+/contact/ /404.html 404
+
+# Extensionless URL redirects (301 permanent)
+/index.html / 301
+/about.html /about 301
+/camp-life.html /camp-life 301
+/ticketing.html /ticketing 301
+/join.html /join 301
+/dates.html /dates 301
+/gallery.html /gallery 301
+/roles.html /roles 301
+
+# Canonical host (non-www)
+https://www.rubberarmstrong.com/* https://rubberarmstrong.com/:splat 301
