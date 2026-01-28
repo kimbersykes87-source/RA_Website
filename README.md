@@ -2,6 +2,12 @@
 
 Official website for Rubber Armstrong Burning Man camp.
 
+## Version 1.0 Baseline
+
+**Released:** 28 January 2026
+
+This marks the stable v1.0 release of the Rubber Armstrong website, ready for the 2026 season.
+
 ## Live Sites
 
 - **Main Site**: https://rubberarmstrong.com
@@ -9,15 +15,17 @@ Official website for Rubber Armstrong Burning Man camp.
 
 ## Project Status
 
-✅ **Phase 1 Complete** - Initial launch (January 2026)
+✅ **Version 1.0 Complete** - Baseline release (28 January 2026)
 - Main site deployed on Cloudflare Pages
 - SOI form live and collecting submissions
 - Google Sheets database operational
 - Google Contacts auto-sync configured
 - Google Analytics 4 tracking installed
-- SEO optimized (sitemaps, robots.txt, meta tags)
-- Site-wide tone-of-voice refactor complete
-- **HTML encoding issues fixed (January 5, 2026)**
+- SEO optimised (sitemaps, robots.txt, meta tags)
+- Extensionless URLs with proper redirects
+- Custom 404 page
+- Consistent navigation across all pages
+- Content cleanup complete
 
 ## Quick Links
 
@@ -94,52 +102,29 @@ Automatic deployment via Cloudflare Pages:
 2. Cloudflare automatically builds and deploys
 3. Changes live in 1-2 minutes
 
-## Recent Updates
+## Version 1.0 Release Notes (28 January 2026)
 
-### January 2026 - Calendar/Dates Page Complete
-- ✅ **Interactive calendar page** (`/dates`) - Shows important dates July 27 - September 13, 2026
-- ✅ **CSV-based event management** - Easy to update via `main-site/data/dates.csv`
-- ✅ **Event details modal** - Click any event to view Title, Crew, and Notes
-- ✅ **Responsive design** - No scrollbars, works perfectly on all devices
-- ✅ **Multi-day event spanning** - Events seamlessly span across multiple days
-- ✅ **Navigation integration** - Added to all page navigation menus
+### Content & Navigation
+- Removed Contact page (returns 404)
+- Removed Roles from navigation (page still accessible, being migrated to separate project)
+- Standardised navigation: About, Camp Life, Tickets, Join, Dates
+- "Named in cosmic tribute..." text only on Home page
+- "Working Camp, Not a Hotel" messaging only on Camp Life page
+- Added "Timing and Tickets" section to Join page
+- Removed duplicate content from Ticketing page
 
-### January 9, 2026 - Ticketing Page Complete Update
-- ✅ **Hero background image applied** - Added responsive Ticketing-Hero background to hero section
-- ✅ **Complete 2026 ticket sales information** - Updated with all official Burning Man dates:
-  - Sunrise Sale: Registration Jan 26 - Feb 3, Sale Feb 4
-  - Stewards Sale: Form Feb 20-27, Purchase Mar 4-11
-  - Main Sale: Registration Apr 20-28, Sale Apr 29
-  - Other Programs: Ticket Aid, Resilience, STEP dates
-- ✅ **Updated background images** - Deployed new Ticketing-Hero and Ticketing-Steward images for all sizes
-- ✅ **Stewards Sale text updated** - Changed to reference Statement of Intent form
-- ✅ **Removed Sunrise Sale contact note** - Cleaned up unnecessary contact request
+### Technical
+- Extensionless URLs enforced via `_redirects`
+- 301 redirects from `.html` versions to clean URLs
+- Custom 404 page with consistent branding
+- Canonical non-www host configured
+- Updated sitemap.xml with extensionless URLs
+- Gold 2px borders on content cards
 
-### January 2026 - Pre-Launch Audit Complete
-- ✅ **All critical issues fixed** - Ready for email campaign launch
-- ✅ **Steward Sale process clarified** - Added disclaimers that interest ≠ guarantee across all pages
-- ✅ **Timeline expectations set** - Clear "4-8 weeks review, decisions by late March" messaging
-- ✅ **Approval language improved** - Clarified what approval means and ticket requirements
-- ✅ **Email templates updated** - Contact info, SOI explanations, Steward disclaimers added
-- ✅ **Website content synchronized** - All pages updated with consistent messaging
-- ✅ **Follow-up email fixed** - Removed false urgency, clarified actual timeline
-- ✅ **Duplicate HTML removed** - Fixed file corruption in join.html and ticketing.html
+### Archived
+- Roles content preserved in `docs/roles.md` for migration
 
-See [`docs/archive/PRE_LAUNCH_AUDIT_AND_FIXES.md`](docs/archive/PRE_LAUNCH_AUDIT_AND_FIXES.md) for complete details.
-
-### January 5, 2026
-- ✅ Fixed HTML encoding issues (semicolons → hyphens) in index.html, about.html, camp-life.html
-- ✅ Fixed all CSS class names and variable references
-- ✅ Fixed logo and asset paths
-- ✅ Removed duplicate content from about.html and camp-life.html
-- ✅ Removed Monday meeting references
-- ✅ All pages now displaying correctly with proper headers, navigation, and styling
-
-### January 4, 2026
-- ✅ Resolved CORS issue with SOI form
-- ✅ Deployed main site to Cloudflare Pages
-- ✅ Site-wide tone-of-voice refactor
-- ✅ Google Analytics and Contacts sync configured
+See [`docs/CHANGELOG.md`](docs/CHANGELOG.md) for full history.
 
 ## Documentation
 
@@ -158,6 +143,6 @@ See [`docs/README.md`](docs/README.md) for complete documentation including:
 
 ---
 
-**Current Phase**: Phase 1 Complete ✅ | Pre-Launch Audit Complete ✅  
-**Next Milestone**: Email Campaign Launch → Stewards Sale (typically mid-March)  
-**Last Updated**: January 2026
+**Version**: 1.0 ✅  
+**Next Milestone**: Stewards Sale (March 2026)  
+**Last Updated**: 28 January 2026

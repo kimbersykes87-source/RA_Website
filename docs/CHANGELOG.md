@@ -4,6 +4,49 @@ All notable changes to the project are documented in this file.
 
 ---
 
+## [1.0.0] - 28 January 2026 - Baseline Release
+
+### Summary
+This is the stable v1.0 baseline release, marking the site as ready for the 2026 Burning Man season.
+
+### Content Changes
+- **Removed Contact page** - `/contact` now returns 404
+- **Removed Roles from navigation** - Page still accessible but hidden from nav (being migrated)
+- **Navigation standardised** - All pages now show: About, Camp Life, Tickets, Join, Dates
+- **"Named in cosmic tribute..."** - Now appears only on Home page, removed from About
+- **"Working Camp, Not a Hotel"** - Now appears only on Camp Life page, removed from Home
+- **Home page CTAs removed** - Removed "Learn About Our Values" and "Explore Camp Life" buttons
+- **Ticketing page cleanup** - Removed duplicate "Tickets" heading and intro paragraph
+- **Join page updated** - Added "Timing and Tickets (Read This Carefully)" section
+- **Bullet characters fixed** - Removed literal "• " from list items in Camp Life
+- **British English** - Changed "license" to "licence"
+
+### Technical Changes
+- **Extensionless URLs** - Added `_redirects` file for Cloudflare Pages
+- **301 redirects** - All `.html` URLs redirect to extensionless versions
+- **Custom 404 page** - Created `404.html` with consistent branding and navigation
+- **Canonical host** - Non-www preferred (www redirects to non-www)
+- **Sitemap updated** - All URLs now extensionless, removed gallery from sitemap
+- **Content card styling** - Gold 2px borders (was grey 1px)
+
+### Files Created
+- `main-site/_redirects` - Cloudflare Pages redirect rules
+- `main-site/404.html` - Custom 404 error page
+- `docs/roles.md` - Archived roles content for future migration
+
+### Files Modified
+- `main-site/index.html` - Removed "Working Camp" section and CTAs
+- `main-site/about.html` - Removed "Named in cosmic tribute" from Our Story
+- `main-site/ticketing.html` - Removed duplicate heading, fixed navigation
+- `main-site/join.html` - Added Timing and Tickets section
+- `main-site/camp-life.html` - Fixed bullet characters, British spelling
+- `main-site/gallery.html` - Fixed navigation (removed Gallery and Roles links)
+- `main-site/roles.html` - Fixed navigation (removed Roles link)
+- `main-site/sitemap.xml` - Extensionless URLs, updated dates
+- `main-site/css/styles.css` - Gold content card borders
+
+---
+
 ## [January 2026] - Calendar/Dates Page Complete
 
 ### ✅ Added

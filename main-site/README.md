@@ -13,13 +13,24 @@ main-site/
 ├── index.html              # Home page
 ├── about.html              # About / Values
 ├── camp-life.html          # Day-to-day life, Radiance Hour, shifts
-├── gallery.html            # Photos from 2022-2025
 ├── ticketing.html          # BM ticket vs RA membership
 ├── join.html               # Joining process explanation
+├── dates.html              # Interactive calendar
+├── gallery.html            # Photos from 2022-2025 (not in nav)
+├── roles.html              # Roles page (not in nav, being migrated)
+├── 404.html                # Custom 404 error page
+├── _redirects              # Cloudflare Pages redirects
 ├── css/
-│   └── styles.css          # Main site styles
+│   ├── styles.css          # Main site styles
+│   ├── calendar.css        # Calendar page styles
+│   └── roles.css           # Roles page styles
 ├── js/
-│   └── navigation.js       # Navigation and accessibility
+│   ├── navigation.js       # Navigation and accessibility
+│   ├── calendar.js         # Calendar functionality
+│   └── roles.js            # Roles page functionality
+├── data/
+│   ├── dates.csv           # Calendar event data
+│   └── roles.csv           # Roles data
 ├── images/
 │   └── gallery/
 │       ├── 2022/
@@ -131,15 +142,20 @@ Aim for 5-10 images per year covering:
 Horizontal header navigation with 5 links:
 - About
 - Camp Life
-- Gallery
-- Ticketing
+- Tickets
 - Join
+- Dates
 
 ### Mobile Navigation
 Fixed bottom bar with icons and labels:
-- Optimized for touch (44px minimum touch targets)
+- Optimised for touch (44px minimum touch targets)
 - Active page highlighting
 - Smooth transitions
+
+### Hidden Pages
+These pages are accessible but not in navigation:
+- Gallery (`/gallery`) - Photo archive
+- Roles (`/roles`) - Being migrated to separate project
 
 ### JavaScript Features
 - Active page detection and highlighting

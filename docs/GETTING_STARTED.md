@@ -1,7 +1,7 @@
 # Getting Started - Rubber Armstrong 2026
 
-**Project Status:** Phase 1 Complete ✅ | Pre-Launch Audit Complete ✅  
-**Last Updated:** January 2026
+**Version:** 1.0 ✅  
+**Released:** 28 January 2026
 
 ---
 
@@ -9,7 +9,8 @@
 
 ### Live Sites
 - **Main Site:** https://rubberarmstrong.com  
-  ✅ 7 pages (Home, About, Camp Life, Gallery, Ticketing, Join, Dates)
+  ✅ 6 pages in navigation (Home, About, Camp Life, Tickets, Join, Dates)
+  ✅ Gallery and Roles pages accessible but not in main navigation
 - **SOI Form:** https://soi.rubberarmstrong.com  
   ✅ 15-field operational intake form with validation
 
@@ -234,13 +235,13 @@ The site is considered working correctly when:
 
 **Ready to go!** The system is fully operational and ready to accept SOI submissions. 🎪🔥
 
-### Recent Updates (January 2026)
-- ✅ All pre-launch audit issues resolved
-- ✅ Steward Sale process clarified (interest ≠ guarantee)
-- ✅ Timeline expectations set (4-8 weeks review, decisions by late March)
-- ✅ Approval language improved (clear about requirements)
-- ✅ Email templates updated with contact info and SOI explanations
-- ✅ Website content synchronized across all pages
+### Version 1.0 Release (28 January 2026)
+- ✅ Baseline release complete
+- ✅ Navigation standardised (About, Camp Life, Tickets, Join, Dates)
+- ✅ Extensionless URLs with proper redirects
+- ✅ Custom 404 page
+- ✅ Content cleanup complete
+- ✅ Roles content archived for migration
 
-See [PRE_LAUNCH_AUDIT_REPORT.md](../PRE_LAUNCH_AUDIT_REPORT.md) and [FIXES_SUMMARY.md](../FIXES_SUMMARY.md) for details.
+See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
