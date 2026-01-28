@@ -214,17 +214,18 @@ body.dates-page .hero-subtitle {
   }
   
   .calendar-cell {
-    min-height: 90px; /* Increased to fit multiple stacked events */
-    padding: 2px;
+    min-height: 70px;
+    padding: 2px 0; /* No horizontal padding so events touch */
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 2px; /* 2px gap between events */
     overflow: visible; /* Allow event text to overflow into adjacent cells */
   }
   
   .calendar-date {
     font-size: 10px;
-    margin-bottom: 1px; /* Reduced gap between date and first event */
+    margin-bottom: 0; /* Gap handled by flexbox gap */
+    padding-left: 2px; /* Keep date slightly indented */
     flex-shrink: 0;
   }
   
@@ -255,29 +256,15 @@ body.dates-page .hero-subtitle {
     top: auto !important;
   }
   
-  /* Mobile event positioning - all use small margins */
-  .calendar-event-start {
-    left: 0;
-    right: -1px;
-    margin-left: 1px;
-  }
-  
-  .calendar-event-end {
-    left: -1px;
-    right: 0;
-    margin-right: 1px;
-  }
-  
-  .calendar-event-middle {
-    left: -1px;
-    right: -1px;
-  }
-  
+  /* Mobile event positioning - events touch horizontally */
+  .calendar-event-start,
+  .calendar-event-end,
+  .calendar-event-middle,
   .calendar-event-single {
     left: 0;
     right: 0;
-    margin-left: 1px;
-    margin-right: 1px;
+    margin-left: 0;
+    margin-right: 0;
   }
   
   .calendar-day-header {
