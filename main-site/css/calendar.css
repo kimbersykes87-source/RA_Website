@@ -210,64 +210,87 @@ body.dates-page .hero-subtitle {
   .calendar-grid {
     width: 100%;
     font-size: var(--font-size-sm);
-    grid-template-columns: 40px repeat(7, minmax(0, 1fr)); /* Smaller month column on mobile */
+    grid-template-columns: 30px repeat(7, minmax(0, 1fr)); /* Smaller month column on mobile */
   }
   
   .calendar-cell {
-    min-height: 60px;
-    padding: var(--space-1);
+    min-height: 70px; /* Increased to fit stacked events */
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
   }
   
   .calendar-date {
-    font-size: var(--font-size-xs);
-  }
-  
-  .calendar-event {
     font-size: 10px;
-    padding: 2px var(--space-1);
-    height: 12px; /* Reduced by 25% from 16px (16 * 0.75 = 12) */
-    top: var(--space-5); /* Position below date number for mobile (approx 24px) */
-    box-sizing: border-box; /* Include padding in height calculation */
-    display: flex; /* Use flexbox for vertical centering */
-    align-items: center; /* Center align vertically */
+    margin-bottom: 2px;
+    flex-shrink: 0;
   }
   
-  .calendar-cell .calendar-event:nth-of-type(2) {
-    top: calc(var(--space-5) + 15px); /* Adjusted for 12px height + 3px spacing */
+  /* Mobile: Switch to flow-based layout for events */
+  .calendar-event {
+    position: relative; /* Override absolute positioning */
+    top: auto !important; /* Override all nth-of-type top values */
+    left: 0;
+    right: 0;
+    font-size: 8px;
+    padding: 2px 3px;
+    height: auto; /* Allow dynamic height */
+    min-height: 14px;
+    box-sizing: border-box;
+    display: block; /* Change from flex to block for text wrapping */
+    white-space: normal; /* Allow text wrapping */
+    overflow-wrap: break-word; /* Wrap long words */
+    word-break: break-word; /* Additional word breaking */
+    line-height: 1.2;
+    overflow: visible; /* Allow content to show */
+    text-overflow: clip; /* No ellipsis - show full text */
+    flex-shrink: 0;
   }
   
-  .calendar-cell .calendar-event:nth-of-type(3) {
-    top: calc(var(--space-5) + 30px); /* Adjusted for 12px height + 3px spacing */
-  }
-  
+  /* Remove nth-of-type stacking on mobile - handled by flexbox */
+  .calendar-cell .calendar-event:nth-of-type(2),
+  .calendar-cell .calendar-event:nth-of-type(3),
   .calendar-cell .calendar-event:nth-of-type(n+4) {
-    top: calc(var(--space-5) + 45px); /* Adjusted for 12px height + 3px spacing */
+    top: auto !important;
   }
   
+  /* Mobile event positioning - all use small margins */
   .calendar-event-start {
-    left: var(--space-1);
+    left: 0;
+    right: -1px;
+    margin-left: 1px;
   }
   
   .calendar-event-end {
-    right: var(--space-1);
+    left: -1px;
+    right: 0;
+    margin-right: 1px;
+  }
+  
+  .calendar-event-middle {
+    left: -1px;
+    right: -1px;
   }
   
   .calendar-event-single {
-    left: var(--space-1);
-    right: var(--space-1);
+    left: 0;
+    right: 0;
+    margin-left: 1px;
+    margin-right: 1px;
   }
   
   .calendar-day-header {
-    padding: var(--space-2) var(--space-1);
-    font-size: var(--font-size-xs);
+    padding: var(--space-1) 2px;
+    font-size: 9px;
   }
   
   .calendar-month-header {
-    padding: var(--space-2) var(--space-1);
+    padding: var(--space-1) 2px;
   }
   
   .calendar-month-title {
-    font-size: var(--font-size-xs);
+    font-size: 9px;
   }
 }
 
@@ -278,7 +301,12 @@ body.dates-page .hero-subtitle {
   }
   
   .calendar-cell {
-    min-height: 70px;
+    min-height: 80px;
+  }
+  
+  .calendar-event {
+    font-size: 11px;
+    height: 18px;
   }
 }
 

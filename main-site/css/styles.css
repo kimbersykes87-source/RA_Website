@@ -174,14 +174,16 @@ main {
   width: 20px;
   height: 20px;
   object-fit: contain;
-  filter: invert(70%) sepia(0%) saturate(0%) brightness(100%);
+  /* Convert black (#000) to muted gray (#a0a0a0) to match text */
+  filter: invert(63%) sepia(0%) saturate(0%) brightness(100%);
   transition: filter var(--transition-fast);
 }
 
 .mobile-nav-item:hover .mobile-nav-icon img,
 .mobile-nav-item:focus .mobile-nav-icon img,
 .mobile-nav-item.active .mobile-nav-icon img {
-  filter: invert(73%) sepia(20%) saturate(600%) hue-rotate(345deg) brightness(95%);
+  /* Convert to accent color (#d4a574) on hover/active */
+  filter: invert(73%) sepia(30%) saturate(500%) hue-rotate(345deg) brightness(95%);
 }
 
 /* ====================================
@@ -380,6 +382,31 @@ blockquote {
 
 .content-card h3 {
   margin-bottom: var(--space-3);
+}
+
+/* Section icons - inline with headings */
+.section-icon {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  margin-right: var(--space-2);
+  filter: invert(73%) sepia(20%) saturate(600%) hue-rotate(345deg) brightness(95%);
+}
+
+@media (min-width: 768px) {
+  .section-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Card icons - inline with card headings */
+.card-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: var(--space-2);
+  filter: invert(73%) sepia(20%) saturate(600%) hue-rotate(345deg) brightness(95%);
 }
 
 /* ====================================
@@ -584,7 +611,14 @@ li {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll; /* Changed: scroll by default for better mobile compatibility */
+}
+
+/* Enable parallax only on desktop devices that support it well */
+@media (min-width: 1024px) {
+  .section-with-background {
+    background-attachment: fixed;
+  }
 }
 
 /* Dark overlay for text readability */
@@ -609,17 +643,10 @@ li {
   z-index: 1;
 }
 
-/* Disable parallax on mobile for performance and iOS compatibility */
-@media (max-width: 767px) {
-  .section-with-background {
-    background-attachment: scroll;
-  }
-}
-
-/* iOS Safari fix: force scroll attachment on touch devices */
+/* iOS Safari fix: force scroll attachment on all iOS devices */
 @supports (-webkit-touch-callout: none) {
   .section-with-background {
-    background-attachment: scroll;
+    background-attachment: scroll !important;
   }
 }
 
