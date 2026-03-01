@@ -65,7 +65,7 @@ APPS_SCRIPT_ENDPOINT: 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'
 
 **Current Production URL:**
 ```javascript
-APPS_SCRIPT_ENDPOINT: 'https://script.google.com/macros/s/AKfycbwKLPTsbsw2WeIdZ_qdlz7Njj4uOodgSxDa_X47-_8tda5Uk4FltSZYPBYT3yZq8eVXpg/exec'
+APPS_SCRIPT_ENDPOINT: 'https://script.google.com/macros/s/AKfycbz5plZIKbuzUCLcc9ImGP1Ao4XoaUfLna-498bFTar-izt7gPLcXUO0KU7zb5OH6Ujo/exec'
 ```
 
 ### 3. Google Sheets Setup
