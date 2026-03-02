@@ -7,6 +7,12 @@ Complete documentation for the Rubber Armstrong website project.
 
 ---
 
+## AI / Claude Overview
+
+**[CLAUDE_PROJECT_OVERVIEW.md](CLAUDE_PROJECT_OVERVIEW.md)** – Single reference for AI assistants: project overview, tech stack, routes, data layer, what's done, what's left, recommended order, docs index, secrets/deploy, quick commands. Read this first when working with an AI on this codebase.
+
+---
+
 ## Quick Start
 
 **New to the project?** Start here:
@@ -34,7 +40,6 @@ Complete documentation for the Rubber Armstrong website project.
 
 Historical documentation (completed tasks, audits, fixes):
 - [archive/PRE_LAUNCH_AUDIT_AND_FIXES.md](archive/PRE_LAUNCH_AUDIT_AND_FIXES.md) - Pre-launch audit findings and all fixes applied (January 2026)
-- [archive/EMAIL_TRACKING_SETUP_AND_FIXES.md](archive/EMAIL_TRACKING_SETUP_AND_FIXES.md) - Email tracking system audit and fixes
 - [archive/COMPLETED_TASKS.md](archive/COMPLETED_TASKS.md) - Phase 1 completion summary (January 2026)
 - [archive/COPY_CHANGES_REVIEW.md](archive/COPY_CHANGES_REVIEW.md) - All copy changes with before/after
 
@@ -100,9 +105,8 @@ Historical documentation (completed tasks, audits, fixes):
 - **Auto-deploy:** 1-2 minutes after push
 
 ### Google Apps Script
+- **Location:** RA_Emails repository (form handler, contacts sync, email campaigns, analytics)
 - **Project:** SOI Form Handler
-- **Scripts:** Form handler, Contacts sync, Analytics reporting
-- **Triggers:** Form submit, Status change, Weekly Monday 9 AM PT
 
 ---
 
@@ -125,14 +129,7 @@ RubberArmstrongWebsite/
 │   ├── css/
 │   ├── fonts/
 │   └── images/
-├── scripts/                # Backend scripts
-│   ├── apps-script-consolidated/  # Recommended
-│   │   ├── Config.gs
-│   │   ├── FormHandler.gs
-│   │   ├── ContactsSync.gs
-│   │   ├── Analytics.gs
-│   │   └── appsscript.json
-│   └── [legacy scripts]
+├── scripts/                # Utility scripts (analytics, burns count)
 ├── docs/                   # Documentation (you are here)
 │   ├── README.md           # This file
 │   ├── GETTING_STARTED.md

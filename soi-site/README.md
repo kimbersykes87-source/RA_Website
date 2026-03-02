@@ -200,6 +200,23 @@ To add/modify form fields:
 
 ## Troubleshooting
 
+### "Submission failed" / "Unable to submit form"
+The form now shows the **exact error from the server** when possible. Check the red error message on the page and the browser console (F12 → Console).
+
+**Common causes:**
+
+1. **Wrong or old Apps Script URL**  
+   The URL in `js/config.js` must match your **current** deployment. Redeploying as a new version changes the URL — update `config.js` and redeploy the SOI site.
+
+2. **Backend sheet missing**  
+   The Apps Script (e.g. in RA_Emails_v2) expects a sheet named **`SOI_Staging_2026`** (see `Config.gs`). If that tab doesn’t exist in the spreadsheet the script uses, you’ll see an error like "SOI_Staging_2026 sheet not found".
+
+3. **Script not bound to the correct spreadsheet**  
+   The handler uses `SpreadsheetApp.getActiveSpreadsheet()`, so the script must be **bound** to the Google Sheet that has the SOI tabs (or the script must be updated to use `getSpreadsheet()` / `CONFIG.SPREADSHEET_ID` and opened by ID).
+
+4. **Google consent / HTML response**  
+   If the first visit to the script URL shows a Google consent page, the form gets HTML instead of JSON. Ensure the web app is deployed with **"Who has access: Anyone"** (so anonymous users aren’t prompted). If you see "Server returned an invalid response", open the Apps Script URL in a browser and complete any one-time authorization.
+
 ### Form doesn't submit
 - Check browser console for errors
 - Verify Apps Script endpoint URL in `config.js`

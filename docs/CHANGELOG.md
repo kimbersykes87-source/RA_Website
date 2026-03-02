@@ -4,6 +4,22 @@ All notable changes to the project are documented in this file.
 
 ---
 
+## [1.0.1] - 27 January 2026 - Email & Apps Script Migration
+
+### Summary
+Email tracking and Google Apps Script have been moved to a separate RA_Emails repository.
+
+### Removed
+- `email_tracking/` - Moved to RA_Emails (Cloudflare Worker, templates, scripts, docs)
+- `scripts/apps-script-consolidated/` - Moved to RA_Emails
+- `docs/EMAIL_TRACKING_OVERVIEW.md` - Moved to RA_Emails
+- `docs/archive/EMAIL_TRACKING_*.md` - Moved to RA_Emails
+
+### Updated
+- README, docs, .gitignore - Updated to reference RA_Emails for Apps Script and email tracking
+
+---
+
 ## [1.0.0] - 28 January 2026 - Baseline Release
 
 ### Summary

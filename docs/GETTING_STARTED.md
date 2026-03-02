@@ -131,18 +131,11 @@ git push
 - `camp_assets/` - Original assets from camp
 
 ### Scripts
-**Consolidated (Recommended):**
-- `scripts/apps-script-consolidated/Config.gs` - Unified configuration
-- `scripts/apps-script-consolidated/FormHandler.gs` - Setup + form submission
-- `scripts/apps-script-consolidated/ContactsSync.gs` - Google Contacts integration
-- `scripts/apps-script-consolidated/Analytics.gs` - Weekly analytics reporting
-- `scripts/apps-script-consolidated/appsscript.json` - Dependencies
-
-**Legacy (Current):**
 - `scripts/google-analytics-daily-report.js` - Weekly analytics email
 - `scripts/google-contacts-sync.js` - Auto-sync to Google Contacts
 - `scripts/fix-burns-count-display.js` - Fix burn count display (run once)
-- `scripts/apps-script-complete.js` - Complete SOI form handler
+
+**Note:** Apps Script (form handler, contacts sync, email campaigns, analytics) lives in the RA_Emails repository.
 
 ### Documentation
 - `docs/GETTING_STARTED.md` - This file

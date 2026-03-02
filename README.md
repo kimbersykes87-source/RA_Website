@@ -38,17 +38,19 @@ This marks the stable v1.0 release of the Rubber Armstrong website, ready for th
 ```
 ├── main-site/           # Main website (rubberarmstrong.com)
 ├── soi-site/            # Statement of Intent form (soi.rubberarmstrong.com)
-├── scripts/             # Google Apps Scripts for automation
+├── scripts/             # Utility scripts (analytics, burns count, etc.)
 ├── docs/                # Documentation
 ├── shared/              # Shared assets and design tokens
 └── camp_assets/         # Original assets and reference materials
 ```
 
+**Note:** Google Apps Script (form handler, contacts sync, email campaigns) and email tracking have moved to the RA_Emails repository.
+
 ## Technology Stack
 
 - **Hosting**: Cloudflare Pages (automatic deployment from GitHub)
 - **Analytics**: Google Analytics 4 + Cloudflare Web Analytics
-- **Backend**: Google Apps Script (form handling, contacts sync, analytics reporting)
+- **Backend**: Google Apps Script (see RA_Emails repo for form handler, contacts sync, email campaigns)
 - **Database**: Google Sheets
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Version Control**: Git + GitHub

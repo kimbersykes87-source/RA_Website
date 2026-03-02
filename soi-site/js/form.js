@@ -435,7 +435,7 @@ import {
     try {
       // Add a redirect parameter to force Google to handle CORS properly
       const url = CONFIG.APPS_SCRIPT_ENDPOINT + '?redirect=false';
-      
+
       const response = await fetch(url, {
         method: 'POST',
         redirect: 'follow',
@@ -444,13 +444,21 @@ import {
         },
         body: JSON.stringify(data)
       });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+
+      let result;
+      const contentType = response.headers.get('content-type') || '';
+      if (contentType.includes('application/json')) {
+        result = await response.json();
+      } else {
+        const text = await response.text();
+        console.error('Server returned non-JSON. Status:', response.status, 'Preview:', text.slice(0, 200));
+        throw new Error('Server returned an invalid response. If this is your first time using the form, the app may need to be authorized.');
       }
-      
-      const result = await response.json();
-      
+
+      if (!response.ok) {
+        throw new Error(result.message || `HTTP error! status: ${response.status}`);
+      }
+
       if (result.status === 'success' || result.success === true) {
         return { success: true };
       } else {
@@ -498,15 +506,17 @@ import {
       // Handle success
       handleSuccess(data.email);
     } catch (error) {
-      // Handle error
+      // Show server message when present (e.g. "SOI_Staging_2026 sheet not found")
       let errorMsg = 'Unable to submit form. Please check your internet connection and try again.';
-      
+
       if (error.message.includes('Failed to fetch')) {
         errorMsg = 'Network error. Please check your internet connection and try again.';
       } else if (error.message.includes('HTTP error')) {
         errorMsg = 'Server error. Please try again in a few minutes.';
+      } else if (error.message && !error.message.includes('internet connection')) {
+        errorMsg = error.message;
       }
-      
+
       handleError(errorMsg);
     }
   }
