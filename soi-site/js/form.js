@@ -358,7 +358,7 @@ import {
       
       // Commitment & Contribution
       likelihoodOfAttending: normalizeLikelihood(getRadioValue('likelihoodOfAttending')),
-      stewardTicketInterest: normalizeYesNo(getRadioValue('stewardTicketInterest')),
+      stewardTicketInterest: 'no', // Steward Sale concluded; always no for new submissions
       whatYouOffer: document.getElementById('whatYouOffer').value.trim(),
       notes: document.getElementById('notes').value.trim()
     };
