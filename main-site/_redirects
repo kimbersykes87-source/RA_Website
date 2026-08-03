@@ -15,5 +15,8 @@
 /gallery.html /gallery 301
 /roles.html /roles 301
 
+# Manifesto (unlisted): keep clean URL, serve from /manifesto/index.html
+/manifesto /manifesto/index.html 200
+
 # Canonical host (non-www)
 https://www.rubberarmstrong.com/* https://rubberarmstrong.com/:splat 301

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <!-- Allow user pinch-zoom (needed for the "pinch to zoom" affordance) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5">
+  <meta name="description" content="Rubber Armstrong 2026 Camp Manifesto — the field guide to nine days on the playa.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Rubber Armstrong — Camp Manifesto 2026</title>
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Rubber Armstrong — Camp Manifesto 2026">
+  <meta property="og:description" content="The field guide to nine days on the playa.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <link rel="stylesheet" href="css/viewer.css">
+</head>
+<body>
+
+<a class="home" href="/" aria-label="Back to Rubber Armstrong home">
+  <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+    <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+          d="M3 11 L12 3 L21 11 M5 9.5 V21 H10 V14 H14 V21 H19 V9.5"/>
+  </svg>
+  <span>Home</span>
+</a>
+
+<div class="pager" aria-live="polite">
+  <span id="page-current">1</span><span class="pager__sep">/</span><span id="page-total">24</span>
+</div>
+
+<a class="download" href="Manifesto_2026.pdf" download aria-label="Download the manifesto PDF">
+  <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+    <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+          d="M12 3v13m-5-5 5 5 5-5M5 21h14"/>
+  </svg>
+</a>
+
+<button class="nav nav--prev" id="nav-prev" aria-label="Previous page" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+    <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+          d="M15 5 L7 12 L15 19"/>
+  </svg>
+</button>
+<button class="nav nav--next" id="nav-next" aria-label="Next page" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+    <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+          d="M9 5 L17 12 L9 19"/>
+  </svg>
+</button>
+
+<div class="viewer" role="main" aria-label="Manifesto pages">
+  <div class="pages" id="pages" tabindex="0">
+    <!-- Page slots injected by JS -->
+  </div>
+</div>
+
+<div class="loading" id="loading" role="status" aria-live="polite">
+  <div class="loading__spinner" aria-hidden="true"></div>
+  <div class="loading__text">Loading manifesto…</div>
+  <noscript>
+    <p>This viewer needs JavaScript. You can still
+      <a href="Manifesto_2026.pdf" style="color:#FFF200">download the PDF</a>.
+    </p>
+  </noscript>
+</div>
+
+<div class="hint" id="hint" hidden>
+  <span class="hint__icon" aria-hidden="true">←→</span>
+  Swipe or use arrow keys to turn the page. Pinch to zoom.
+</div>
+
+<script type="module" src="js/viewer.js"></script>
+</body>
+</html>

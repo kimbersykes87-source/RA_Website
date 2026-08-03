@@ -1,0 +1,282 @@
+/* =====================================================================
+   Rubber Armstrong 2026 — Manifesto PDF viewer
+   Renders Manifesto_2026.pdf as a swipeable page carousel with pinch zoom
+   provided by the browser's native viewport zoom.
+   ===================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #0a0a0a;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overscroll-behavior: none;
+}
+
+body {
+  overflow: hidden;
+}
+
+/* ---------- Chrome (home, pager, download, prev/next) ---------- */
+
+.home,
+.pager,
+.download {
+  position: fixed;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .85rem;
+  background: rgba(15, 15, 15, .72);
+  color: #fff;
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .02em;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.home {
+  top: max(.75rem, env(safe-area-inset-top));
+  left: max(.75rem, env(safe-area-inset-left));
+}
+.pager {
+  top: max(.75rem, env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
+  font-variant-numeric: tabular-nums;
+  min-width: 4.5rem;
+  justify-content: center;
+  pointer-events: none;
+}
+.pager__sep {
+  opacity: .5;
+  margin: 0 .35rem;
+}
+.download {
+  top: max(.75rem, env(safe-area-inset-top));
+  right: max(.75rem, env(safe-area-inset-right));
+  padding: .55rem;
+}
+
+.home:hover,
+.download:hover,
+.home:focus-visible,
+.download:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 242, 0, .92);
+  color: #000;
+  border-color: transparent;
+  outline: none;
+}
+.pager:hover { /* it's not clickable */
+  transform: translateX(-50%);
+}
+
+/* Prev/next arrows — desktop only (hidden on touch). */
+.nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 50%;
+  background: rgba(15, 15, 15, .55);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background .18s ease, border-color .18s ease, transform .18s ease, opacity .18s ease;
+}
+.nav--prev { left: max(1rem, env(safe-area-inset-left)); }
+.nav--next { right: max(1rem, env(safe-area-inset-right)); }
+.nav:hover,
+.nav:focus-visible {
+  background: rgba(255, 242, 0, .92);
+  color: #000;
+  border-color: transparent;
+  outline: none;
+}
+.nav:disabled {
+  opacity: .3;
+  cursor: default;
+  pointer-events: none;
+}
+.nav[hidden] { display: none; }
+
+/* Hide the prev/next arrows on coarse pointers (touch); the swipe gesture is enough. */
+@media (hover: none) and (pointer: coarse) {
+  .nav { display: none !important; }
+}
+
+/* ---------- Viewer ---------- */
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* The horizontally-scrolling paginated container.
+   scroll-snap-type: x mandatory + scroll-snap-align: center on each .page
+   makes native swipe (touch) and horizontal scroll (trackpad) snap to whole
+   pages, one at a time.
+   scroll-snap-stop: always prevents momentum from skipping pages. */
+.pages {
+  height: 100dvh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+}
+.pages::-webkit-scrollbar { display: none; }
+.pages { scrollbar-width: none; }
+
+.page {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100dvh;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.75rem 1rem 1rem; /* top padding leaves room for the chrome */
+  position: relative;
+}
+
+/* The rendered PDF page canvas.
+   JS computes exact CSS width/height that fits the viewport while preserving
+   the PDF page's aspect ratio, so we don't override with auto/max here (that
+   would break the intrinsic-ratio calculation on portrait phones where a
+   16:9 page needs to shrink height, not just width). */
+.page__canvas {
+  display: block;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .6),
+              0 4px 12px rgba(0, 0, 0, .5);
+  user-select: none;
+  -webkit-user-drag: none;
+  /* Let the browser handle pinch zoom on the page as a whole (viewport zoom),
+     combined with the meta viewport max-scale=5. */
+  touch-action: manipulation;
+}
+
+/* Skeleton for pages not yet rendered — keeps the layout stable while
+   PDF.js does its thing. */
+.page__skeleton {
+  width: min(100%, calc(100dvh * (1920 / 1080)));
+  aspect-ratio: 1920 / 1080;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+  background-size: 200% 200%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  border-radius: 4px;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page__skeleton { animation: none; }
+}
+
+/* ---------- Loading + hint ---------- */
+
+.loading {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: opacity .35s ease;
+}
+.loading[hidden] {
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+}
+.loading__spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid rgba(255, 255, 255, .1);
+  border-top-color: #FFF200;
+  border-radius: 50%;
+  animation: spin .9s linear infinite;
+}
+.loading__text {
+  font-size: .9rem;
+  letter-spacing: .04em;
+  color: rgba(255, 255, 255, .7);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .loading__spinner { animation-duration: 3s; }
+}
+
+.hint {
+  position: fixed;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: .55rem .95rem;
+  background: rgba(15, 15, 15, .72);
+  color: rgba(255, 255, 255, .9);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: .8rem;
+  letter-spacing: .02em;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  pointer-events: none;
+  animation: hintFade 6s ease-out forwards;
+}
+.hint__icon {
+  font-family: -apple-system, "Segoe UI Symbol", sans-serif;
+  font-weight: 600;
+  color: #FFF200;
+}
+@keyframes hintFade {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  10%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  80%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(10px); pointer-events: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hint { animation: none; }
+}
+
+/* ---------- Landscape phone tweaks ---------- */
+@media (max-width: 900px) and (orientation: landscape) {
+  .home span { display: none; }
+  .home, .download { padding: .5rem; }
+  .page { padding: 3.25rem .5rem .5rem; }
+}
