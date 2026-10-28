@@ -18,5 +18,9 @@
 # Manifesto (unlisted): keep clean URL, serve from /manifesto/index.html
 /manifesto /manifesto/index.html 200
 
+# Debrief results live behind the debrief login
+/debrief/2026 https://debrief.rubberarmstrong.com/results/ 302
+/debrief/2026/ https://debrief.rubberarmstrong.com/results/ 302
+
 # Canonical host (non-www)
 https://www.rubberarmstrong.com/* https://rubberarmstrong.com/:splat 301
