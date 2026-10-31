@@ -3,6 +3,10 @@
  * Complete setup and submission handler
  */
 
+// When deployed as a Web App (form POST), there is no "active" spreadsheet.
+// You MUST set this to your Google Sheet ID (from the sheet URL: .../d/SHEET_ID/edit).
+var SHEET_ID = 'YOUR_SHEET_ID_HERE';  // e.g. '1fI4j4cbBUOZrqtPA_vm24YHdKfVAX5alz6LSDUC9BuA'
+
 // ============================================================================
 // SETUP FUNCTIONS - Run these once to configure your sheet
 // ============================================================================
@@ -215,8 +219,8 @@ function doPost(e) {
     // Parse incoming JSON
     const data = JSON.parse(e.postData.contents);
     
-    // Open the spreadsheet and get SOI_Staging sheet
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    // Open the spreadsheet by ID (required for Web App – getActiveSpreadsheet() is null when called via URL)
+    const ss = SpreadsheetApp.openById(SHEET_ID);
     const sheet = ss.getSheetByName('SOI_Staging');
     
     if (!sheet) {
@@ -321,48 +325,6 @@ function testFormSubmission() {
     likelihoodOfAttending: 'Hell yeah!',
     stewardTicketInterest: 'Yes',
     whatYouOffer: 'Testing the form submission',
-    notes: 'This is a test submission from Apps Script',
-    formName: 'Statement of Intent 2026'
-  };
-  
-  const mockEvent = {
-    postData: {
-      contents: JSON.stringify(testData)
-    }
-  };
-  
-  const response = doPost(mockEvent);
-  const result = JSON.parse(response.getContent());
-  
-  if (result.success) {
-    SpreadsheetApp.getUi().alert('✅ Test submission successful!\n\nCheck SOI_Staging tab for the test row.');
-  } else {
-    SpreadsheetApp.getUi().alert('❌ Test failed:\n\n' + result.message);
-  }
-}
-
-
-    notes: 'This is a test submission from Apps Script',
-    formName: 'Statement of Intent 2026'
-  };
-  
-  const mockEvent = {
-    postData: {
-      contents: JSON.stringify(testData)
-    }
-  };
-  
-  const response = doPost(mockEvent);
-  const result = JSON.parse(response.getContent());
-  
-  if (result.success) {
-    SpreadsheetApp.getUi().alert('✅ Test submission successful!\n\nCheck SOI_Staging tab for the test row.');
-  } else {
-    SpreadsheetApp.getUi().alert('❌ Test failed:\n\n' + result.message);
-  }
-}
-
-
     notes: 'This is a test submission from Apps Script',
     formName: 'Statement of Intent 2026'
   };

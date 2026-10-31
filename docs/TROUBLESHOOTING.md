@@ -22,11 +22,18 @@ Common issues and their solutions for the Rubber Armstrong website and backend s
 ### Issue: Form submissions not appearing in Google Sheets
 
 **Symptoms:**
-- Form submits successfully
-- Success message shows
-- No new row in SOI_Staging
+- UI looks like a success, or users resubmit with the same email
+- No new row in SOI_Staging (or answers never change)
 
-**Check:**
+**A) Duplicate email (backend short circuit)**
+
+The live SOI web app can return HTTP 200 with:
+
+`{"status":"info","success":true,"message":"We already have your submission. Thank you!"}`
+
+when that **email already exists** in the sheet. The handler then **does not** call `appendRow`. The updated form on `soi.rubberarmstrong.com` shows **“No new row was added”** instead of a success redirect. To support “submit again to update your information,” change Apps Script (e.g. RA_Emails) to **upsert by email** (update the existing row or replace it).
+
+**B) Other causes — check:**
 1. Apps Script → Executions (clock icon)
 2. Look for recent doPost executions
 3. Check for error messages
@@ -51,6 +58,34 @@ testFormSubmission()
 1. Verify tabs exist: SOI_Staging, SOI_Approved, SOI_Rejected, SOI_2026
 2. Verify tab names match exactly (case-sensitive)
 3. Run `validateAllHeaders()` to check structure
+
+---
+
+### Issue: "Cannot read properties of null (reading 'getSheetByName')" on submit
+
+**Symptoms:**
+- Form submit returns an error (or "The form is temporarily unavailable")
+- Browser console or server logs show: `Cannot read properties of null (reading 'getSheetByName')`
+
+**Cause:** When the Apps Script runs as a **Web App** (called from the form URL), there is no "active" spreadsheet. Using `SpreadsheetApp.getActiveSpreadsheet()` returns `null`, so calling `.getSheetByName()` on it throws.
+
+**Solution:** In your deployed Apps Script, open the spreadsheet by ID instead of using the active spreadsheet:
+
+1. At the top of your script, set your Google Sheet ID (from the sheet URL: `.../d/SHEET_ID/edit`):
+   ```javascript
+   var SHEET_ID = '1fI4j4cbBUOZrqtPA_vm24YHdKfVAX5alz6LSDUC9BuA';  // your sheet ID
+   ```
+2. In `doPost(e)`, replace:
+   ```javascript
+   const ss = SpreadsheetApp.getActiveSpreadsheet();
+   ```
+   with:
+   ```javascript
+   const ss = SpreadsheetApp.openById(SHEET_ID);
+   ```
+3. Save and deploy a new version (Deploy → Manage deployments → New version).
+
+Setup functions (e.g. `setupAllTabs`) that you run from the script editor can keep using `getActiveSpreadsheet()`.
 
 ---
 
@@ -620,6 +655,14 @@ DNS not configured or not propagated
 ---
 
 ## Apps Script Errors
+
+### Issue: "Cannot read properties of null (reading 'getSheetByName')"
+
+**Cause:** The script uses `SpreadsheetApp.getActiveSpreadsheet()` in `doPost()`. When the script is invoked as a Web App (form POST), there is no active spreadsheet, so it returns `null`.
+
+**Solution:** Use `SpreadsheetApp.openById(SHEET_ID)` in `doPost()` and set `SHEET_ID` to your Google Sheet ID. See [Form Submission Problems → getSheetByName](#issue-cannot-read-properties-of-null-reading-getsheetbyname-on-submit) for steps.
+
+---
 
 ### Issue: "ReferenceError: CONFIG is not defined"
 

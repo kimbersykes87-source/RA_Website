@@ -224,6 +224,7 @@ The form now shows the **exact error from the server** when possible. Check the 
 - Check Apps Script execution logs
 
 ### Submissions not appearing in sheet
+- **Duplicate email:** The production handler may return `success: true` with `status: "info"` and a message like “We already have your submission” — **no new row** is added. The form shows a “No new row was added” notice instead of a success redirect. To actually update answers for an existing email, Apps Script must **upsert by email** (update the row or replace it), not exit early on duplicates.
 - Verify Apps Script permissions
 - Check sheet tab names match exactly (case-sensitive)
 - Check Apps Script logs for errors
