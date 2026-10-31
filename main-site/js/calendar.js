@@ -8,8 +8,8 @@
   
   // Calendar configuration
   // Use local date to avoid timezone issues
-  const START_DATE = new Date(2026, 6, 27); // July 27, 2026 (month is 0-indexed, so 6 = July)
-  const END_DATE = new Date(2026, 8, 13);   // September 13, 2026 (month is 0-indexed, so 8 = September)
+  const START_DATE = new Date(2027, 6, 5); // July 5, 2027 (month is 0-indexed, so 6 = July)
+  const END_DATE = new Date(2027, 8, 12);   // September 12, 2027 (month is 0-indexed, so 8 = September)
   
   // Events data
   let eventsData = [];

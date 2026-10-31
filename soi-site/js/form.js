@@ -34,6 +34,8 @@ import {
   const successMessage = document.getElementById('success-message');
   const errorMessage = document.getElementById('error-message');
   const errorDetails = document.getElementById('error-details');
+  const serverInfoMessage = document.getElementById('server-info-message');
+  const serverInfoDetails = document.getElementById('server-info-details');
   
   // Local storage key for tracking submissions
   const STORAGE_KEY = 'ra_soi_submissions';
@@ -375,6 +377,7 @@ import {
     
     // Hide error messages
     errorMessage.classList.remove('show');
+    serverInfoMessage?.classList.remove('show');
     hideDuplicateWarning();
     
     // Show success message
@@ -388,9 +391,27 @@ import {
   }
   
   /**
+   * Server accepted the request but did not append a row (e.g. duplicate email on backend)
+   */
+  function handleServerInfoNoRow(message) {
+    enableForm();
+    successMessage.classList.remove('show');
+    errorMessage.classList.remove('show');
+    hideDuplicateWarning();
+    if (serverInfoDetails) {
+      serverInfoDetails.textContent =
+        message ||
+        'The spreadsheet was not updated. If you need to change your answers, contact the camp — or ask ops to enable “upsert by email” in Apps Script.';
+    }
+    serverInfoMessage?.classList.add('show');
+    serverInfoMessage?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  /**
    * Show error message
    */
   function handleError(message) {
+    serverInfoMessage?.classList.remove('show');
     errorDetails.textContent = message || 'Please check your connection and try again.';
     errorMessage.classList.add('show');
     errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -459,11 +480,29 @@ import {
         throw new Error(result.message || `HTTP error! status: ${response.status}`);
       }
 
-      if (result.status === 'success' || result.success === true) {
-        return { success: true };
-      } else {
+      if (result.success === false || result.status === 'error') {
         throw new Error(result.message || 'Submission failed');
       }
+
+      // Live Apps Script may return success:true + status:"info" when the email
+      // already exists — no row is written. Do not treat that as a full submission.
+      const duplicateAck =
+        result.success === true &&
+        (result.status === 'info' ||
+          (typeof result.message === 'string' && /already have/i.test(result.message)));
+
+      if (duplicateAck) {
+        return {
+          duplicateAcknowledged: true,
+          message: result.message || 'We already have your submission.'
+        };
+      }
+
+      if (result.status === 'success' || result.success === true) {
+        return { success: true };
+      }
+
+      throw new Error(result.message || 'Submission failed');
     } catch (error) {
       console.error('Submission error:', error);
       throw error;
@@ -479,6 +518,7 @@ import {
     // Hide previous messages
     successMessage.classList.remove('show');
     errorMessage.classList.remove('show');
+    serverInfoMessage?.classList.remove('show');
     
     // Validate honeypot
     if (!checkHoneypot()) {
@@ -500,10 +540,13 @@ import {
     disableForm();
     
     try {
-      // Submit to Google Apps Script
-      await submitForm(data);
-      
-      // Handle success
+      const outcome = await submitForm(data);
+
+      if (outcome.duplicateAcknowledged) {
+        handleServerInfoNoRow(outcome.message);
+        return;
+      }
+
       handleSuccess(data.email);
     } catch (error) {
       // Show server message when present (e.g. "SOI_Staging_2026 sheet not found")
@@ -513,6 +556,8 @@ import {
         errorMsg = 'Network error. Please check your internet connection and try again.';
       } else if (error.message.includes('HTTP error')) {
         errorMsg = 'Server error. Please try again in a few minutes.';
+      } else if (error.message && (error.message.includes('getSheetByName') || error.message.includes('null'))) {
+        errorMsg = 'The form is temporarily unavailable. Please try again later or contact the camp.';
       } else if (error.message && !error.message.includes('internet connection')) {
         errorMsg = error.message;
       }

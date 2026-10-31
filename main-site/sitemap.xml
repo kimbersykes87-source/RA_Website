@@ -4,7 +4,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://rubberarmstrong.com/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- About Page -->
   <url>
     <loc>https://rubberarmstrong.com/about</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- Camp Life Page -->
   <url>
     <loc>https://rubberarmstrong.com/camp-life</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -28,7 +28,7 @@
   <!-- Ticketing Page -->
   <url>
     <loc>https://rubberarmstrong.com/ticketing</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -36,7 +36,7 @@
   <!-- Join Page -->
   <url>
     <loc>https://rubberarmstrong.com/join</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -44,7 +44,7 @@
   <!-- Dates Page -->
   <url>
     <loc>https://rubberarmstrong.com/dates</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -52,7 +52,7 @@
   <!-- SOI Form (subdomain) -->
   <url>
     <loc>https://soi.rubberarmstrong.com/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
