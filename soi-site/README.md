@@ -1,6 +1,6 @@
 # Statement of Intent (SOI) Subdomain
 
-The Statement of Intent form for Rubber Armstrong 2026, deployed at `soi.rubberarmstrong.com`.
+The Statement of Intent form for Rubber Armstrong 2027, deployed at `soi.rubberarmstrong.com`.
 
 ## Overview
 
@@ -94,7 +94,7 @@ Same columns as SOI_Staging. Approved entries are manually copied here.
 #### SOI_Rejected
 Same columns as SOI_Staging. Rejected entries are manually copied here.
 
-#### SOI_2026
+#### SOI_2026 (archived in "ARCHIVE RA Email Campaigns 2026")
 Archive of all 2026 submissions (end of season).
 
 ### 4. Deploy to Cloudflare Pages
