@@ -464,3 +464,11 @@ body.dates-page .hero-subtitle {
     display: none;
   }
 }
+
+/* Tablet/desktop: events are absolutely positioned, so grow the cell to fit
+   every stacked event (date number + 24px per event) instead of clipping the last one */
+@media (min-width: 768px) {
+  .calendar-cell {
+    min-height: max(90px, calc(var(--space-6) + (var(--event-count, 0) * 24px) + var(--space-2)));
+  }
+}

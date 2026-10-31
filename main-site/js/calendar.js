@@ -433,7 +433,7 @@
           // Get events for this date
           const dayEvents = getEventsForDate(date);
           
-          html += '<div class="' + cellClasses.join(' ') + '">';
+          html += '<div class="' + cellClasses.join(' ') + '" style="--event-count: ' + dayEvents.length + ';">';
           html += `<span class="${dateClasses.join(' ')}">${date.getDate()}</span>`;
           
           // Render events
