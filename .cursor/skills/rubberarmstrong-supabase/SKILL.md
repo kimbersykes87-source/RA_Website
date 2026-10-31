@@ -103,6 +103,9 @@ Choose Pattern 1 for apps where users have accounts. Choose Pattern 2 for
 public-facing forms where identity is verified by a shared secret (like SOI
 approval + birth year).
 
+> **Ownership rule (31 Oct 2026):** RA_Portal owns all database migrations for this project. Do not add migrations or run `supabase db push` from RA_Join, RA_Build or RA_Emails_v2.
+> Before any push run `supabase migration list --linked` and confirm Local and Remote match. Never use `--include-all`. See `RA_Portal/supabase/DATABASE_OWNERSHIP.md` and `RA_Portal/docs/ACCESS_RULES.md`.
+
 ## Migrations workflow
 
 ### Using the Supabase CLI

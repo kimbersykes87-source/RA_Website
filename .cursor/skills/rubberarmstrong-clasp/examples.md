@@ -1,6 +1,6 @@
 # Examples — Rubber Armstrong clasp
 
-## RA_Emails (apps-script-consolidated)
+## RA_Emails (apps-script-consolidated) LEGACY, do not deploy
 
 ```bash
 cd "C:\dev\RA_Emails\apps-script-consolidated"

@@ -32,9 +32,9 @@ npx wrangler pages deploy join-site --project-name ra-join
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 ```
 
-## 2. Deploy the email tracking Worker (`RA_Emails`)
+## 2. Deploy the email tracking Worker (`RA_Emails_v2`)
 
-The existing `wrangler.toml` is at `RA_Emails/cloudflare-worker/wrangler.toml`:
+The existing `wrangler.toml` is at `RA_Emails_v2/cloudflare-worker/wrangler.toml`:
 
 ```toml
 name = "email-tracking-worker"

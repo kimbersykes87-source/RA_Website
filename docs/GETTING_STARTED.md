@@ -135,7 +135,7 @@ git push
 - `scripts/google-contacts-sync.js` - Auto-sync to Google Contacts
 - `scripts/fix-burns-count-display.js` - Fix burn count display (run once)
 
-**Note:** Apps Script (form handler, contacts sync, email campaigns, analytics) lives in the RA_Emails repository.
+**Note:** Apps Script (form handler, contacts sync, email campaigns, analytics) lives in the RA_Emails_v2 repository.
 
 ### Documentation
 - `docs/GETTING_STARTED.md` - This file

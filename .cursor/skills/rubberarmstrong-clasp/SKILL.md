@@ -27,9 +27,9 @@ All Rubber Armstrong Apps Script projects are managed under the Google account:
 
 | Repo | Clasp project folder | scriptId | Notes |
 |------|----------------------|----------|------|
-| `RA_Emails` | `apps-script-consolidated/` | `1Gghw14qU6SsVHwhVAHhrB6ZRKDPnQliO1GCseWNUUp8hUCt8pVs_ubBK` | Manifest enables People API + AnalyticsData; webapp is anonymous |
-| `RA_Emails_v2` | `apps-script/` | `1WQwmWumdb-z7LQINU49Il2u3S1zJ-_orap-Vz3lLNEkUe-fO41uYbbWk` | Manifest enables People API |
-| `RA_Join` | `apps-script/` | *(not yet clasp-linked)* | Has `Code.gs` for join webhook; can be turned into clasp project |
+| `RA_Emails` | `apps-script-consolidated/` | `1Gghw14qU6SsVHwhVAHhrB6ZRKDPnQliO1GCseWNUUp8hUCt8pVs_ubBK` | **LEGACY (v1). Do not deploy.** Superseded by RA_Emails_v2. |
+| `RA_Emails_v2` | `apps-script/` | `1WQwmWumdb-z7LQINU49Il2u3S1zJ-_orap-Vz3lLNEkUe-fO41uYbbWk` | **Current production.** SOI form handler, campaigns, payments, contacts sync. Manifest enables People API |
+| `RA_Join` | `apps-script/` | `1UmIsHg2bLm8MJtwYQOrJ-zjbCURqpO3JQEmA5M_mMxyvEyO0lnyGJvzl` | Join webhook (Sheets upsert + emails). Clasp-linked; `.clasp.json` is gitignored |
 
 ## Standard workflow (local)
 

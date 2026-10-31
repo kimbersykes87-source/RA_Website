@@ -31,8 +31,8 @@ personal account.
 | `RA_Website` | Pages | *(check dashboard)* | `rubberarmstrong.com` (apex) | `main-site/` | Deployed |
 | `RA_Website` | Pages | *(check dashboard)* | `soi.rubberarmstrong.com` | `soi-site/` | Deployed |
 | `RA_Join` | Pages | `ra-join` | `join.rubberarmstrong.com` | `join-site/` | Not yet deployed |
-| `RA_Emails` | Worker | `email-tracking-worker` | `track.rubberarmstrong.com` (planned) | `cloudflare-worker/` | Deployed to workers.dev |
-| `RA_Emails_v2` | Worker | `ra-email-tracking-v2` | `track.rubberarmstrong.com` (planned) | `cloudflare-worker/` | In development |
+| `RA_Emails` | Worker | `email-tracking-worker` | n/a | `cloudflare-worker/` | **LEGACY. Keep running, never redeploy or delete: sent emails link to it.** See RA_Emails_v2/docs/TRACKING_WORKERS.md |
+| `RA_Emails_v2` | Worker | `ra-email-tracking-v2` | `track.rubberarmstrong.com` (planned) | `cloudflare-worker/` | **Current production** (workers.dev) |
 | `RA_Build` | Vercel | -- | `build.rubberarmstrong.com` | -- | Not on Cloudflare |
 | `RA_Portal` | Vercel | -- | *(TBD)* | -- | Not on Cloudflare |
 | `RA_ArtCarTracker` | Local | -- | -- | -- | Not a web deploy |

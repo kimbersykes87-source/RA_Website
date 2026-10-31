@@ -15,14 +15,14 @@ The Rubber Armstrong website is the official site for the Rubber Armstrong Burni
 - **Main site** – Informational pages (About, Camp Life, Tickets, Join, Dates, Gallery, Roles) with responsive design, custom branding, and SEO.
 - **SOI form** – 15-field Statement of Intent with validation, duplicate detection, burn history, and Steward ticket interest; submits to Google Sheets via Apps Script.
 - **Interactive calendar** – `/dates` page with CSV-driven events and a details modal.
-- **Automation (external)** – Google Contacts sync and weekly analytics reports; implementation lives in the **RA_Emails** repository, not this repo.
+- **Automation (external)** – Google Contacts sync and weekly analytics reports; implementation lives in the **RA_Emails_v2** repository, not this repo.
 - **Design system** – Shared design tokens (`shared/design-tokens.css`), custom Rubber Armstrong font, dark theme, WCAG 2.1 AA–oriented styling.
 
 **Production and hosting**
 
 - **Main site:** https://rubberarmstrong.com (Cloudflare Pages, root = `main-site/`).
 - **SOI form:** https://soi.rubberarmstrong.com (Cloudflare Pages, root = `soi-site/`).
-- **Backend:** Google Apps Script (form handler, contacts sync, analytics) – see **RA_Emails** repo; this repo only holds the Apps Script reference in `docs/APPS_SCRIPT_GUIDE.md` and the SOI form's endpoint in `soi-site/js/config.js`.
+- **Backend:** Google Apps Script (form handler, contacts sync, analytics) – see **RA_Emails_v2** repo; this repo only holds the Apps Script reference in `docs/APPS_SCRIPT_GUIDE.md` and the SOI form's endpoint in `soi-site/js/config.js`.
 - **Data:** Google Sheets ("RA 2026 SOI Submissions") with tabs for staging, approved, rejected, archive.
 
 **Repo layout**
@@ -32,7 +32,7 @@ The Rubber Armstrong website is the official site for the Rubber Armstrong Burni
 | `main-site/` | Main website HTML, CSS, JS, images, `data/dates.csv`, `data/roles.csv`; `_redirects`, `404.html`, `sitemap.xml`, `robots.txt` |
 | `soi-site/` | SOI form (single-page app): HTML, CSS, JS (form, validation, config), assets |
 | `shared/` | Shared CSS (design tokens), fonts, images; `BRAND_ASSETS_GUIDE.md` |
-| `scripts/` | Reference scripts: `apps-script-complete.js`, `google-analytics-daily-report.js`, `google-contacts-sync.js`, `fix-burns-count-display.js` (Apps Script/automation code lives in RA_Emails) |
+| `scripts/` | Reference scripts: `apps-script-complete.js`, `google-analytics-daily-report.js`, `google-contacts-sync.js`, `fix-burns-count-display.js` (Apps Script/automation code lives in RA_Emails_v2) |
 | `docs/` | All project documentation (getting started, setup, Apps Script guide, troubleshooting, content manifesto, changelog, archive) |
 | `camp_assets/` | Original camp assets, logos, icons (reference/source) |
 | `roles-app/` | Separate roles app (React/JSX) used by `main-site/roles.html` |
@@ -44,7 +44,7 @@ The Rubber Armstrong website is the official site for the Rubber Armstrong Burni
 - **Frontend:** HTML5, CSS3, vanilla JavaScript. No React/Vue/etc. on main or SOI sites; extensionless URLs via Cloudflare `_redirects`.
 - **Styling:** Shared design tokens in `shared/design-tokens.css` (colors, typography, spacing, focus); main-site and soi-site each have their own `styles.css` and may use local `design-tokens.css`.
 - **State:** No global state library; form state is local (SOI form JS).
-- **Backend:** Google Apps Script (in RA_Emails repo) – Web App `doPost` receives SOI submissions, writes to Sheets, triggers auto-move and optional Contacts/Analytics.
+- **Backend:** Google Apps Script (in RA_Emails_v2 repo) – Web App `doPost` receives SOI submissions, writes to Sheets, triggers auto-move and optional Contacts/Analytics.
 - **Database:** Google Sheets only (no SQL). Four tabs: SOI_Staging, SOI_Approved, SOI_Rejected, SOI_2026 (archive). Column schema and 26-column layout documented in `docs/APPS_SCRIPT_GUIDE.md` and `docs/SETUP_GUIDE.md`.
 - **Auth:** No user auth in this repo. SOI is public submit; Join (planned) and Phase 3 tools (roster, hitch-hiking, shifts) are intended to be campmates-only (password or link-based, TBD).
 - **Patterns:** Static sites; design tokens for consistency; Apps Script as single serverless backend; CORS avoided by sending `Content-Type: text/plain` from SOI form.
@@ -84,7 +84,7 @@ Subdomains: `soi.rubberarmstrong.com` (SOI form). Planned: `join.rubberarmstrong
 
 - Main site v1.0: all primary pages (Home, About, Camp Life, Ticketing, Join, Dates), extensionless URLs, 301 redirects from `.html`, custom 404, canonical non-www, sitemap, robots.txt.
 - SOI form live: 15 fields, validation, duplicate detection, country/phone code, burn years, Steward interest; posts to Apps Script; success/error handling.
-- Google Sheets backend: 4-tab structure, 26 columns, status-driven auto-move (Pending → Approved/Rejected), documented in APPS_SCRIPT_GUIDE (Apps Script code in RA_Emails).
+- Google Sheets backend: 4-tab structure, 26 columns, status-driven auto-move (Pending → Approved/Rejected), documented in APPS_SCRIPT_GUIDE (Apps Script code in RA_Emails_v2).
 - Interactive calendar: `/dates`, CSV-driven, multi-day events, modal details, responsive.
 - Design: shared design tokens, Rubber Armstrong font, dark theme, gold card borders, responsive images, WCAG 2.1 AA–oriented.
 - Custom favicon/PWA icons (Phase 2 done).
@@ -112,8 +112,8 @@ Subdomains: `soi.rubberarmstrong.com` (SOI form). Planned: `join.rubberarmstrong
 **From docs**
 
 - **docs/README.md "Next steps":** Add packing list, FAQ, build join.rubberarmstrong.com; post–Stewards Sale: launch Join form.
-- **docs/archive/NEXT_STEPS.md:** Refers to email tracking/worker setup that moved to RA_Emails; can be ignored for this repo.
-- **docs/archive/AUDIT_SUMMARY.md (TODOs):** LockService, configurable sheet tab name, plain-text email, error handling, etc. – apply in RA_Emails if still relevant.
+- **docs/archive/NEXT_STEPS.md:** Refers to email tracking/worker setup that moved to RA_Emails_v2; can be ignored for this repo.
+- **docs/archive/AUDIT_SUMMARY.md (TODOs):** LockService, configurable sheet tab name, plain-text email, error handling, etc. – apply in RA_Emails_v2 if still relevant.
 
 **Before production (for new features)**
 
@@ -124,9 +124,9 @@ Subdomains: `soi.rubberarmstrong.com` (SOI form). Planned: `join.rubberarmstrong
 
 ## 7. Recommended fix / next steps order
 
-1. **Join form** – Implement join.rubberarmstrong.com and backend (Sheets + Apps Script in RA_Emails), then add access control and test SOI → approval → Join.
+1. **Join form** – Implement join.rubberarmstrong.com and backend (Sheets + Apps Script in RA_Emails_v2), then add access control and test SOI → approval → Join.
 2. **Steward tracker** – Implement tracker page and Sheets integration; secure access.
-3. **Regenerate / align Apps Script** – If column count or tabs change, update CONFIG in RA_Emails and ensure SOI form and any Join form stay in sync with sheet headers.
+3. **Regenerate / align Apps Script** – If column count or tabs change, update CONFIG in RA_Emails_v2 and ensure SOI form and any Join form stay in sync with sheet headers.
 4. **Phase 3 tools** – After Phase 2, implement hitch-hiking, roster, shifts, lock screen in order given in PHASE_3_CHECKLIST.
 5. **Content and polish** – Gallery 2022, FAQ, packing list, copy pass; a11y and tests if desired.
 
@@ -139,7 +139,7 @@ Subdomains: `soi.rubberarmstrong.com` (SOI form). Planned: `join.rubberarmstrong
 | [docs/README.md](docs/README.md) | Documentation index and quick links |
 | [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md) | Overview, what's working, daily workflow, quick reference |
 | [docs/SETUP_GUIDE.md](docs/SETUP_GUIDE.md) | Full setup: repo, Cloudflare Pages, Google Sheets, Apps Script, Contacts, Analytics |
-| [docs/APPS_SCRIPT_GUIDE.md](docs/APPS_SCRIPT_GUIDE.md) | Apps Script structure, config, column mapping, deployment (backend code in RA_Emails) |
+| [docs/APPS_SCRIPT_GUIDE.md](docs/APPS_SCRIPT_GUIDE.md) | Apps Script structure, config, column mapping, deployment (backend code in RA_Emails_v2) |
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Form, burns data, Sheets, auto-move, Contacts, analytics, deployment, Apps Script errors |
 | [docs/content-manifesto-reference.md](docs/content-manifesto-reference.md) | Writing guidelines and brand voice |
 | [docs/CHANGELOG.md](docs/CHANGELOG.md) | Version and change history |
@@ -164,7 +164,7 @@ Subdomains: `soi.rubberarmstrong.com` (SOI form). Planned: `join.rubberarmstrong
 
 - **Sites:** No build step. Push to `main`; Cloudflare Pages builds from the same repo with root directory set per project (`main-site` or `soi-site`). Deploy is automatic (1–2 minutes). No `VERCEL_TOKEN` or similar; Cloudflare is connected to GitHub.
 - **Canonical deploy:** `git push origin main` (after editing files in `main-site/` or `soi-site/`). Set custom domains and build settings in Cloudflare Dashboard (see SETUP_GUIDE).
-- **Apps Script:** Deploy from the RA_Emails repository (or Google Apps Script UI). After deploy, copy the web app URL into `soi-site/js/config.js` → `APPS_SCRIPT_ENDPOINT` if needed.
+- **Apps Script:** Deploy from the RA_Emails_v2 repository (or Google Apps Script UI). After deploy, copy the web app URL into `soi-site/js/config.js` → `APPS_SCRIPT_ENDPOINT` if needed.
 
 ---
 
@@ -192,7 +192,7 @@ git push origin main
 
 # One-off scripts (run from repo root or scripts/)
 # scripts/fix-burns-count-display.js – run in Apps Script or as needed
-# scripts/google-analytics-daily-report.js, scripts/google-contacts-sync.js – reference; actual automation in RA_Emails
+# scripts/google-analytics-daily-report.js, scripts/google-contacts-sync.js – reference; actual automation in RA_Emails_v2
 ```
 
 No `npm run build` or `npm run deploy` in this repo; deployment is Git push to `main` with Cloudflare Pages.

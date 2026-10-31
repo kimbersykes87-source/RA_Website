@@ -31,7 +31,7 @@ The live SOI web app can return HTTP 200 with:
 
 `{"status":"info","success":true,"message":"We already have your submission. Thank you!"}`
 
-when that **email already exists** in the sheet. The handler then **does not** call `appendRow`. The updated form on `soi.rubberarmstrong.com` shows **“No new row was added”** instead of a success redirect. To support “submit again to update your information,” change Apps Script (e.g. RA_Emails) to **upsert by email** (update the existing row or replace it).
+when that **email already exists** in the sheet. The handler then **does not** call `appendRow`. The updated form on `soi.rubberarmstrong.com` shows **“No new row was added”** instead of a success redirect. To support “submit again to update your information,” change Apps Script (e.g. RA_Emails_v2) to **upsert by email** (update the existing row or replace it).
 
 **B) Other causes — check:**
 1. Apps Script → Executions (clock icon)

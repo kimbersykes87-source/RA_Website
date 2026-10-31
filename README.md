@@ -44,13 +44,13 @@ This marks the stable v1.0 release of the Rubber Armstrong website, ready for th
 └── camp_assets/         # Original assets and reference materials
 ```
 
-**Note:** Google Apps Script (form handler, contacts sync, email campaigns) and email tracking have moved to the RA_Emails repository.
+**Note:** Google Apps Script (form handler, contacts sync, email campaigns) and email tracking have moved to the RA_Emails_v2 repository.
 
 ## Technology Stack
 
 - **Hosting**: Cloudflare Pages (automatic deployment from GitHub)
 - **Analytics**: Google Analytics 4 + Cloudflare Web Analytics
-- **Backend**: Google Apps Script (see RA_Emails repo for form handler, contacts sync, email campaigns)
+- **Backend**: Google Apps Script (see RA_Emails_v2 repo for form handler, contacts sync, email campaigns)
 - **Database**: Google Sheets
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Version Control**: Git + GitHub

@@ -29,7 +29,7 @@ flowchart LR
   GAS -.->|optional| Contacts
 ```
 
-- **No server** in this repository for SOI: the form is a static site. The only “backend” is **Google Apps Script** deployed as a **Web App** (typically maintained in the **RA_Emails** project for production; this repo holds reference scripts and the public form).
+- **No server** in this repository for SOI: the form is a static site. The only “backend” is **Google Apps Script** deployed as a **Web App** (typically maintained in the **RA_Emails_v2** project for production; this repo holds reference scripts and the public form).
 - **Database** is a single **Google Spreadsheet** (conventionally named **“RA 2026 SOI Submissions”**) with four tabs. New applications land on **`SOI_Staging`** with **Status = Pending**.
 - **Review workflow:** changing **Status** on a staging row (e.g. to Approved/Rejected) triggers **auto-move** logic in Apps Script (see [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md#data-flow)).
 
@@ -228,8 +228,8 @@ Reference implementation (simplified) lives in `scripts/apps-script-complete.js`
 | Location | Role |
 |----------|------|
 | `scripts/apps-script-complete.js` | Single-file **reference** in this repo: setup helpers + `doPost` pattern with `SHEET_ID` + `openById` |
-| **RA_Emails** (separate repo) | **Production** Apps Script: modular files (Config, FormHandler, Contacts, Analytics, etc.). The old `scripts/apps-script-consolidated/` folder was **removed from this repo** and moved there — see [CHANGELOG.md](CHANGELOG.md) v1.0.1. |
-| [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md) | Describes the modular structure; copy/setup steps may still mention paths that now live in **RA_Emails** — treat the guide as behavioural reference. |
+| **RA_Emails_v2** (separate repo) | **Production** Apps Script: modular files (Config, FormHandler, Contacts, Analytics, etc.). The old `scripts/apps-script-consolidated/` folder was **removed from this repo** and moved there — see [CHANGELOG.md](CHANGELOG.md) v1.0.1. |
+| [APPS_SCRIPT_GUIDE.md](APPS_SCRIPT_GUIDE.md) | Describes the modular structure; copy/setup steps may still mention paths that now live in **RA_Emails_v2** — treat the guide as behavioural reference. |
 
 After any Apps Script change: **Deploy → Manage deployments → New version**; the Web App URL usually **unchanged**.
 

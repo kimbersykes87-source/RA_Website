@@ -105,7 +105,7 @@ Historical documentation (completed tasks, audits, fixes):
 - **Auto-deploy:** 1-2 minutes after push
 
 ### Google Apps Script
-- **Location:** RA_Emails repository (form handler, contacts sync, email campaigns, analytics)
+- **Location:** RA_Emails_v2 repository (form handler, contacts sync, email campaigns, analytics)
 - **Project:** SOI Form Handler
 
 ---
