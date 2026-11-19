@@ -47,6 +47,8 @@ Submissions go to **Google Sheets** via **Google Apps Script**. Live backend cod
 1. **Scope:** Confirm whether the change belongs in `main-site/`, `soi-site/`, `shared/`, or **RA_Emails_v2** (server-side, sheet schema, contacts).
 2. **Content voice:** Use [`docs/content-manifesto-reference.md`](docs/content-manifesto-reference.md) for copy; project uses **British English** where specified in docs.
 3. **SOI submissions:** Field names and sheet columns must stay aligned with `docs/APPS_SCRIPT_GUIDE.md` / `docs/SETUP_GUIDE.md`. Changing columns requires coordinated updates in Apps Script (**RA_Emails_v2**) and `soi-site/js/form.js`.
+   Since 19 Nov 2026 the form posts to the "SOI 2027" deployment (`APPS_SCRIPT_ENDPOINT` in `soi-site/js/config.js`, version 23 in the RA Email Campaigns project).
+   **"Been with us before?"** (`soi-site/js/prefill.js`): email + birth year call `PREFILL_ENDPOINT` (`https://track.rubberarmstrong.com/soi-prefill`, Worker in RA_Emails_v2, lookup in RA_Portal `soi_prefill_lookup`) and fill the form from Supabase. It never fills country of residence or the yearly questions. An invite link can carry `#email=` to pre-fill the email. If you rename form fields, update `prefill.js` too.
 4. **Secrets:** Do not commit API keys, tokens, or private JSON. `soi-site/js/config.js` contains the public web app URL—treat as sensitive if locking down execution.
 5. **Redirects / URLs:** Extensionless paths are handled via Cloudflare `main-site/_redirects`; keep sitemap and nav consistent.
 
