@@ -15,6 +15,9 @@ export const CONFIG = {
   // Format: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
   APPS_SCRIPT_ENDPOINT: 'https://script.google.com/macros/s/AKfycbzObZM83bqsu8APv3I9HejWKZ7hJk3oo35h1FqI9qSwc9fN2EiTJRQmjYfdn_nZABPRwA/exec',
   
+  // Returning campers: "fill in from last year" lookup (Worker ra-email-tracking-v2)
+  PREFILL_ENDPOINT: 'https://track.rubberarmstrong.com/soi-prefill',
+
   // Form metadata
   FORM_NAME: 'Statement of Intent 2027'
 };

@@ -136,6 +136,27 @@
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
         
+        <!-- Returning campers: fill in from last year (js/prefill.js) -->
+        <section class="form-section prefill-section" aria-labelledby="prefill-title">
+          <h2 class="form-section-title" id="prefill-title">Been with us before?</h2>
+          <p class="form-section-description">
+            Enter your email and birth year and we will fill in what we already know. Please check every answer,
+            and choose your country of residence.
+          </p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prefillEmail">Email</label>
+              <input type="email" id="prefillEmail" autocomplete="email" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+              <label for="prefillBirthYear">Birth year</label>
+              <select id="prefillBirthYear"><option value="">-- Select --</option></select>
+            </div>
+          </div>
+          <button type="button" id="prefill-btn" class="btn">Fill in my details</button>
+          <div id="prefill-message" class="message" role="status" style="margin-top:1rem"><div><p id="prefill-text" style="margin:0"></p></div></div>
+        </section>
+
         <!-- Section 1: Personal Information -->
         <section class="form-section">
           <h2 class="form-section-title">Personal Information</h2>
@@ -581,6 +602,7 @@
   </footer>
   
   <!-- Form JavaScript -->
+  <script type="module" src="js/prefill.js"></script>
   <script type="module" src="js/form.js"></script>
 </body>
 </html>
