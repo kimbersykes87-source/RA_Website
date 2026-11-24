@@ -4,7 +4,7 @@ The Statement of Intent form for Rubber Armstrong 2027, deployed at `soi.rubbera
 
 ## Overview
 
-This subdomain hosts a single-page form where prospective campmates submit their Statement of Intent. The form is values-focused, reflective, and qualitative — no logistics, no tickets, no financials.
+This subdomain hosts a single-page form where prospective campmates submit their Statement of Intent. The form is values-focused, reflective, and qualitative. Since 24 Nov 2026 it also asks whether the person is interested in a Steward ticket, plus three light planning questions (accommodation, estimated arrival in Reno, keen to help build). No financials.
 
 ## Tech Stack
 

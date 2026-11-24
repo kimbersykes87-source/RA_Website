@@ -86,6 +86,7 @@ const CONFIG = {
     'Ref. Campmate', 'Burns (RA)', 'Burns (RA) Count',
     'Burns (Other)', 'Burns (Other) Count', 'First Burn?',
     'Likelihood', 'Steward Ticket?', 'What Offer', 'Notes',
+    'Keen to Help Build', 'Est. Arrival Reno', 'Accommodation',
     'Status', 'Reviewed By', 'Reviewed At', 'Internal Notes',
     'Form', 'Synced to Contacts'
   ],
@@ -242,12 +243,15 @@ const row = headers.map(header => columnData[header] || '');
 | 18 | Steward Ticket? | `stewardTicketInterest` | Dropdown | Yes/No |
 | 19 | What Offer | `whatYouOffer` | Long Text | Required |
 | 20 | Notes | `notes` | Long Text | Optional |
-| 21 | Status | Auto-set | Dropdown | Pending/Approved/Rejected |
-| 22 | Reviewed By | Manual | Text | Empty on submission |
-| 23 | Reviewed At | Manual | DateTime | Empty on submission |
-| 24 | Internal Notes | Manual | Long Text | Empty on submission |
-| 25 | Form | `formName` | Text | "Statement of Intent 2026" |
-| 26 | Synced to Contacts | Auto-updated | Text | Yes/blank |
+| 21 | Keen to Help Build | `keenToHelpBuild` | Checkbox | Yes/No |
+| 22 | Est. Arrival Reno | `estimatedArrival` | Date | Optional, 1 Aug to 7 Sep 2027 |
+| 23 | Accommodation | `accommodation` | Dropdown | RA tent/BYO tent/Campervan/RV/Not sure yet (required) |
+| 24 | Status | Auto-set, then the Email Hub | Dropdown | Pending/Approved/Rejected |
+| 25 | Reviewed By | Email Hub ("Kimber (Hub)") | Text | Empty on submission |
+| 26 | Reviewed At | Email Hub | DateTime | Empty on submission |
+| 27 | Internal Notes | Email Hub or manual | Long Text | Empty on submission |
+| 28 | Form | `formName` | Text | "Statement of Intent 2027" |
+| 29 | Synced to Contacts | Auto-updated | Text | Yes/blank |
 
 ### Burns Data Handling
 

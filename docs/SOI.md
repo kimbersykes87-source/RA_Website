@@ -91,7 +91,7 @@ soi-site/
 
 ### 4.2 Steward ticket field (2026 note)
 
-In `form.js`, **`stewardTicketInterest`** is sent as **`'no'`** for all new submissions (Steward Sale concluded). The sheet column **Steward Ticket?** remains part of the 26-column schema for historical rows and validation.
+Since 24 Nov 2026 the 2027 form asks **Interested in a Steward ticket?** (required yes/no) and `form.js` sends the answer as `stewardTicketInterest` (`yes` or `no`). Before that it was hard-coded to `'no'`. The sheet now has 29 columns (see the list below).
 
 ### 4.3 Success and error paths
 
@@ -195,12 +195,15 @@ Exact header text (order defines append order when using header-based mapping):
 18. Steward Ticket?  
 19. What Offer  
 20. Notes  
-21. Status  
-22. Reviewed By  
-23. Reviewed At  
-24. Internal Notes  
-25. Form  
-26. Synced to Contacts  
+21. Keen to Help Build (Yes/No, added 24 Nov 2026)  
+22. Est. Arrival Reno (optional date, 1 Aug to 7 Sep 2027)  
+23. Accommodation (RA tent, BYO tent, Campervan, RV, Not sure yet)  
+24. Status  
+25. Reviewed By  
+26. Reviewed At  
+27. Internal Notes  
+28. Form  
+29. Synced to Contacts  
 
 **Formatting notes:**
 
