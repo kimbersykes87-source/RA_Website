@@ -3,6 +3,8 @@
  * Email + birth year are checked by the tracking Worker (ra-email-tracking-v2, /soi-prefill), which
  * returns the stored profile. Country of residence, likelihood, offer and notes are never filled in.
  * An invite link can carry the email in the URL fragment (#email=...), which is never sent to a server.
+ * That email only goes into the closed returning-campers panel, never into the main Email field: invites
+ * get forwarded, and a friend must not apply under the forwarder's address (24 Nov 2026).
  */
 import { CONFIG } from './config.js';
 import { COUNTRIES } from './countries.js';
@@ -125,13 +127,11 @@ import { COUNTRIES } from './countries.js';
   function applyEmailFromLink() {
     const fromLink = emailFromFragment();
     if (!fromLink) return;
-    setOpen(true);
+    // Panel stays closed and the main Email field stays empty (see the note at the top of this file).
     $('prefillEmail').value = fromLink;
-    setInput('email', fromLink);
     if (window.history && window.history.replaceState) {
       window.history.replaceState(null, '', window.location.pathname + window.location.search);
     }
-    $('prefillBirthYear').focus();
   }
 
   function init() {
@@ -147,7 +147,8 @@ import { COUNTRIES } from './countries.js';
     if (toggle) {
       toggle.addEventListener('change', () => {
         setOpen(toggle.checked);
-        if (toggle.checked) $('prefillEmail').focus();
+        // Email already there from an invite link: go straight to the birth year.
+        if (toggle.checked) ($('prefillEmail').value ? year : $('prefillEmail')).focus();
       });
     }
     applyEmailFromLink();
