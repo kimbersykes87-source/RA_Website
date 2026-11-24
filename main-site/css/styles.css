@@ -901,3 +901,42 @@ li {
   }
 }
 
+
+/* ====================================
+   Brand headings and menu
+   All headings and the navigation use the Rubber Armstrong font.
+   ==================================== */
+
+h1, h2, h3, h4, h5, h6,
+.site-title,
+.nav-link,
+.mobile-nav-item,
+.pod-title,
+.area-leads-title,
+.role-card-title,
+.mobile-role-title,
+.modal-title,
+.modal-section-title {
+  font-family: var(--font-brand);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+h1 { font-size: clamp(2rem, 1.5rem + 2.4vw, 3rem); }
+h2 { font-size: clamp(1.45rem, 1.15rem + 1.5vw, 2.1rem); }
+h3 { font-size: clamp(1.05rem, 0.95rem + 0.7vw, 1.4rem); }
+h4 { font-size: var(--font-size-md); }
+h5 { font-size: var(--font-size-base); }
+h6 { font-size: var(--font-size-sm); }
+.hero-title { font-size: clamp(2rem, 1.5rem + 2.4vw, 3rem); }
+
+.nav-link {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.mobile-nav-item {
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+}

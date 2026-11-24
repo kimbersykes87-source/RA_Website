@@ -329,76 +329,32 @@
       weeks.push(currentWeek);
     }
     
-    // Set explicit month header spans based on user requirements:
-    // Row 1 = day headers (Mon-Sun)
-    // Row 2 = weekIndex 0 (July)
-    // Row 3-6 = weekIndex 1-4 (August)
-    // Row 7-8 = weekIndex 5-6 (September)
-    const monthHeaderSpans = new Map();
-    
-    // July: span row 2 only (weekIndex 0)
-    monthHeaderSpans.set(6, { // 6 = July
-      startWeek: 0,
-      endWeek: 0,
-      rowSpan: 1
+    // Month rail: each week row belongs to the month of its Thursday (ISO convention),
+    // so the label always lines up with the rows it names. Consecutive rows with the
+    // same month are merged into one spanning header in column 1.
+    const weekMonth = weeks.map(week => {
+      const thursday = week.find(d => getDayOfWeek(d) === 3) || week[Math.floor(week.length / 2)];
+      return thursday.getMonth();
     });
-    
-    // August: span rows 3-6 (weekIndex 1-4)
-    monthHeaderSpans.set(7, { // 7 = August
-      startWeek: 1,
-      endWeek: 4,
-      rowSpan: 4
+    const monthRuns = [];
+    weekMonth.forEach((m, i) => {
+      const last = monthRuns[monthRuns.length - 1];
+      if (last && last.month === m) {
+        last.endWeek = i;
+      } else {
+        monthRuns.push({ month: m, startWeek: i, endWeek: i });
+      }
     });
-    
-    // September: span rows 7-8 (weekIndex 5-6) - starting on row above previous position
-    monthHeaderSpans.set(8, { // 8 = September
-      startWeek: 5,
-      endWeek: 6,
-      rowSpan: 2
+
+    // Render the month headers (row 1 is the Mon-Sun header, weeks start at row 2)
+    monthRuns.forEach(run => {
+      const startRow = run.startWeek + 2;
+      const endRow = run.endWeek + 3; // grid-row end is exclusive
+      html += `<div class="calendar-month-header" style="grid-column: 1; grid-row: ${startRow} / ${endRow}"><h2 class="calendar-month-title">${MONTH_NAMES[run.month]}</h2></div>`;
     });
-    
+
     // Render each week
     weeks.forEach((week, weekIndex) => {
-      // Check if this weekIndex is the start of any month header span
-      let monthHeaderToShow = null;
-      for (const [month, spanInfo] of monthHeaderSpans.entries()) {
-        if (weekIndex === spanInfo.startWeek) {
-          monthHeaderToShow = { month, spanInfo };
-          break;
-        }
-      }
-      
-      // Determine if we should show month header and calculate row span
-      if (monthHeaderToShow) {
-        const { month, spanInfo } = monthHeaderToShow;
-        // Calculate explicit row numbers (row 1 is headers, so weeks start at row 2)
-        const startRow = spanInfo.startWeek + 2; // weekIndex 0 = row 2, weekIndex 1 = row 3, etc.
-        const endRow = spanInfo.endWeek + 3; // +3 because end is exclusive in grid-row syntax
-        
-        if (spanInfo.rowSpan > 1) {
-          // Use explicit grid positioning with column and row for multi-row spans
-          html += `<div class="calendar-month-header" style="grid-column: 1; grid-row: ${startRow} / ${endRow}"><h2 class="calendar-month-title">${MONTH_NAMES[month]}</h2></div>`;
-        } else {
-          // Single row span - still specify both column and row explicitly
-          html += `<div class="calendar-month-header" style="grid-column: 1; grid-row: ${startRow}"><h2 class="calendar-month-title">${MONTH_NAMES[month]}</h2></div>`;
-        }
-      } else {
-        // Check if we're within a month header span
-        let isWithinSpan = false;
-        for (const [spanMonth, spanInfo] of monthHeaderSpans.entries()) {
-          if (weekIndex > spanInfo.startWeek && weekIndex <= spanInfo.endWeek) {
-            isWithinSpan = true;
-            break;
-          }
-        }
-        
-        // Always add a cell to maintain 8-column grid structure
-        // When within a span, the spanning header visually covers this cell
-        // We add an empty invisible cell that the spanning header will overlay
-        const rowNum = weekIndex + 2; // Calculate row number (row 1 is headers)
-        html += `<div class="calendar-month-header" style="grid-column: 1; grid-row: ${rowNum}; visibility: hidden; height: 0; padding: 0; border: none;"></div>`;
-      }
-      
       // Get the day of week for the first date in this week
       const firstDay = getDayOfWeek(week[0]);
       

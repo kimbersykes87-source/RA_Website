@@ -472,3 +472,10 @@ body.dates-page .hero-subtitle {
     min-height: max(90px, calc(var(--space-6) + (var(--event-count, 0) * 24px) + var(--space-2)));
   }
 }
+
+/* Month labels in the rail use the Rubber Armstrong font */
+.calendar-month-title {
+  font-family: var(--font-brand);
+  font-weight: normal;
+  letter-spacing: 0.12em;
+}
