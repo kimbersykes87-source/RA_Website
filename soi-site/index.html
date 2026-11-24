@@ -137,8 +137,12 @@
         </div>
         
         <!-- Returning campers: fill in from last year (js/prefill.js) -->
-        <section class="form-section prefill-section" aria-labelledby="prefill-title">
-          <h2 class="form-section-title" id="prefill-title">Been with us before?</h2>
+        <section class="form-section prefill-section" aria-label="Returning campers">
+          <div class="checkbox-option">
+            <input type="checkbox" id="prefillToggle" aria-controls="prefill-fields" aria-expanded="false">
+            <label for="prefillToggle" style="font-weight: var(--font-weight-semibold);">Camped with RA in 2026?</label>
+          </div>
+          <div id="prefill-fields" hidden>
           <p class="form-section-description">
             Enter your email and birth year and we will fill in what we already know. Please check every answer,
             and choose your country of residence.
@@ -155,6 +159,7 @@
           </div>
           <button type="button" id="prefill-btn" class="btn">Fill in my details</button>
           <div id="prefill-message" class="message" role="status" style="margin-top:1rem"><div><p id="prefill-text" style="margin:0"></p></div></div>
+          </div>
         </section>
 
         <!-- Section 1: Personal Information -->
@@ -537,6 +542,58 @@
               </div>
             </div>
             <span class="field-error" role="alert">Please select your likelihood of attending</span>
+          </div>
+
+          <div class="form-group">
+            <label>
+              Interested in a Steward ticket?
+              <span class="required" aria-label="required">*</span>
+            </label>
+            <div class="radio-group" role="radiogroup" aria-required="true">
+              <div class="radio-option">
+                <input type="radio" id="steward1" name="stewardTicketInterest" value="yes" required>
+                <label for="steward1">Yes</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="steward2" name="stewardTicketInterest" value="no">
+                <label for="steward2">No</label>
+              </div>
+            </div>
+            <span class="field-hint">Tell us now so we can plan. This is not a guarantee of a ticket.</span>
+            <span class="field-error" role="alert">Please tell us if you are interested in a Steward ticket</span>
+          </div>
+
+          <div class="form-group">
+            <label for="estimatedArrival">
+              Estimated arrival date in Reno
+              <span class="optional">(optional)</span>
+            </label>
+            <input type="date" id="estimatedArrival" name="estimatedArrival" min="2027-08-01" max="2027-09-07">
+            <span class="field-hint">A best guess is fine.</span>
+            <span class="field-error" role="alert">Please choose a date between 1 August and 7 September 2027</span>
+          </div>
+
+          <div class="form-group">
+            <label for="accommodation">
+              Accommodation
+              <span class="required" aria-label="required">*</span>
+            </label>
+            <select id="accommodation" name="accommodation" required aria-required="true">
+              <option value="">-- Select --</option>
+              <option value="RA tent">RA tent</option>
+              <option value="BYO tent">BYO tent</option>
+              <option value="Campervan">Campervan</option>
+              <option value="RV">RV</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+            <span class="field-error" role="alert">Please select your accommodation</span>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox-option">
+              <input type="checkbox" id="keenToHelpBuild" name="keenToHelpBuild" value="yes">
+              <label for="keenToHelpBuild">I'm keen to help with the build</label>
+            </div>
           </div>
           
           <div class="form-group">

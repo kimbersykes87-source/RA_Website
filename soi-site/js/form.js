@@ -249,6 +249,13 @@ import {
       }
     });
     
+    // Optional estimated arrival date: if given, it must sit inside the allowed range
+    const arrival = document.getElementById('estimatedArrival');
+    if (arrival && arrival.value && (arrival.value < arrival.min || arrival.value > arrival.max)) {
+      arrival.closest('.form-group')?.classList.add('has-error');
+      isValid = false;
+    }
+
     // Also validate phone country code (it's part of phone validation)
     if (phoneInput.value && !phoneCountryCodeSelect.value) {
       const formGroup = phoneInput.closest('.form-group');
@@ -360,7 +367,10 @@ import {
       
       // Commitment & Contribution
       likelihoodOfAttending: normalizeLikelihood(getRadioValue('likelihoodOfAttending')),
-      stewardTicketInterest: 'no', // Steward Sale concluded; always no for new submissions
+      stewardTicketInterest: getRadioValue('stewardTicketInterest'),
+      keenToHelpBuild: document.getElementById('keenToHelpBuild').checked ? 'Yes' : 'No',
+      estimatedArrival: document.getElementById('estimatedArrival').value,
+      accommodation: document.getElementById('accommodation').value,
       whatYouOffer: document.getElementById('whatYouOffer').value.trim(),
       notes: document.getElementById('notes').value.trim()
     };

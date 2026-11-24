@@ -112,9 +112,20 @@ import { COUNTRIES } from './countries.js';
     }
   }
 
+  // Show or hide the email and birth year fields behind the 'Camped with RA in 2026?' checkbox.
+  function setOpen(open) {
+    const toggle = $('prefillToggle');
+    const fields = $('prefill-fields');
+    if (!toggle || !fields) return;
+    toggle.checked = open;
+    toggle.setAttribute('aria-expanded', String(open));
+    fields.hidden = !open;
+  }
+
   function applyEmailFromLink() {
     const fromLink = emailFromFragment();
     if (!fromLink) return;
+    setOpen(true);
     $('prefillEmail').value = fromLink;
     setInput('email', fromLink);
     if (window.history && window.history.replaceState) {
@@ -131,6 +142,13 @@ import { COUNTRIES } from './countries.js';
       o.value = String(y);
       o.textContent = String(y);
       year.appendChild(o);
+    }
+    const toggle = $('prefillToggle');
+    if (toggle) {
+      toggle.addEventListener('change', () => {
+        setOpen(toggle.checked);
+        if (toggle.checked) $('prefillEmail').focus();
+      });
     }
     applyEmailFromLink();
     window.addEventListener('hashchange', applyEmailFromLink);
