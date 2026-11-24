@@ -212,6 +212,7 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="number"],
+input[type="date"],
 textarea,
 select {
   width: 100%;
@@ -223,6 +224,40 @@ select {
   border: 2px solid var(--color-bg-elevated);
   border-radius: var(--radius-md);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Date input (estimated arrival): same box as the other fields, dark native calendar, tan highlight. */
+input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  color-scheme: dark;
+  accent-color: var(--color-accent);
+  /* Chrome draws the date text 2px taller than a text field; trim the padding so heights match. */
+  padding-top: calc(var(--space-3) - 1px);
+  padding-bottom: calc(var(--space-3) - 1px);
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+}
+
+/* The day, month and year being typed: tan highlight in place of the browser blue. */
+input[type="date"]::-webkit-datetime-edit-day-field:focus,
+input[type="date"]::-webkit-datetime-edit-month-field:focus,
+input[type="date"]::-webkit-datetime-edit-year-field:focus {
+  background-color: var(--color-accent);
+  color: var(--color-bg-primary);
+  outline: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
 }
 
 /* Number input specific styling */
@@ -240,6 +275,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
 input[type="number"]:focus,
+input[type="date"]:focus,
 textarea:focus,
 select:focus {
   outline: none;
@@ -251,6 +287,7 @@ input[type="text"]:hover,
 input[type="email"]:hover,
 input[type="tel"]:hover,
 input[type="number"]:hover,
+input[type="date"]:hover,
 textarea:hover,
 select:hover {
   border-color: var(--color-accent);
@@ -677,6 +714,7 @@ select {
   input[type="email"],
   input[type="tel"],
   input[type="number"],
+  input[type="date"],
   textarea,
   select {
     border-width: 3px;
